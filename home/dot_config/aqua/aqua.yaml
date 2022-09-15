@@ -6,4 +6,4 @@ registries:
   ref: v3.53.0 # renovate: depName=aquaproj/aqua-registry
 packages:
 - name: siderolabs/talos@v1.2.2
-- name: budimanjojo/talhelper@v1.4.0
+- name: budimanjojo/talhelper@v1.4.1
