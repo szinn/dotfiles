@@ -1,0 +1,100 @@
+{
+  "editor.fontFamily": "JetBrains Mono,Fira Code Retina",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "breadcrumbs.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.autoReveal": false,
+  "files.associations": {
+    "**/ansible/**/*.sops.yml": "yaml",
+    "**/ansible/**/*.yaml": "ansible",
+    "**/ansible/**/inventory/**/*.yaml": "yaml",
+    "*.json5": "jsonc"
+  },
+  "files.autoSave": "afterDelay",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "liveshare.anonymousGuestApproval": "reject",
+  "liveshare.guestApprovalRequired": true,
+  "liveshare.shareExternalFiles": false,
+  "redhat.telemetry.enabled": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "monospace",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 6,
+  "workbench.activityBar.visible": true,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "projectManager.any.maxDepthRecursion": 2,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "rust-analyzer.completion.snippets.custom": {
+    "Arc::new": {
+      "postfix": "arc",
+      "body": "Arc::new(${receiver})",
+      "requires": "std::sync::Arc",
+      "description": "Put the expression into an `Arc`",
+      "scope": "expr"
+    },
+    "Rc::new": {
+      "postfix": "rc",
+      "body": "Rc::new(${receiver})",
+      "requires": "std::rc::Rc",
+      "description": "Put the expression into an `Rc`",
+      "scope": "expr"
+    },
+    "Box::pin": {
+      "postfix": "pinbox",
+      "body": "Box::pin(${receiver})",
+      "requires": "std::boxed::Box",
+      "description": "Put the expression into a pinned `Box`",
+      "scope": "expr"
+    },
+    "Ok": {
+      "postfix": "ok",
+      "body": "Ok(${receiver})",
+      "description": "Wrap the expression in a `Result::Ok`",
+      "scope": "expr"
+    },
+    "Err": {
+      "postfix": "err",
+      "body": "Err(${receiver})",
+      "description": "Wrap the expression in a `Result::Err`",
+      "scope": "expr"
+    },
+    "Some": {
+      "postfix": "some",
+      "body": "Some(${receiver})",
+      "description": "Wrap the expression in an `Option::Some`",
+      "scope": "expr"
+    }
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "GitHub Dark Default",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "prettier.printWidth": 120,
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "enabled"
+  },
+  "yaml.format.enable": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/taskfile.json": [
+      "Taskfile.yaml",
+      ".taskfiles/*.yaml"
+    ],
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "remote.SSH.showLoginTerminal": true,
+  "remote.SSH.connectTimeout": 30,
+  "remote.SSH.useLocalServer": false,
+}

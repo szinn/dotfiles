@@ -1,0 +1,64 @@
+[user]
+	name = Scotte Zinn
+	email = {{ template "email" . }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC2VWgq5MEINPHdTEx9jhDxXB80ZjWOXB9M0X0XtoHih
+
+[alias]
+	st = status
+  ci = commit
+  br = branch
+  co = checkout
+  lg = log -p
+	lsd = log --graph --decorate --abbrev-commit --pretty=oneline --all
+	unstage = reset HEAD
+	diffc = diff --cached
+  undo = checkout --
+  mrg = merge --no-ff --log
+	rvt = reset --soft HEAD~1
+	lg = lg1
+	lg1 = lg1-specific --all
+	lg2 = lg2-specific --all
+	lg3 = lg3-specific --all
+	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+
+[color]
+	ui = auto
+
+[push]
+	default = current
+
+[core]
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+	autocrlf = input
+
+[fetch]
+	prune = true
+
+[credential]
+	helper = osxkeychain
+
+[pull]
+	rebase = true
+
+[init]
+	defaultBranch = main
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[rebase]
+	autoStash = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
