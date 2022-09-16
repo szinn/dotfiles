@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.fish.tmpl": "jinja-shell",
+    "*.json.tmpl": "jinja-json",
+    "*.sh.tmpl": "jinja-shell",
+    "*.toml.tmpl": "jinja-toml",
+    "*.yaml.tmpl": "jinja-yaml",
+    "*.yml.tmpl": "jinja-yaml",
+    "*.tmpl": "jinja"
+  }
+}

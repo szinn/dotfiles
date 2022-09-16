@@ -1,9 +1,0 @@
-#!{{ lookPath "bash" }}
-
-# Install brew packages that haven't already been installed.
-{{ if .brew }}
-  # Only need to install packages if the Brewfile is newer than the lock file.
-  if [ "{{ .chezmoi.homeDir }}/.config/brew/Brewfile" -nt "{{ .chezmoi.homeDir }}/.config/brew/Brewfile.lock.json" ]; then
-    brew bundle --file={{ .chezmoi.homeDir }}/.config/brew/Brewfile
-  fi
-{{ end }}
