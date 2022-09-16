@@ -1,5 +1,5 @@
 ---
-- name: "determine user font folder"
+- name: "Determine user font folder"
   ansible.builtin.set_fact:
     user_font_folder: |-
       {%- if ansible_system == "Darwin" -%}
@@ -8,11 +8,56 @@
         {{ xdg_data_home }}/fonts
       {%- endif -%}
 
-- name: "install firacode font"
+- name: "Install firacode font"
   include_tasks: install_font.yaml
   vars:
     install_path: "{{ user_font_folder }}"
     font_name: firacode_nerd_font
     version: 2.2.2
     url: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{version}}/FiraCode.zip
+    font_format: archive
+
+- name: "Install JetBrains Mono font"
+  include_tasks: install_font.yaml
+  vars:
+    install_path: "{{ user_font_folder }}"
+    font_name: jetbrains_mono_font
+    version: 2.242
+    url: https://download.jetbrains.com/fonts/JetBrainsMono-{{version}}.zip
+    font_format: archive
+
+- name: "Install Fira Code font"
+  include_tasks: install_font.yaml
+  vars:
+    install_path: "{{ user_font_folder }}"
+    font_name: fira_code_font
+    version: 6.2
+    url: https://github.com/tonsky/FiraCode/releases/download/{{version}}/Fira_Code_v{{version}}.zip
+    font_format: archive
+
+- name: "Install DejaVu font"
+  include_tasks: install_font.yaml
+  vars:
+    install_path: "{{ user_font_folder }}"
+    font_name: deja_vu_font
+    version: 2.37
+    url: http://sourceforge.net/projects/dejavu/files/dejavu/{{version}}/dejavu-fonts-ttf-{{version}}.zip
+    font_format: archive
+
+- name: "Install Source Code Pro font"
+  include_tasks: install_font.yaml
+  vars:
+    install_path: "{{ user_font_folder }}"
+    font_name: source_code_pro
+    version: 1
+    url: https://fonts.google.com/download?family=Source%20Code%20Pro
+    font_format: archive
+
+- name: "Install Cascadia font"
+  include_tasks: install_font.yaml
+  vars:
+    install_path: "{{ user_font_folder }}"
+    font_name: cascadia_pro
+    version: 2111.01
+    url: https://github.com/microsoft/cascadia-code/releases/download/v{{version}}/CascadiaCode-{{version}}.zip
     font_format: archive
