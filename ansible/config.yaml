@@ -22,24 +22,25 @@ packages:
       - 1password/tap
       - fluxcd/tap
       - go-task/tap
+      - espanso/espanso
     casks:
       darwin:
         - 1password-cli
+        - bartender
+        - bettertouchtool
+        - discord
+        - docker
+        - espanso
+        - gpg-suite
         - iina
-        # - bartender
-        # - bettertouchtool
-        # - discord
-        # - docker
-        # - espanso
+        - iterm2
         # - forklift
-        # - gpg-suite
-        # - iterm2
         # - keka
         # - maccy
         # - raycast
         # - rocket
         # - shottr
-        # - visual-studio-code
+        - visual-studio-code
     packages:
       common:
         - age
