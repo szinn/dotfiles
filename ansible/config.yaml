@@ -43,34 +43,56 @@ packages:
     packages:
       common:
         - age
+        - ansible
+        - bat
+        - openjdk@11
+        - cilium-cli
+        - curl
+        - direnv
+        - duf
+        - exa
+        - fd
+        - fish
+        - fluxcd/tap/flux
+        - fzf
+        - git
+        - git-gui
+        - gnu-tar
+        - go
+        - go-task/tap/go-task
+        - jq
+        - kopia
+        - kustomize
+        - minio-mc
+        - mysql-client
+        - pgcli
+        - pre-commit
+        - prettier
+        - protobuf
+        - redis
+        - ripgrep
+        - shellcheck
+        - sops
+        - watch
+        - wget
+        - yq
+        - zx
         # - azure-cli
         # - bash
-        # - bat
         # - coreutils
         # - cue
-        # - curl
-        # - direnv
         # - dog
         # - findutils
-        # - fluxcd/tap/flux
-        # - fzf
         # - gh
         # - git
         # - gnu-sed
-        - gnu-tar
-        # - go-task/tap/go-task
         # - grep
-        # - jq
         # - kubie
         # - jjuarez/homebrew-tap-1/kubecolor
         # - kubeconform
-        # - kustomize
         # - lazygit
         # - less
         # - lsd
-        # - pre-commit
-        # - shellcheck
-        # - sops
         # - starship
         # - stern
         # - terraform
@@ -79,10 +101,7 @@ packages:
         # - tree
         # - vault
         # - viddy
-        # - wget
-        # - yq
         # - ykman
-        # - zoxide
       darwin: []
         # - openssl
         # - pinentry-mac
