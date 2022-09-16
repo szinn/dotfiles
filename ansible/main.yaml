@@ -11,15 +11,15 @@
     - defaults/main.yaml
     - config.yaml
 
-  roles: []
-    # - name: packages
-    #   tags: packages
+  roles:
+    - name: packages
+      tags: packages
 
-    # - name: fonts
-    #   tags: fonts
+    - name: fonts
+      tags: fonts
 
-    # - name: fish
-    #   tags: fish
+    - name: fish
+      tags: fish
 
     # - name: asdf
     #   tags: asdf
