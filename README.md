@@ -75,18 +75,6 @@ I manage my system/dotfiles through Ansible and Chezmoi:
      │                 │ install fish plugins │
      │                 └──────────────────────┘
      │
-     │                 ┌─────────────────────┐
-     │  ┌──────┐       │ install plugins     │
-     ├─►│ asdf ├──────►│ install tools       │
-     │  └──────┘       │ set global versions │
-     │                 └─────────────────────┘
-     │
-     │                 ┌────────────────────────────┐
-     │  ┌──────────┐   │ download                   │
-     ├─►│ lunarvim ├──►│ install                    │
-     │  └──────────┘   │ update config with chezmoi │
-     │                 └────────────────────────────┘
-     │
      │                 ┌────────────────┐
      │  ┌──────────┐   │ chezmoi init   │
      ├─►│ dotfiles ├──►│ chezmoi update │
