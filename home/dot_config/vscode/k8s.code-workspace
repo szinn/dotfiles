@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "k8s-config",
+			"path": "/Users/scotte/Development/k8s-config"
+		},
+		{
+			"name": "k8s-homelab",
+			"path": "/Users/scotte/Development/k8s-homelab"
+		},
+		{
+			"name": "k8s-staging",
+			"path": "/Users/scotte/Development/k8s-staging"
+		},
+		{
+			"name": "ansible",
+			"path": "/Users/scotte/Development/ansible"
+		}
+	],
+	"settings": {}
+}

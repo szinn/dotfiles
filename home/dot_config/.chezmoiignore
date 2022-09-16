@@ -1,0 +1,10 @@
+.DS_Store
+Autodesk
+brew/Brewfile.lock.json
+chezmoi
+configstore
+git
+iterm2
+op
+pgcli
+sops
