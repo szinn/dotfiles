@@ -8,19 +8,19 @@ function update --description 'Update shell environment'
     brew doctor
   end
 
-  if type -q aqua
-    aqua i
+  if type -q omf
+    omf update
   end
-
-  omf update
-  fisher update
+  if type -q fisher
+    fisher update
+  end
 
   if type -q rustup
     rustup update
   end
 
-  if type -q kubectl-krew
-    kubectl-krew upgrade
+  if type -q krew
+    krew upgrade
   end
 
   update_completions
