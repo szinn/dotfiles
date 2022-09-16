@@ -1,6 +1,6 @@
 set -gx KREW_ROOT_DIR $HOME/.krew
 
-if test -f $KREW_ROOT_DIR/bin/kubectl-krew
+if type -q krew
   set -l krew_bin_path "$KREW_ROOT_DIR/bin"
 
   contains -- $krew_bin_path $PATH

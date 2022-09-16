@@ -57,6 +57,7 @@ packages:
         # - gh
         # - git
         # - gnu-sed
+        - gnu-tar
         # - go-task/tap/go-task
         # - grep
         # - jq
@@ -119,14 +120,14 @@ packages:
         - aur/swaync-git
         - aur/visual-studio-code-bin
 
-  other_binaries: []
-    # - name: talhelper
-    #   type: github_release
-    #   repository: budimanjojo/talhelper
-    #   asset: "talhelper_$os_$arch.tar.gz"
-    #   # renovate: datasource=github-releases depName=budimanjojo/talhelper
-    #   version: v1.4.1
-    #   format: archive
+  other_binaries:
+    - name: talhelper
+      type: github_release
+      repository: budimanjojo/talhelper
+      asset: "talhelper_$os_$arch.tar.gz"
+      # renovate: datasource=github-releases depName=budimanjojo/talhelper
+      version: v1.4.1
+      format: archive
 
     # - name: gluctl
     #   type: github_release
@@ -137,38 +138,38 @@ packages:
     #   format: raw
     #   source: "gluctl-$os-$arch"
 
-    # - name: talosctl
-    #   type: github_release
-    #   repository: siderolabs/talos
-    #   asset: "talosctl-$os-$arch"
-    #   # renovate: datasource=github-releases depName=siderolabs/talos
-    #   version: v1.2.2
-    #   format: raw
-    #   source: "talosctl-$os-$arch"
+    - name: talosctl
+      type: github_release
+      repository: siderolabs/talos
+      asset: "talosctl-$os-$arch"
+      # renovate: datasource=github-releases depName=siderolabs/talos
+      version: v1.2.2
+      format: raw
+      source: "talosctl-$os-$arch"
 
-    # - name: krew
-    #   type: github_release
-    #   repository: kubernetes-sigs/krew
-    #   asset: "krew-$os_$arch.tar.gz"
-    #   # renovate: datasource=github-releases depName=kubernetes-sigs/krew
-    #   version: v0.4.3
-    #   format: archive
-    #   source: "krew-$os_$arch"
+    - name: krew
+      type: github_release
+      repository: kubernetes-sigs/krew
+      asset: "krew-$os_$arch.tar.gz"
+      # renovate: datasource=github-releases depName=kubernetes-sigs/krew
+      version: v0.4.3
+      format: archive
+      source: "krew-$os_$arch"
 
-    # - name: kubectl
-    #   type: http
-    #   url: "https://storage.googleapis.com/kubernetes-release/release/v$version/bin/$os/$arch/kubectl"
-    #   # renovate: datasource=github-tags depName=kubernetes/kubectl versionTemplate=^kubernetes-(?<version>.*)$
-    #   version: 1.24.4
-    #   format: raw
+    - name: kubectl
+      type: http
+      url: "https://storage.googleapis.com/kubernetes-release/release/v$version/bin/$os/$arch/kubectl"
+      # renovate: datasource=github-tags depName=kubernetes/kubectl versionTemplate=^kubernetes-(?<version>.*)$
+      version: 1.24.4
+      format: raw
 
-    # - name: helm
-    #   type: http
-    #   url: "https://get.helm.sh/helm-$version-$os-$arch.tar.gz"
-    #   # renovate: datasource=github-releases depName=helm/helm
-    #   version: v3.9.4
-    #   format: archive
-    #   source: "$os-$arch/helm"
+    - name: helm
+      type: http
+      url: "https://get.helm.sh/helm-$version-$os-$arch.tar.gz"
+      # renovate: datasource=github-releases depName=helm/helm
+      version: v3.9.4
+      format: archive
+      source: "$os-$arch/helm"
 
     # - name: ssh-ident
     #   type: http

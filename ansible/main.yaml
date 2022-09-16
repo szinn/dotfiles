@@ -24,11 +24,8 @@
     # - name: asdf
     #   tags: asdf
 
-    # - name: lunarvim
-    #   tags: lunarvim
+    - name: dotfiles
+      tags: dotfiles
 
-    # - name: dotfiles
-    #   tags: dotfiles
-
-    # - name: system
-    #   tags: system
+    - name: system
+      tags: system
