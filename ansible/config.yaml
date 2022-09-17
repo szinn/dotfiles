@@ -25,6 +25,7 @@ packages:
       - espanso/espanso
     casks:
       darwin:
+        - 1password
         - 1password-cli
         - bartender
         - bettertouchtool
@@ -43,7 +44,6 @@ packages:
         - visual-studio-code
     packages:
       common:
-        - 1password
         - age
         - ansible
         - bat

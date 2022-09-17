@@ -19,6 +19,7 @@
   copy:
     content: "{{ keys_txt_output.stdout | replace('\\n', '\n') }}"
     dest: "{{ xdg_config_home }}/sops/age/keys.txt"
+  when: not keys_txt.stat.exists
 
 - name: "chezmoi init"
   ansible.builtin.command:
