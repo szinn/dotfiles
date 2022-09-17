@@ -43,6 +43,7 @@ packages:
         - visual-studio-code
     packages:
       common:
+        - 1password
         - age
         - ansible
         - bat
