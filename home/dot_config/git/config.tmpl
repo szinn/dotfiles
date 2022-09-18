@@ -54,11 +54,18 @@
 [gpg]
 	format = ssh
 
+{{ if (eq .chezmoi.os "darwin") -}}
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{ end -}}
 
 [commit]
+{{ if (eq .chezmoi.os "darwin") -}}
 	gpgsign = true
+{{ end -}}
+{{ if (eq .chezmoi.os "linux") -}}
+	gpgsign = false
+{{ end -}}
 
 [include]
 	path = {{ .chezmoi.homeDir }}/.config/git/personal

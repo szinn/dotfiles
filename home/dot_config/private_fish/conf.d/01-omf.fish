@@ -4,7 +4,7 @@ set -q XDG_DATA_HOME
   or set -gx OMF_PATH "$HOME/.local/share/omf"
 
 # Customize Oh My Fish configuration path.
-set -gx OMF_CONFIG '/Users/scotte/.config/fish/omf'
+set -gx OMF_CONFIG $XDG_CONFIG_HOME/fish/omf
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
