@@ -18,8 +18,8 @@
   vars:
     install_path: "{{ ansible_user_dir }}/.local/bin"
   with_items: |-
-    {{ packages.other_binaries }}
+    {{ packages.other_binaries[ansible_system|lower] }}
   when:
-    - ansible_system in ["Linux", "Darwin"]
-    - packages.other_binaries is defined
-    - packages.other_binaries | length > 0
+    - ansible_system in ["Linux","Darwin"]
+    - packages.other_binaries[ansible_system|lower] is defined
+    - packages.other_binaries[ansible_system|lower] | length > 0

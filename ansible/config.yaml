@@ -43,39 +43,26 @@ packages:
         # - rocket
         # - shottr
         - visual-studio-code
+      linux: []
     packages:
       common:
         - age
         - ansible
         - bat
-        - openjdk@11
-        - cilium-cli
         - curl
         - direnv
         - duf
         - exa
         - fd
         - fish
-        - fluxcd/tap/flux
         - fzf
         - git
         - git-gui
         - gnu-tar
-        - go
-        - go-task/tap/go-task
         - jq
-        - kopia
-        - kustomize
         - lsd
         - minio-mc
-        - mysql-client
-        - pgcli
-        - pre-commit
-        - prettier
-        - protobuf
-        - redis
         - ripgrep
-        - shellcheck
         - sops
         - watch
         - wget
@@ -105,36 +92,49 @@ packages:
         # - vault
         # - viddy
         # - ykman
-      darwin: []
+      darwin:
+        - openjdk@11
+        - cilium-cli
+        - fluxcd/tap/flux
+        - go
+        - go-task/tap/go-task
+        - kopia
+        - kustomize
+        - mysql-client
+        - pgcli
+        - pre-commit
+        - prettier
+        - protobuf
+        - redis
+        - shellcheck
         # - openssl
         # - pinentry-mac
         # - terminal-notifier
-      linux:
-        - docker
+      linux: []
     packages_from_source: []
 
   os:
     linux:
       common:
         - 1password
-        - alacritty
-        - chromium
-        - evolution
-        - grimshot
-        - kanshi
-        - mako
-        - mopidy
-        - mopidy-youtube
-        - mopidy-mpd
-        - mpc
-        - mpdris2
-        - opensc
-        - openvpn
-        - openvpn-update-systemd-resolved
-        - python-pywal
-        - sway
-        - swayidle
-        - waybar
+        # - alacritty
+        # - chromium
+        # - evolution
+        # - grimshot
+        # - kanshi
+        # - mako
+        # - mopidy
+        # - mopidy-youtube
+        # - mopidy-mpd
+        # - mpc
+        # - mpdris2
+        # - opensc
+        # - openvpn
+        # - openvpn-update-systemd-resolved
+        # - python-pywal
+        # - sway
+        # - swayidle
+        # - waybar
       archlinux:
         - base-devel
         - aur/espanso-wayland-git
@@ -143,61 +143,63 @@ packages:
         - aur/visual-studio-code-bin
 
   other_binaries:
-    - name: talhelper
-      type: github_release
-      repository: budimanjojo/talhelper
-      asset: "talhelper_$os_$arch.tar.gz"
-      # renovate: datasource=github-releases depName=budimanjojo/talhelper
-      version: v1.4.1
-      format: archive
+    darwin:
+      - name: talhelper
+        type: github_release
+        repository: budimanjojo/talhelper
+        asset: "talhelper_$os_$arch.tar.gz"
+        # renovate: datasource=github-releases depName=budimanjojo/talhelper
+        version: v1.4.1
+        format: archive
 
-    # - name: gluctl
-    #   type: github_release
-    #   repository: onedr0p/gluctl
-    #   asset: "gluctl-$os-$arch"
-    #   # renovate: datasource=github-releases depName=onedr0p/gluctl
-    #   version: v0.1.0
-    #   format: raw
-    #   source: "gluctl-$os-$arch"
+      # - name: gluctl
+      #   type: github_release
+      #   repository: onedr0p/gluctl
+      #   asset: "gluctl-$os-$arch"
+      #   # renovate: datasource=github-releases depName=onedr0p/gluctl
+      #   version: v0.1.0
+      #   format: raw
+      #   source: "gluctl-$os-$arch"
 
-    - name: talosctl
-      type: github_release
-      repository: siderolabs/talos
-      asset: "talosctl-$os-$arch"
-      # renovate: datasource=github-releases depName=siderolabs/talos
-      version: v1.2.2
-      format: raw
-      source: "talosctl-$os-$arch"
+      - name: talosctl
+        type: github_release
+        repository: siderolabs/talos
+        asset: "talosctl-$os-$arch"
+        # renovate: datasource=github-releases depName=siderolabs/talos
+        version: v1.2.2
+        format: raw
+        source: "talosctl-$os-$arch"
 
-    - name: krew
-      type: github_release
-      repository: kubernetes-sigs/krew
-      asset: "krew-$os_$arch.tar.gz"
-      # renovate: datasource=github-releases depName=kubernetes-sigs/krew
-      version: v0.4.3
-      format: archive
-      source: "krew-$os_$arch"
+      - name: krew
+        type: github_release
+        repository: kubernetes-sigs/krew
+        asset: "krew-$os_$arch.tar.gz"
+        # renovate: datasource=github-releases depName=kubernetes-sigs/krew
+        version: v0.4.3
+        format: archive
+        source: "krew-$os_$arch"
 
-    - name: kubectl
-      type: http
-      url: "https://storage.googleapis.com/kubernetes-release/release/v$version/bin/$os/$arch/kubectl"
-      # renovate: datasource=github-tags depName=kubernetes/kubectl versionTemplate=^kubernetes-(?<version>.*)$
-      version: 1.25.1
-      format: raw
+      - name: kubectl
+        type: http
+        url: "https://storage.googleapis.com/kubernetes-release/release/v$version/bin/$os/$arch/kubectl"
+        # renovate: datasource=github-tags depName=kubernetes/kubectl versionTemplate=^kubernetes-(?<version>.*)$
+        version: 1.25.1
+        format: raw
 
-    - name: helm
-      type: http
-      url: "https://get.helm.sh/helm-$version-$os-$arch.tar.gz"
-      # renovate: datasource=github-releases depName=helm/helm
-      version: v3.9.4
-      format: archive
-      source: "$os-$arch/helm"
+      - name: helm
+        type: http
+        url: "https://get.helm.sh/helm-$version-$os-$arch.tar.gz"
+        # renovate: datasource=github-releases depName=helm/helm
+        version: v3.9.4
+        format: archive
+        source: "$os-$arch/helm"
 
-    # - name: ssh-ident
-    #   type: http
-    #   url: "https://raw.githubusercontent.com/ssh-ident/ssh-ident1/$version/ssh-ident"
-    #   version: d067741309
-    #   format: raw
+      # - name: ssh-ident
+      #   type: http
+      #   url: "https://raw.githubusercontent.com/ssh-ident/ssh-ident1/$version/ssh-ident"
+      #   version: d067741309
+      #   format: raw
+    linux: []
 
 dotfiles:
   repo: 'https://github.com/szinn/dotfiles'

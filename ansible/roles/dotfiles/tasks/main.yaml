@@ -10,6 +10,11 @@
     path: '{{ xdg_config_home }}/sops/age/keys.txt'
   register: keys_txt
 
+- name: "create .config/sops/age directory"
+  ansible.builtin.file:
+    path: '{{ xdg_config_home }}/sops/age'
+    state: directory
+
 - name: "grab keys.txt from 1password"
   ansible.builtin.command: op document get "rjrmnx5rctflmpstxhagjq3hom"
   register: keys_txt_output

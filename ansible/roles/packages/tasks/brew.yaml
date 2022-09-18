@@ -15,6 +15,7 @@
   when:
     - packages.brew.taps is defined
     - packages.brew.taps | length > 0
+    - ansible_system == "Darwin"
 
 - name: "brew | install casks"
   community.general.homebrew_cask:
