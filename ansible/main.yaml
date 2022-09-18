@@ -21,8 +21,8 @@
     - name: fish
       tags: fish
 
-    # - name: asdf
-    #   tags: asdf
+    - name: asdf
+      tags: asdf
 
     - name: dotfiles
       tags: dotfiles

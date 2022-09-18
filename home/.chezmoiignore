@@ -1,6 +1,7 @@
 .DS_Store
 .Trash
 .ansible
+.asdf
 .bash_history
 .cache
 .cargo
@@ -16,8 +17,10 @@
 .minikube
 .npm
 .profile
+.python_history
 .rustup
 .swiftpm
+.tool-versions
 .viminfo
 .z
 Applications*

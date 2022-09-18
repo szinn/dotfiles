@@ -1,21 +1,21 @@
 ---
 packages:
-  # asdf:
-  #   version: "v0.9.0"
-  #   plugins:
-  #     - name: "python"
-  #       repository: "https://github.com/danhper/asdf-python"
-  #       versions:
-  #         - 3.10.4
-  #       delete_versions: []
-  #       global: 3.10.4
+  asdf:
+    version: "v0.9.0"
+    plugins:
+      - name: "python"
+        repository: "https://github.com/danhper/asdf-python"
+        versions:
+          - 3.10.4
+        delete_versions: []
+        global: 3.10.4
 
-  #     - name: "golang"
-  #       repository: "https://github.com/kennyp/asdf-golang"
-  #       versions:
-  #         - 1.19.1
-  #       delete_versions: []
-  #       global: system
+      - name: "golang"
+        repository: "https://github.com/kennyp/asdf-golang"
+        versions:
+          - 1.19.1
+        delete_versions: []
+        global: system
 
   brew:
     taps:
@@ -65,6 +65,7 @@ packages:
         - jq
         - kopia
         - kustomize
+        - lsd
         - minio-mc
         - mysql-client
         - pgcli
@@ -94,7 +95,6 @@ packages:
         # - kubeconform
         # - lazygit
         # - less
-        # - lsd
         # - starship
         # - stern
         # - terraform
@@ -192,11 +192,11 @@ packages:
       format: archive
       source: "$os-$arch/helm"
 
-    # - name: ssh-ident
-    #   type: http
-    #   url: "https://raw.githubusercontent.com/ssh-ident/ssh-ident1/$version/ssh-ident"
-    #   version: d067741309
-    #   format: raw
+    - name: ssh-ident
+      type: http
+      url: "https://raw.githubusercontent.com/ssh-ident/ssh-ident1/$version/ssh-ident"
+      version: d067741309
+      format: raw
 
 dotfiles:
   repo: 'https://github.com/szinn/dotfiles'
