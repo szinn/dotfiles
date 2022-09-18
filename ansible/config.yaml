@@ -29,6 +29,7 @@ packages:
         - 1password-cli
         - bartender
         - bettertouchtool
+        - calibre
         - discord
         - docker
         - espanso
