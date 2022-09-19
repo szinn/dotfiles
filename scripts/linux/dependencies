@@ -1,6 +1,7 @@
 # Bare necessities
 ca-certificates
 git
+build-essentials
 
 # Download manager
 curl
