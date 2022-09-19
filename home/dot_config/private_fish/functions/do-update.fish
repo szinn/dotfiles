@@ -1,5 +1,5 @@
 function do-update --description 'Update shell environment'
-  chezmoi apply
+  chezmoi update -a
 
   if type -q brew
     brew update
