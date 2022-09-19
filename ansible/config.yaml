@@ -101,6 +101,7 @@ packages:
         - kopia
         - kustomize
         - mysql-client
+        - postgresql
         - pgcli
         - pre-commit
         - prettier
