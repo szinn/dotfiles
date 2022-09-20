@@ -3,6 +3,8 @@
 .ansible
 .asdf
 .bash_history
+.bash_logout
+.bashrc
 .cache
 .cargo
 .cups
@@ -10,6 +12,7 @@
 .emacs.d
 .gnupg
 .gradle
+.hushlogin
 .k8slens
 .krew
 .local
@@ -22,6 +25,8 @@
 .swiftpm
 .tool-versions
 .viminfo
+.vscode-server
+.wget-hsts
 .z
 Applications*
 Databases
