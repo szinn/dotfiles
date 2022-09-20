@@ -22,9 +22,9 @@
     - name: fish
       tags: fish
 
-    - name: asdf
-      tags: asdf
-      when: ansible_system == "Darwin"
+    # - name: asdf
+    #   tags: asdf
+    #   when: ansible_system == "Darwin"
 
     - name: dotfiles
       tags: dotfiles

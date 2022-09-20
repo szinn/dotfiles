@@ -1,4 +1,4 @@
-function update_completions --description 'Update shell completions'
+function update-completions --description 'Update shell completions'
     echo "Updating completions..."
     if type -q chezmoi
         chezmoi completion fish --output ~/.config/fish/completions/chezmoi.fish

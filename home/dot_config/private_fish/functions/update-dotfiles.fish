@@ -1,4 +1,4 @@
-function do-update --description 'Update shell environment'
+function update-dotfiles --description 'Update shell environment'
   chezmoi update -a
 
   if type -q brew
@@ -7,6 +7,10 @@ function do-update --description 'Update shell environment'
     brew cleanup
     brew doctor
   end
+
+  # if type -q asdf
+  #   asdf update
+  # end
 
   if type -q omf
     omf update
@@ -23,5 +27,6 @@ function do-update --description 'Update shell environment'
     krew upgrade
   end
 
-  update_completions
+  update-packages
+  update-completions
 end

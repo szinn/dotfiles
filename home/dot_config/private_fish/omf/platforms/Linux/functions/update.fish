@@ -4,5 +4,5 @@ function update --description 'Update APT'
   sudo apt upgrade
   sudo apt autoremove
 
-  do-update
+  update-dotfiles
 end

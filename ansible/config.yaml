@@ -96,14 +96,15 @@ packages:
         - openjdk@11
         - cilium-cli
         - fluxcd/tap/flux
-        - go
+        - golang
         - go-task/tap/go-task
         - kopia
         - kustomize
         - mysql-client
-        - postgresql
         - pgcli
+        - postgresql
         - pre-commit
+        - python
         - prettier
         - protobuf
         - redis
