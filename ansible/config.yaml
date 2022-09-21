@@ -70,14 +70,10 @@ packages:
         - zx
         # - azure-cli
         # - bash
-        # - coreutils
         # - cue
         # - dog
-        # - findutils
         # - gh
         # - git
-        # - gnu-sed
-        # - grep
         # - kubie
         # - jjuarez/homebrew-tap-1/kubecolor
         # - kubeconform
@@ -93,20 +89,24 @@ packages:
         # - viddy
         # - ykman
       darwin:
-        - openjdk@11
         - cilium-cli
+        - coreutils
+        - findutils
         - fluxcd/tap/flux
-        - golang
+        - gnu-sed
         - go-task/tap/go-task
+        - golang
+        - grep
         - kopia
         - kustomize
         - mysql-client
+        - openjdk@11
         - pgcli
         - postgresql
         - pre-commit
-        - python
         - prettier
         - protobuf
+        - python
         - redis
         - shellcheck
         # - openssl
