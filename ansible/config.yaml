@@ -36,6 +36,7 @@ packages:
         - gpg-suite
         - iina
         - iterm2
+        - rectangle
         # - forklift
         # - keka
         # - maccy
