@@ -12,13 +12,15 @@ function fish_title
           set -f git_dir (git rev-parse --git-dir)
           if test $git_dir = ".git"
             set -f git_repo (basename (pwd))
+            set -f git_root (pwd)
           else
             set -f git_repo (basename (dirname $git_dir))
+            set -f git_root (dirname $git_dir)/
           end
           set -l current_git_branch (git -C "$1" branch | sed  '/^\*/!d;s/\* //')
-          echo "$(thepath $PWD) ($git_repo: $current_git_branch)"
+          echo "$(string replace $git_root "" $PWD) ($git_repo: $current_git_branch)"
         else
-          echo (pwd)
+          echo $(thepath $PWD)
         end
     else
         # we are busy running some non-fish command, so use the command name
