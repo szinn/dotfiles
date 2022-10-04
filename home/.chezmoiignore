@@ -1,5 +1,3 @@
-.DS_Store
-.Trash
 .ansible
 .asdf
 .bash_history
@@ -9,6 +7,7 @@
 .cargo
 .cups
 .docker
+.DS_Store
 .emacs.d
 .gnupg
 .gradle
@@ -20,14 +19,20 @@
 .minikube
 .npm
 .profile
+.psql_history
 .python_history
+.rediscli_history
 .rustup
+.sqlite_history
 .swiftpm
 .tool-versions
+.Trash
+.vim
 .viminfo
 .vscode-server
 .wget-hsts
 .z
+.zsh_history
 Applications*
 Databases
 Desktop
@@ -40,8 +45,8 @@ Hades
 Movies
 Multimedia
 Music
+navigraph
 Parallels
 Pictures
 Public
 Ragnar
-navigraph
