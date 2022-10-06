@@ -4,6 +4,7 @@ abbr apb ansible-playbook --ask-become
 abbr cm chezmoi
 abbr gitp git push
 abbr m less
+abbr mcmb mc mb --region ca-wat-1
 abbr opw 'eval (op signin)'
 abbr x exit
 
