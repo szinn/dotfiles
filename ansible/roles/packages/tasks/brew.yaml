@@ -1,8 +1,8 @@
 ---
-- name: "brew | list packages"
-  ansible.builtin.debug:
-    msg: "{{ pkgs }}"
-  when: pkgs is defined
+# - name: "brew | list packages"
+#   ansible.builtin.debug:
+#     msg: "{{ pkgs }}"
+#   when: pkgs is defined
 
 - name: "brew | update"
   community.general.homebrew:

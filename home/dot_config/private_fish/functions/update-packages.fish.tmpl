@@ -1,5 +1,5 @@
 function update-packages --description 'Update dotfiles packages'
   pushd {{ .chezmoi.homeDir }}/.local/share/chezmoi/ansible >/dev/null
-  ansible-playbook -e "ansible_user=scotte" main.yaml --tags packages -v
+  ansible-playbook -e "ansible_user=scotte" main.yaml --tags packages
   popd > /dev/null
 end
