@@ -23,7 +23,7 @@ CallHistoryDB
 CallHistoryTransactions
 CloudDocs
 Code/.DS_Store
-Code/1.71.2-main.sock
+Code/*.sock
 Code/Backups
 Code/Cache
 Code/CachedConfigurations
@@ -91,6 +91,7 @@ Plex
 Rancher Desktop
 SimBrief Downloader
 SonosV2
+Spark Desktop
 Spotify
 SuperTab
 SyncServices
