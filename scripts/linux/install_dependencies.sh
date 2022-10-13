@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eoE pipefail
+# set -eoE pipefail
 
 declare -A osInfo;
 osInfo[/etc/arch-release]="yay"
