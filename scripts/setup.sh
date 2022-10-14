@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-
+# curl -fsSL https://raw.githubusercontent.com/szinn/dotfiles/main/scripts/setup.sh | sh -s -- --all
 # set -euoE pipefail
-
-# shellcheck disable=SC2086
-cwd="$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)"
 
 source="https://github.com/szinn/dotfiles"
 branch="${branch:-main}"

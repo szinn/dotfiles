@@ -6,6 +6,7 @@
 cwd="$(cd "$(dirname ${BASH_SOURCE[0]})" && pwd)"
 ansible_folder="${cwd}/../../ansible"
 export ANSIBLE_CONFIG="${ansible_folder}/ansible.cfg"
+SUDO_REQUIRED="n"
 
 sudo_required() { sudo -n true 2>/dev/null || return 0; }
 
@@ -28,23 +29,23 @@ check_playbook() {
   echo "⚪ [ansible] checking playbook..."
   local playbook_opts=()
 
-  if sudo_required; then
+  if [ $SUDO_REQUIRED -eq "y" ]; then
     playbook_opts+=("--ask-become-pass")
   fi
 
-  ansible-playbook -e "ansible_user=$(whoami)" "${ansible_folder}/main.yaml" -v "${playbook_opts[*]}" --check
+  ansible-playbook -e "ansible_user=$(whoami)" "${ansible_folder}/main.yaml" -v ${playbook_opts[*]} --check
 }
 
 run_playbook() {
   echo "⚪ [ansible] running playbook..."
   local playbook_opts=()
 
-  if sudo_required; then
+  if [ $SUDO_REQUIRED -eq "y" ]; then
     playbook_opts+=("--ask-become-pass")
   fi
 
-  echo "ansible-playbook -e \"ansible_user=$(whoami)\" \"${ansible_folder}/main.yaml\" -v \"${playbook_opts[*]}\""
-  ansible-playbook -e "ansible_user=$(whoami)" "${ansible_folder}/main.yaml" -v "${playbook_opts[*]}"
+  echo "ansible-playbook -e \"ansible_user=$(whoami)\" \"${ansible_folder}/main.yaml\" -v ${playbook_opts[*]}"
+  ansible-playbook -e "ansible_user=$(whoami)" "${ansible_folder}/main.yaml" -v ${playbook_opts[*]}
   echo "✅ [ansible] configured!"
 }
 
