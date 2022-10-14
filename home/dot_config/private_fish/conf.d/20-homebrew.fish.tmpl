@@ -1,11 +1,3 @@
-set HOMEBREW_PREFIX (brew --prefix)
-
-for package in gnu-sed findutils coreutils grep
-  if test -d "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
-    fish_add_path "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
-  end
-end
-
 {{ if (eq .chezmoi.os "darwin") -}}
   fish_add_path /opt/homebrew/bin
 {{ end -}}
@@ -13,6 +5,14 @@ end
 {{ if (eq .chezmoi.os "linux") -}}
   fish_add_path /home/linuxbrew/.linuxbrew/bin
 {{ end -}}
+
+set HOMEBREW_PREFIX (brew --prefix)
+
+for package in gnu-sed findutils coreutils grep
+  if test -d "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
+    fish_add_path "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
+  end
+end
 
 if test -d "$HOMEBREW_PREFIX/share/fish/completions"
   set -gx fish_complete_path $fish_complete_path "$HOMEBREW_PREFIX/share/fish/completions"
