@@ -1,11 +1,12 @@
 .DS_Store
 1Password
 Autodesk
-JetBrains
 chezmoi
 configstore
+git/gitk
 helm
 iterm2
+JetBrains
 op
 pgcli
 procps

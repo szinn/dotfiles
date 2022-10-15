@@ -10,6 +10,7 @@
 .dotnet
 .DS_Store
 .emacs.d
+.fleet
 .gnupg
 .gradle
 .hushlogin
