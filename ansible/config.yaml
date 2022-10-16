@@ -37,6 +37,7 @@ packages:
         - iina
         - iterm2
         - rectangle
+        - switchresx
         # - forklift
         # - keka
         # - maccy
