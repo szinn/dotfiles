@@ -90,7 +90,6 @@ packages:
         # - viddy
         # - ykman
       darwin:
-        - avibrazil-rdm
         - cilium-cli
         - coreutils
         - findutils
