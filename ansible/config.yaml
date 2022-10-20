@@ -23,6 +23,7 @@ packages:
       - fluxcd/tap
       - go-task/tap
       - espanso/espanso
+      - homebrew/cask-fonts
     casks:
       darwin:
         - 1password
@@ -45,6 +46,7 @@ packages:
         # - rocket
         # - shottr
         - visual-studio-code
+        - font-fira-code-nerd-font
       linux: []
     packages:
       common:
