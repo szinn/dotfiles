@@ -11,10 +11,12 @@
   "explorer.openEditors.visible": 0,
   "explorer.autoReveal": false,
   "files.associations": {
-    "**/ansible/**/*.sops.yml": "yaml",
     "**/ansible/**/*.yaml": "ansible",
-    "**/ansible/**/inventory/**/*.yaml": "yaml",
-    "*.json5": "jsonc"
+    "*.yml": "yaml",
+    "*.yaml": "yaml",
+    "*.json5": "jsonc",
+    "*.rs": "rust",
+    "*.toml": "toml"
   },
   "files.autoSave": "afterDelay",
   "git.autofetch": true,
@@ -86,7 +88,10 @@
       ".taskfiles/*.yaml"
     ],
   },
-  "[rs]": {
+  "[rust]": {
+    "editor.tabSize": 4
+  },
+  "[toml]": {
     "editor.tabSize": 4
   },
   "[yaml]": {
