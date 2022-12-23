@@ -64,6 +64,7 @@ packages:
         - git-gui
         - gnu-tar
         - jq
+        - derailed/k9s/k9s
         - lsd
         - minio-mc
         - ripgrep
