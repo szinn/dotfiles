@@ -15,51 +15,77 @@ Apple
 Arc
 Arq
 Autodesk
+balena-etcher
 Bartender
 BetterTouchTool
-CEF
 Caches
+calibre-ebook.com
 CallHistoryDB
 CallHistoryTransactions
+CEF
 CloudDocs
 Code/.DS_Store
 Code/*.sock
 Code/Backups
+Code/blob_storage
 Code/Cache
 Code/CachedConfigurations
 Code/CachedData
-Code/CachedExtensionVSIXs
 Code/CachedExtensions
+Code/CachedExtensionVSIXs
 Code/Code Cache
+Code/code.lock
 Code/Cookies
 Code/Cookies-journal
 Code/Crashpad
 Code/CrashpadMetrics-active.pma
 Code/CrashpadMetrics.pma
+Code/databases
 Code/GPUCache
+Code/languagepacks.json
 Code/Local Storage
+Code/logs
+Code/machineid
 Code/Network Persistent State
 Code/Preferences
 Code/Service Worker
 Code/Session Storage
 Code/TransportSecurity
-Code/User/History
 Code/User/globalStorage
+Code/User/History
 Code/User/snippets
 Code/User/sync
 Code/User/tasks.json
 Code/User/workspaceStorage
 Code/WebStorage
 Code/Workspaces
-Code/blob_storage
-Code/code.lock
-Code/databases
-Code/languagepacks.json
-Code/logs
-Code/machineid
 Colloquy
+com.adobe.dunamis
+com.apple.akd
+com.apple.ap.promotedcontentd
+com.apple.avfoundation
+com.apple.backgroundtaskmanagementagent
+com.apple.ContextStoreAgent
+com.apple.exchangesync
+com.apple.MediaPlayer
+com.apple.NewDeviceOutreach
+com.apple.ProtectedCloudStorage
+com.apple.RemoteManagementAgent
+com.apple.replayd
+com.apple.sbd
+com.apple.SFSymbols
+com.apple.sharedfilelist
+com.apple.spotlight
+com.apple.TCC
+com.apple.transparencyd
+com.apple.windowmanager
+com.bugsnag.Bugsnag
+com.colliderli.iina
+com.privateinternetaccess.vpn
 CrashReporter
+cura
 DEVONthink 3
+discord
 DiskImages
 Dock
 Docker Desktop
@@ -69,10 +95,17 @@ Finder Tags.txt
 Fusion 360
 GitHub Desktop
 Google
+gops
 Hazel
+icdd
+iCloud
+iTerm2
 JetBrains
+k9s
 Keyboard Maestro
 Knowledge
+kopia
+kotlin
 Lapce
 Lens
 Logitech
@@ -85,10 +118,15 @@ Microsoft Edge Dev
 MobileSync
 Mozilla
 Navigraph
+Navigraph Charts
+navigraph_charts
+obsidian
 OpenLens
+org.videolan.vlc
 PFU
 Plex
 Rancher Desktop
+rancher-desktop
 SimBrief Downloader
 SonosV2
 Spark Desktop
@@ -97,42 +135,7 @@ SuperTab
 SyncServices
 TIDAL
 Tunnelblick
-Vivaldi
-balena-etcher
-calibre-ebook.com
-com.adobe.dunamis
-com.apple.ContextStoreAgent
-com.apple.MediaPlayer
-com.apple.NewDeviceOutreach
-com.apple.ProtectedCloudStorage
-com.apple.SFSymbols
-com.apple.TCC
-com.apple.akd
-com.apple.ap.promotedcontentd
-com.apple.avfoundation
-com.apple.backgroundtaskmanagementagent
-com.apple.exchangesync
-com.apple.replayd
-com.apple.sbd
-com.apple.sharedfilelist
-com.apple.spotlight
-com.apple.transparencyd
-com.bugsnag.Bugsnag
-com.colliderli.iina
-com.privateinternetaccess.vpn
-cura
-discord
-gops
-iCloud
-iTerm2
-icdd
-k9s
-kopia
-kotlin
-navigraph_charts
-obsidian
-org.videolan.vlc
-rancher-desktop
 videosubscriptionsd
 virtualenv
+Vivaldi
 zoom.us

@@ -2,6 +2,7 @@
 .localized
 Accessibility
 Accounts
+AppleMediaServices
 Application Scripts
 Arq
 Assistant
@@ -15,29 +16,41 @@ Calendars
 CallServices
 ColorPickers
 Colors
+com.apple.aiml.instrumentation
+com.apple.appleaccountd
+com.apple.bluetooth.services.cloud
+com.apple.icloud.searchpartyd
+com.apple.internal.ck
+com.apple.WatchListKit
 Compositions
 Contacts
 ContainerManager
 Containers
 Cookies
 CoreFollowUp
+Daemon Containers
+DataAccess
 DataDeliveryServices
+DES
 Developer
 DoNotDisturb
 DuetExpertCenter
 Favorites
+Finance
 FontCollections
 Fonts
 FrontBoard
 GameKit
 Google
 Group Containers
-HTTPStorages
 HomeKit
+HTTPStorages
 IdentityServices
 Input Methods
+IntelligencePlatform
 Intents
 Internet Plug-Ins
+iTunes
 Keyboard
 Keyboard Layouts
 KeyboardServices
@@ -51,11 +64,12 @@ Messages
 Metadata
 Mobile Documents
 MobileDevice
-NGL
 News
-PDF Services
+NGL
+org.swift.swiftpm
 Parallels
 Passes
+PDF Services
 PersonalizationPortrait
 Photos
 PhotoshopCrashes
@@ -79,17 +93,10 @@ Sounds
 Spelling
 Staging
 StatusKit
+studentd
 Suggestions
 SyncedPreferences
 Translation
 Trial
 Weather
 WebKit
-com.apple.WatchListKit
-com.apple.appleaccountd
-com.apple.bluetooth.services.cloud
-com.apple.icloud.searchpartyd
-com.apple.internal.ck
-iTunes
-org.swift.swiftpm
-studentd
