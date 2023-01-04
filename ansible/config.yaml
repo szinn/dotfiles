@@ -67,6 +67,7 @@ packages:
         - derailed/k9s/k9s
         - lsd
         - minio-mc
+        - neovim
         - ripgrep
         - sops
         - watch
