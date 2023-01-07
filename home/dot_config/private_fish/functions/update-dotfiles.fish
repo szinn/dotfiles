@@ -1,12 +1,7 @@
 function update-dotfiles --description 'Update shell environment'
   chezmoi update -a
 
-  if type -q brew
-    brew update
-    brew upgrade
-    brew cleanup
-    brew doctor
-  end
+  brewup
 
   # if type -q asdf
   #   asdf update
