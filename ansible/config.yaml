@@ -24,6 +24,7 @@ packages:
       - go-task/tap
       - espanso/espanso
       - homebrew/cask-fonts
+      - hashicorp/tap
     casks:
       darwin:
         - 1password
@@ -115,6 +116,7 @@ packages:
         - python
         - redis
         - shellcheck
+        - terraform
         # - openssl
         # - pinentry-mac
         # - terminal-notifier
