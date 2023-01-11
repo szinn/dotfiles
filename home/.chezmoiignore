@@ -30,6 +30,7 @@
 .sqlite_history
 .swiftpm
 .templateengine
+.terraform.d
 .tool-versions
 .Trash
 .vim
