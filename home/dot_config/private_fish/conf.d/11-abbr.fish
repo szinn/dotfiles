@@ -2,6 +2,7 @@
 abbr ap ansible-playbook
 abbr apb ansible-playbook --ask-become
 abbr cm chezmoi
+abbr cmd chezmoi diff --no-pager
 abbr gitp git push
 abbr m less
 abbr mcmb mc mb --region ca-wat-1
