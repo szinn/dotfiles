@@ -28,7 +28,7 @@
 	excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore_global
 	autocrlf = input
 {{ if (eq .chezmoi.os "darwin") -}}
-  editor = code --wait
+  editor = nvim
 {{ end -}}
 
 [fetch]
