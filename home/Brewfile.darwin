@@ -65,6 +65,8 @@ brew "helm"
 brew "jq"
 # Fast and secure open-source backup
 brew "kopia"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Template-free customization of Kubernetes YAML manifests
 brew "kustomize"
 # Clone of ls with colorful output, file type icons, and more
