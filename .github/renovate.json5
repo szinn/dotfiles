@@ -8,6 +8,17 @@
   "username": "repo-jeeves[bot]",
   "gitAuthor": "repo-jeeves <106431701+repo-jeeves[bot]@users.noreply.github.com>",
   "repositories": ["szinn/dotfiles"],
-  "regexManagers": [],
-  "packageRules": []
+  "regexManagers": [
+    {
+      "description": "Process github releases",
+      "fileMatch": [
+        ".chezmoiexternal.yaml.tmpl"
+      ],
+      "matchStrings": [
+        "https:\\/\\/github.com\\/(?<depName>[\\w\\d\\-_]+\\/[\\w\\d\\-_]+)\\/releases\\/download\\/(?<currentValue>[\\w\\d\\.\\-_]+)\\/.*"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ]
 }

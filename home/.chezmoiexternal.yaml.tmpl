@@ -1,0 +1,10 @@
+{{ if (eq .chezmoi.os "darwin") -}}
+".local/bin/talhelper":
+  url: "https://github.com/budimanjojo/talhelper/releases/download/v1.5.5/talhelper_darwin_arm64.tar.gz"
+  type: file
+  executable: true
+  refreshPeriod: 168h
+  filter:
+    command: tar
+    args: ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "talhelper"]
+{{ end }}

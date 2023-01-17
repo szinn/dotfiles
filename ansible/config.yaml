@@ -154,13 +154,13 @@ packages:
 
   other_binaries:
     darwin:
-      - name: talhelper
-        type: github_release
-        repository: budimanjojo/talhelper
-        asset: "talhelper_$os_$arch.tar.gz"
-        # renovate: datasource=github-releases depName=budimanjojo/talhelper
-        version: v1.5.6
-        format: archive
+      # - name: talhelper
+      #   type: github_release
+      #   repository: budimanjojo/talhelper
+      #   asset: "talhelper_$os_$arch.tar.gz"
+      #   # renovate: datasource=github-releases depName=budimanjojo/talhelper
+      #   version: v1.5.6
+      #   format: archive
 
       # - name: gluctl
       #   type: github_release
