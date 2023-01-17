@@ -1,74 +1,74 @@
 [alias]
-	st = status
+  st = status
   ci = commit
   br = branch
   co = checkout
   lg = log -p
-	lsd = log --graph --decorate --abbrev-commit --pretty=oneline --all
-	unstage = reset HEAD
-	diffc = diff --cached
+  lsd = log --graph --decorate --abbrev-commit --pretty=oneline --all
+  unstage = reset HEAD
+  diffc = diff --cached
   undo = checkout --
   mrg = merge --no-ff --log
-	rvt = reset --soft HEAD~1
-	lg = lg1
-	lg1 = lg1-specific --all
-	lg2 = lg2-specific --all
-	lg3 = lg3-specific --all
-	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
-	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+  rvt = reset --soft HEAD~1
+  lg = lg1
+  lg1 = lg1-specific --all
+  lg2 = lg2-specific --all
+  lg3 = lg3-specific --all
+  lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+  lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+  lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 
 [color]
-	ui = auto
+  ui = auto
 
 [push]
-	default = current
+  default = current
 
 [core]
-	excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore_global
-	autocrlf = input
-{{ if (eq .chezmoi.os "darwin") -}}
-  editor = nvim
+  excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore_global
+  autocrlf = input
+{{ if (eq .type "macbook") -}}
+  editor = lvim
 {{ end -}}
 
 [fetch]
-	prune = true
+  prune = true
 
-{{ if (eq .chezmoi.os "darwin") -}}
+{{ if (eq .type "macbook") -}}
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 {{ end -}}
 
 [pull]
-	rebase = true
+  rebase = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [rebase]
-	autoStash = true
+  autoStash = true
 
 [gpg]
-	format = ssh
+  format = ssh
 
-{{ if (eq .chezmoi.os "darwin") -}}
+{{ if (eq .type "macbook") -}}
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{ end -}}
 
 [commit]
-{{ if (eq .chezmoi.os "darwin") -}}
-	gpgsign = true
+{{ if (eq .type "macbook") -}}
+  gpgsign = true
 {{ end -}}
 {{ if (eq .chezmoi.os "linux") -}}
-	gpgsign = false
+  gpgsign = false
 {{ end -}}
 
 [include]
-	path = {{ .chezmoi.homeDir }}/.config/git/personal
+  path = {{ .chezmoi.homeDir }}/.config/git/personal

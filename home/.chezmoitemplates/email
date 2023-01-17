@@ -1,5 +1,0 @@
-{{ range (onepassword .onepassword.identity).fields -}}
-{{   if (eq .label "email") -}}
-{{     .value -}}
-{{   end -}}
-{{ end -}}

@@ -1,0 +1,155 @@
+tap "1password/tap"
+tap "aquaproj/aqua"
+tap "armosec/kubescape"
+tap "cue-lang/tap"
+tap "derailed/k9s"
+tap "espanso/espanso"
+tap "filosottile/musl-cross"
+tap "fluxcd/tap"
+tap "go-task/tap"
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homeport/tap"
+tap "sergiobenitez/osxct"
+tap "weaveworks/tap"
+# Simple, modern, secure file encryption
+brew "age"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# CLI to install, manage & troubleshoot Kubernetes clusters running Cilium
+brew "cilium-cli"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# .NET Core
+brew "dotnet"
+# Disk Usage/Free Utility - a better 'df' alternative
+brew "duf"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Distributed revision control system
+brew "git"
+# Tcl/Tk UI for the git revision control system
+brew "git-gui"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Kubernetes package manager
+brew "helm"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Fast and secure open-source backup
+brew "kopia"
+# Template-free customization of Kubernetes YAML manifests
+brew "kustomize"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Replacement for ls, cp and other commands for object storage
+brew "minio-mc"
+# Open source relational database management system
+brew "mysql-client"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# Development kit for the Java programming language
+brew "openjdk@11"
+# CLI for Postgres with auto-completion and syntax highlighting
+brew "pgcli"
+# Object-relational database system
+brew "postgresql@14"
+# Object-relational database system
+brew "postgresql@15"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Fast, efficient and secure backup program
+brew "restic"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Editor of encrypted files
+brew "sops"
+# User interface to the TELNET protocol
+brew "telnet"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Tool for writing better scripts
+brew "zx"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "derailed/k9s/k9s"
+# Flux CLI
+brew "fluxcd/tap/flux"
+# Task runner / simpler Make alternative written in Go
+brew "go-task/tap/go-task"
+# δyƒƒ /ˈdʏf/ - A diff tool for YAML files, and sometimes JSON
+brew "homeport/tap/dyff"
+# GitOps support for Kubernetes
+brew "weaveworks/tap/gitops"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Command-line helper for the 1Password password manager
+cask "1password-cli"
+# Menu bar icon organizer
+cask "bartender"
+# Tool to customize input devices and automate computer systems
+cask "bettertouchtool"
+# E-books management software
+cask "calibre"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Cross-platform Text Expander written in Rust
+cask "espanso"
+# Developer targeted fonts with a high number of glyphs
+cask "font-fira-code-nerd-font"
+# Tools to protect your emails and files
+cask "gpg-suite"
+# Free and open-source media player
+cask "iina"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Controls screen display settings
+cask "switchresx"
+# Open-source code editor
+cask "visual-studio-code"
