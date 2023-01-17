@@ -22,6 +22,6 @@ function update-dotfiles --description 'Update shell environment'
     krew upgrade
   end
 
-  update-packages
+  # update-packages
   update-completions
 end
