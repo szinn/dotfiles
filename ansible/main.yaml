@@ -15,9 +15,9 @@
     - name: packages
       tags: packages
 
-    - name: fonts
-      tags: fonts
-      when: ansible_system == "Darwin"
+    # - name: fonts
+    #   tags: fonts
+    #   when: ansible_system == "Darwin"
 
     - name: fish
       tags: fish

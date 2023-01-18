@@ -1,4 +1,5 @@
 {{ if (eq .chezmoi.os "darwin") -}}
+
 ".local/bin/talhelper":
   url: "https://github.com/budimanjojo/talhelper/releases/download/v1.5.6/talhelper_darwin_arm64.tar.gz"
   type: file
@@ -22,4 +23,17 @@
   filter:
     command: tar
     args: ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "krew-darwin_arm64"]
+
+"Library/Fonts/FiraCodeNerd":
+  url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/FiraCode.zip"
+  type: archive
+  exact: true
+  refreshPeriod: 168h
+
+"Library/Fonts/JetBrainsMono":
+  url: "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip"
+  type: archive
+  # exact: true
+  refreshPeriod: 168h
+
 {{ end }}
