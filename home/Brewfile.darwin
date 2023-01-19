@@ -143,8 +143,6 @@ cask "discord"
 cask "docker"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
-# Developer targeted fonts with a high number of glyphs
-cask "font-fira-code-nerd-font"
 # Tools to protect your emails and files
 cask "gpg-suite"
 # Free and open-source media player
