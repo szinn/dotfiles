@@ -1,0 +1,6 @@
+package brew
+package direnv
+package local-config
+package rustup
+package z
+theme default

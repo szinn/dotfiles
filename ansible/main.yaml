@@ -12,22 +12,22 @@
     - config.yaml
 
   roles:
-    - name: packages
-      tags: packages
+    # - name: packages
+    #   tags: packages
 
     # - name: fonts
     #   tags: fonts
     #   when: ansible_system == "Darwin"
 
-    - name: fish
-      tags: fish
+    # - name: fish
+    #   tags: fish
 
     # - name: asdf
     #   tags: asdf
     #   when: ansible_system == "Darwin"
 
-    - name: dotfiles
-      tags: dotfiles
+    # - name: dotfiles
+    #   tags: dotfiles
 
     - name: system
       tags: system
