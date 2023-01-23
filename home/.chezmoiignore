@@ -39,10 +39,12 @@
 .wget-hsts
 .z
 .zsh_history
+.zshenv
 Applications*
 Brewfile*
 Databases
 Desktop
+dev
 Development
 Documents
 Downloads
