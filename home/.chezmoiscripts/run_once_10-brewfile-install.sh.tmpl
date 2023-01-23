@@ -1,4 +1,6 @@
 {{- $brewfile := joinPath .chezmoi.sourceDir (print "Brewfile." .chezmoi.os) -}}
 #!/bin/bash
+{{- if (stat $brewfile) }}
 # Hash Brewfile {{ include $brewfile | sha256sum }}
 brew bundle --file {{ $brewfile }}
+{{- end }}
