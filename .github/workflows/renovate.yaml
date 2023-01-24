@@ -1,0 +1,51 @@
+---
+name: Renovate
+
+on:
+  workflow_dispatch:
+    inputs:
+      dryRun:
+        description: "Dry-Run"
+        default: false
+        required: false
+        type: boolean
+      logLevel:
+        description: "Log-Level"
+        default: "debug"
+        required: false
+  schedule:
+    - cron: "0 9,22 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/renovate.json5"
+      - ".github/renovate/**.json"
+      - ".github/renovate/**.json5"
+      - ".github/workflows/renovate.yaml"
+
+jobs:
+  renovate:
+    name: Renovate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Token
+        uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: "${{ steps.generate-token.outputs.token }}"
+
+      - name: Renovate
+        uses: renovatebot/github-action@v34.109.1
+        env:
+          DRY_RUN: ${{ inputs.dryRun || 'false' }}
+          LOG_LEVEL: ${{ inputs.logLevel || 'debug' }}
+        with:
+          configurationFile: ".github/renovate.json5"
+          token: "${{ steps.generate-token.outputs.token }}"
