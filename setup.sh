@@ -105,6 +105,7 @@ function initialize_dotfiles() {
     }
 
     function run_chezmoi() {
+        echo "Running chezmoi..."
         sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply "${DOTFILES_REPO_URL}"
     }
 
