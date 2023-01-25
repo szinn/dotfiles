@@ -126,7 +126,7 @@ function initialize_shell() {
   fi
   if ! [ -z $(grep "fish" "/etc/shells") ]; then
     echo "Changing shell to fish"
-    sudo chsh -s $(which fish)
+    chsh -s $(which fish)
   fi
 }
 
