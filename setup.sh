@@ -27,6 +27,7 @@ function initialize_macos() {
   }
 
   install_xcode
+  export PATH="$PATH:/opt/homebrew/bin"
 }
 
 function initialize_linux() {
@@ -118,9 +119,20 @@ function initialize_dotfiles() {
     cleanup_chezmoi
 }
 
+function initialize_shell() {
+  if [ -z $(grep "fish" "/etc/shells") ]; then
+    echo "Need to add fish as a shell"
+    echo "$(which fish)" | sudo tee -a /etc/shells 2>&1 > /dev/null
+    if ! [ -z $(grep "fish" "/etc/shells") ]; then
+      sudo chsh -s $(which fish)
+    fi
+  fi
+}
+
 function main() {
   initialize_os_env
   initialize_dotfiles
+  initialize_shell
 }
 
 main "$@"
