@@ -27,14 +27,14 @@
 [core]
   excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore_global
   autocrlf = input
-{{- if (eq .type "macbook") }}
+{{- if eq .chezmoi.os "darwin" }}
   editor = lvim
 {{- end }}
 
 [fetch]
   prune = true
 
-{{ if (eq .type "macbook") }}
+{{ if eq .chezmoi.os "darwin" }}
 [credential]
   helper = osxkeychain
 {{- end }}
@@ -57,13 +57,13 @@
 [gpg]
   format = ssh
 
-{{ if (eq .type "macbook") -}}
+{{ if eq .chezmoi.os "darwin" -}}
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{- end }}
 
 [commit]
-{{- if (eq .type "macbook") }}
+{{- if eq .chezmoi.os "darwin" }}
   gpgsign = true
 {{- end }}
 {{- if (eq .chezmoi.os "linux") }}

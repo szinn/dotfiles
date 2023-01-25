@@ -1,31 +1,8 @@
-{{- $brew := false -}}
-
-{{- $hostname := .chezmoi.hostname -}}
-{{- if eq $hostname "Odin" -}}
-{{-   $brew = true -}}
-{{- end -}}
-{{- if eq $hostname "ragnar" -}}
-{{-   $brew = true -}}
-{{- end -}}
-
-{{- /* Get machine ID from file originally created as a run script */ -}}
-{{- $machineIDFile := joinPath .chezmoi.homeDir "/.config/chezmoi/machine_id.yaml" }}
-{{- $machineID := include $machineIDFile | fromYaml }}
-
-{{- /* Cross reference machine ID with machine type, in the encrypted identifiers YAML file */ -}}
-{{- $machineIDs := joinPath .chezmoi.sourceDir "dot_config/chezmoi/encrypted_machine_identifiers.yaml.age" | include | decrypt | fromYaml -}}
-{{- $machineType := "unknown" }}
-{{- if hasKey $machineIDs.ids $machineID.id }}
-{{-   $machineType = get $machineIDs.ids $machineID.id }}
-{{- end }}
-
 encryption: age
 age:
   identity: {{ .chezmoi.homeDir }}/.config/sops/age/keys.txt
   recipient: age1p28u8xjm5sf7jdavc8xsqtw7lxgscefxs7a5dtqszr2885xeputsh9y64y
 
 data:
-  type: {{ $machineType }}
-  brew: {{ $brew }}
   github:
     user: "szinn"
