@@ -10,7 +10,7 @@ function install_omf() {
     if ! is_omf_exists; then
         curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > /tmp/install
         fish /tmp/install --path=~/.local/share/omf --config=~/.config/fish/omf --noninteractive -y
-        rm /tmp/install
+        rm /tmp/install ~/.config/fish/conf.d/omf.fish
     fi
 }
 
