@@ -123,9 +123,10 @@ function initialize_shell() {
   if [ -z $(grep "fish" "/etc/shells") ]; then
     echo "Need to add fish as a shell"
     echo "$(which fish)" | sudo tee -a /etc/shells 2>&1 > /dev/null
-    if ! [ -z $(grep "fish" "/etc/shells") ]; then
-      sudo chsh -s $(which fish)
-    fi
+  fi
+  if ! [ -z $(grep "fish" "/etc/shells") ]; then
+    echo "Changing shell to fish"
+    sudo chsh -s $(which fish)
   fi
 }
 
