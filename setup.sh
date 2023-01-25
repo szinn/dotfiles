@@ -35,7 +35,6 @@ function initialize_linux() {
   sudo apt install \
     ca-certificates \
     git \
-    build-essentials \
     curl \
     wget
 }
