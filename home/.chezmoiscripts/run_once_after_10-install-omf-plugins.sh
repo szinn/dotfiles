@@ -1,2 +1,2 @@
 #!/bin/bash
-$(brew --prefix)/bin/fish -c 'omf install'
+fish -c 'omf install'
