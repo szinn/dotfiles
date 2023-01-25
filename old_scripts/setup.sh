@@ -39,24 +39,24 @@ download_repository() {
   if test -z "$cmd"; then
     exit_help "No git, curl or wget available. Aborting."
   else
+    test -d "$target" && rm -rf $target
     mkdir -p "$target"
     eval "$cmd"
   fi
 }
 
 install_dependencies() {
-  test -d "$target" || download_repository
+  download_repository
   if linux; then
-    "${target}/scripts/linux/install_dependencies.sh"
+    "${target}/scripts/linux_dependencies.sh"
   fi
-  "${target}/scripts/common/install_brew.sh"
   if macos; then
-    "${target}/scripts/macos/install_dependencies.sh"
+    "${target}/scripts/macos_dependencies.sh"
   fi
 }
 
 setup_all() {
-  test -d "$target" || download_repository
+  install_dependencies
   "${target}/scripts/common/ansible.sh" --all
 }
 
