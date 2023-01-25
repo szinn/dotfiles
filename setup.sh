@@ -107,7 +107,8 @@ function initialize_dotfiles() {
 
     function run_chezmoi() {
         echo "Running chezmoi..."
-        sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply "${DOTFILES_REPO_URL}"
+        sh -c "$(curl -fsLS get.chezmoi.io)" -- init "${DOTFILES_REPO_URL}"
+        ~/bin/chezmoi apply
     }
 
     function cleanup_chezmoi() {
@@ -131,9 +132,11 @@ function initialize_shell() {
 }
 
 function main() {
+  pushd ~ 2>&1 >/dev/null
   initialize_os_env
   initialize_dotfiles
   initialize_shell
+  popd 2>&1 >/dev/null
 }
 
 main "$@"
