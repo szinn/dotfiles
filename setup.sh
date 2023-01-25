@@ -31,7 +31,13 @@ function initialize_macos() {
 }
 
 function initialize_linux() {
-  echo "Finish to pre-initialize Linux OS"
+  sudo apt update
+  sudo apt install \
+    ca-certificates \
+    git \
+    build-essentials \
+    curl \
+    wget
 }
 
 function initialize_os_env() {
