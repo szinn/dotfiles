@@ -18,6 +18,7 @@
 .java
 .k8slens
 .krew
+.lesshst
 .local
 .m2
 .minikube
