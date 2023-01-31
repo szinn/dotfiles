@@ -71,6 +71,8 @@ brew "kubernetes-cli"
 brew "kustomize"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Mac App Store command-line interface
+brew "mas"
 # Replacement for ls, cp and other commands for object storage
 brew "minio-mc"
 # Open source relational database management system
@@ -153,3 +155,23 @@ cask "iterm2"
 cask "switchresx"
 # Open-source code editor
 cask "visual-studio-code"
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "AutoMounter", id: 1160435653
+mas "Disk Speed Test", id: 425264550
+mas "Drafts", id: 1435957248
+mas "FLAC MP3 Converter", id: 982124349
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Logic Pro", id: 634148309
+mas "Myst", id: 1580649368
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pocket", id: 568494494
+mas "Save to Pocket", id: 1477385213
+mas "Slack", id: 803453959
+mas "Spark", id: 1176895641
+mas "TicketToRide", id: 470834073
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
