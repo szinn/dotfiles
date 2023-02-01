@@ -3,8 +3,6 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 # Simple, modern, secure file encryption
 brew "age"
-# Automate deployment, configuration, and upgrading
-brew "ansible"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Manage your dotfiles across multiple diverse machines, securely
