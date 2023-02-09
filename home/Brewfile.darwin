@@ -86,8 +86,6 @@ brew "openjdk@11"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # Object-relational database system
-brew "postgresql@14"
-# Object-relational database system
 brew "postgresql@15"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
@@ -95,8 +93,6 @@ brew "pre-commit"
 brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Fast, efficient and secure backup program
