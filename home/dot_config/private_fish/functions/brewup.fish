@@ -5,4 +5,7 @@ function brewup --description "Update brew installation"
     brew cleanup
     brew doctor
   end
+  if type -q mas
+    mas upgrade
+  end
 end
