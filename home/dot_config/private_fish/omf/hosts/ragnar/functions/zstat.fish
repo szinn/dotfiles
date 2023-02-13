@@ -1,7 +1,7 @@
 function zstat --description "Statistics on atlas zpool"
   zpool status -v atlas 
   echo " " 
-  zpool iostat -v 
+  zpool iostat -vyl
   echo " " 
   zfs list -t filesystem 
   echo " " 
