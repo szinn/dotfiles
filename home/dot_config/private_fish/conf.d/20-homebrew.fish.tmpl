@@ -14,6 +14,10 @@ for package in gnu-sed findutils coreutils grep
   end
 end
 
+if test -d "$HOMEBREW_PREFIX/opt/openjdk/bin"
+    fish_add_path "$HOMEBREW_PREFIX/opt/openjdk/bin"
+end
+
 if test -d "$HOMEBREW_PREFIX/share/fish/completions"
   set -gx fish_complete_path $fish_complete_path "$HOMEBREW_PREFIX/share/fish/completions"
 end
