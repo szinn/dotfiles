@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-brewup
+if test -z $QUICK_APPLY
+  brewup
+end

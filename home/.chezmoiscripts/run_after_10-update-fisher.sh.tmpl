@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
-if type -q fisher
-  fisher update
+if test -z $QUICK_APPLY
+  if type -q fisher
+    fisher update
+  end
 end
