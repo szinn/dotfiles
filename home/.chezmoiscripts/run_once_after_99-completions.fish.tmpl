@@ -1,9 +1,4 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/opt/homebrew/bin/fish
-{{- end }}
-{{ if eq .chezmoi.os "linux" -}}
-#!/usr/bin/fish
-{{- end }}
+#!/usr/bin/env fish
 
 echo "Updating completions..."
 if type -q chezmoi

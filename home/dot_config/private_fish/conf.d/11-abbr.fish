@@ -7,6 +7,7 @@ abbr gitp git push
 abbr m less
 abbr mcmb mc mb --region ca-wat-1
 abbr opw 'eval (op signin)'
+abbr update 'chezmoi update -a'
 abbr x exit
 
 if type -q exa
