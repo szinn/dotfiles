@@ -3,10 +3,6 @@ function update-dotfiles --description 'Update shell environment'
 
   brewup
 
-  # if type -q asdf
-  #   asdf update
-  # end
-
   if type -q omf
     omf update
   end
@@ -21,7 +17,4 @@ function update-dotfiles --description 'Update shell environment'
   if type -q krew
     krew upgrade
   end
-
-  # update-packages
-  update-completions
 end
