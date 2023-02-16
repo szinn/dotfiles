@@ -29,6 +29,8 @@ brew "gnu-tar"
 brew "jq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Language Server for the Lua language
+brew "lua-language-server"
 # Replacement for ls, cp and other commands for object storage
 brew "minio-mc"
 # Ambitious Vim-fork focused on extensibility and agility
