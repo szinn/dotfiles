@@ -1,18 +1,5 @@
 return {
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 
-      'nvim-lua/plenary.nvim' 
-    }
-  },
-  { 'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = vim.fn.executable 'make' == 1
-  },
-
-  { 'folke/tokyonight.nvim' },
-  {
     'folke/trouble.nvim',
     config = function(plugin)
       require("trouble").setup {
