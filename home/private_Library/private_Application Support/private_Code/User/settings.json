@@ -97,6 +97,10 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[lua]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "sumneko.lua"
+  },
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.connectTimeout": 30,
   "remote.SSH.useLocalServer": false,
