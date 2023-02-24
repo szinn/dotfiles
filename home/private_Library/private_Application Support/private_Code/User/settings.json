@@ -97,6 +97,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.formatOnType": true
+  },
   "[lua]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "sumneko.lua"
