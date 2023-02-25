@@ -1,12 +1,30 @@
 {
   // General RenovateBot configuration
   "extends": [
-    "github>szinn/renovate-config",
-    "github>szinn/renovate-config:automerge-github-actions"
+    "config:base",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    "docker:enableMajor",
+    "docker:pinDigests",
+    ":automergeDigest",
+    ":automergeBranchPush",
+    ":enablePreCommit",
+    "github>szinn/dotfiles//.github/renovate/commit-message.json",
+    "github>szinn/dotfiles//.github/renovate/pr-labels.json",
+    "github>szinn/dotfiles//.github/renovate/semantic-commits.json",
+    "github>szinn/dotfiles//.github/renovate/generic-regex-manager.json",
+    "github>szinn/dotfiles//.github/renovate/automerge-github-actions.json"
   ],
   "platform": "github",
+  "onboarding": false,
+  "requireConfig": "optional",
   "username": "repo-jeeves[bot]",
   "gitAuthor": "repo-jeeves <106431701+repo-jeeves[bot]@users.noreply.github.com>",
+  "timezone": "America/Toronto",
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "suppressNotifications": ["prIgnoreNotification"],
+  "commitBodyTable": true,
+  "rebaseWhen": "auto",
   "repositories": ["szinn/dotfiles"],
   "regexManagers": [
     {
