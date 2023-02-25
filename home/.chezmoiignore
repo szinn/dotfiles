@@ -19,6 +19,7 @@
 .k8slens
 .krew
 .lesshst
+.lldb
 .local
 .m2
 .minikube
@@ -36,6 +37,7 @@
 .Trash
 .vim
 .viminfo
+.vimspector.log
 .vscode-server
 .wget-hsts
 .z

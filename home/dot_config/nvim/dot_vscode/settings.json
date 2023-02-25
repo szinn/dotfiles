@@ -1,0 +1,9 @@
+{
+  "Lua.diagnostics.globals": [
+    "vim",
+    "jit"
+  ],
+  "Lua.diagnostics.disable": [
+    "undefined-doc-name"
+  ]
+}
