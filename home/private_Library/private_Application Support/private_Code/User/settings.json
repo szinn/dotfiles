@@ -154,4 +154,5 @@
       "italic": false
     }
   ],
+  "rust-analyzer.check.command": "clippy",
 }
