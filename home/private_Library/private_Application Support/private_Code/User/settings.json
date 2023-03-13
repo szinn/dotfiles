@@ -4,6 +4,7 @@
   "editor.fontSize": 11,
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "breadcrumbs.enabled": false,
   "editor.overviewRulerBorder": false,
   "explorer.confirmDelete": false,
@@ -93,9 +94,6 @@
   },
   "[toml]": {
     "editor.tabSize": 4
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
     "editor.formatOnType": true
