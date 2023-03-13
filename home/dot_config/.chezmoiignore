@@ -11,3 +11,4 @@ pgcli
 procps
 rclone
 sops
+nvim/lazy-lock.json

@@ -1,0 +1,7 @@
+S.gpg-agent
+S.gpg-agent.browser
+S.gpg-agent.extra
+S.gpg-agent.ssh
+openpgp-revocs.d
+pubring.kbx~
+.#*
