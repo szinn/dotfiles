@@ -80,7 +80,8 @@
   "terminal.integrated.defaultProfile.osx": "fish",
   "prettier.printWidth": 120,
   "vs-kubernetes": {
-    "vs-kubernetes.crd-code-completion": "enabled"
+    "vs-kubernetes.crd-code-completion": "enabled",
+    "vs-kubernetes.ignore-recommendations": true
   },
   "yaml.format.enable": true,
   "yaml.schemas": {
@@ -153,4 +154,7 @@
     }
   ],
   "rust-analyzer.check.command": "clippy",
+  "remote.SSH.remotePlatform": {
+    "ragnar": "linux"
+  },
 }
