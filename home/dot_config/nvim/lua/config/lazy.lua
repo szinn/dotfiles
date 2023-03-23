@@ -18,7 +18,11 @@ require("lazy").setup({
     missing = true,
     colorscheme = { "tokyonight-night" },
   },
-  checker = { enabled = true },
+  checker = {
+    enabled = true,
+    notify = true,
+    concurrency = 10
+  },
   change_detection = {
     notify = false,
   },
@@ -41,3 +45,4 @@ require("lazy").setup({
     },
   },
 })
+
