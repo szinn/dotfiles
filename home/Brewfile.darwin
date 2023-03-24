@@ -27,6 +27,8 @@ brew "chezmoi"
 brew "cilium-cli"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Container Signing
+brew "cosign"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Secure runtime for JavaScript and TypeScript
@@ -77,6 +79,8 @@ brew "kustomize"
 brew "lsd"
 # Language Server for the Lua language
 brew "lua-language-server"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Mac App Store command-line interface
 brew "mas"
 # Replacement for ls, cp and other commands for object storage
@@ -113,6 +117,8 @@ brew "sops"
 brew "stow"
 # Opinionated Lua code formatter
 brew "stylua"
+# CLI for interacting with TektonCD
+brew "tektoncd-cli"
 # User interface to the TELNET protocol
 brew "telnet"
 # Tool to build, change, and version infrastructure
@@ -179,5 +185,6 @@ mas "Save to Pocket", id: 1477385213
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "TicketToRide", id: 470834073
+mas "WhatsApp", id: 1147396723
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
