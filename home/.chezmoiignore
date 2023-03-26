@@ -30,6 +30,7 @@
 .rustup
 .sqlite_history
 .swiftpm
+.tekton
 .templateengine
 .terraform.d
 .tool-versions
