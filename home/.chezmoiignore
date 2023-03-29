@@ -12,6 +12,7 @@
 .DS_Store
 .emacs.d
 .fleet
+.gnupg/random_seed
 .gradle
 .hushlogin
 .java

@@ -22,6 +22,7 @@ com.apple.appleaccountd
 com.apple.bluetooth.services.cloud
 com.apple.icloud.searchpartyd
 com.apple.internal.ck
+com.apple.iTunesCloud
 com.apple.WatchListKit
 Compositions
 Contacts
