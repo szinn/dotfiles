@@ -157,4 +157,7 @@
   "remote.SSH.remotePlatform": {
     "ragnar": "linux"
   },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
 }
