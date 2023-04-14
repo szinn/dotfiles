@@ -18,6 +18,7 @@
 .java
 .k8slens
 .krew
+.laterminal
 .lesshst
 .lldb
 .local
@@ -68,3 +69,4 @@ Temporary
 {{- if not (eq .chezmoi.os "darwin") }}
 Library
 {{- end }}
+_packages
