@@ -11,7 +11,6 @@ tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homeport/tap"
 tap "sergiobenitez/osxct"
 tap "weaveworks/tap"
@@ -67,8 +66,6 @@ brew "grpcurl"
 brew "helm"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Fast and secure open-source backup
-brew "kopia"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Template-free customization of Kubernetes YAML manifests
@@ -101,6 +98,8 @@ brew "pre-commit"
 brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# QR Code generation
+brew "qrencode"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Fast, efficient and secure backup program
