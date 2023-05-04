@@ -1,3 +1,4 @@
+_packages
 .adobe
 .ansible
 .asdf
@@ -23,6 +24,7 @@
 .lldb
 .local
 .m2
+.matplotlib
 .minikube
 .npm
 .profile
@@ -40,6 +42,7 @@
 .vim
 .viminfo
 .vimspector.log
+.vscode-cli
 .vscode-server
 .wget-hsts
 .z
@@ -69,4 +72,3 @@ Temporary
 {{- if not (eq .chezmoi.os "darwin") }}
 Library
 {{- end }}
-_packages

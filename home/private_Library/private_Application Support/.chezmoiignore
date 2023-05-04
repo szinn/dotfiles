@@ -42,6 +42,7 @@ Code/Crashpad
 Code/CrashpadMetrics-active.pma
 Code/CrashpadMetrics.pma
 Code/databases
+Code/DawnCache
 Code/GPUCache
 Code/languagepacks.json
 Code/Local Storage
@@ -86,6 +87,7 @@ com.apple.windowmanager
 com.bugsnag.Bugsnag
 com.colliderli.iina
 com.privateinternetaccess.vpn
+com.readdle.SparkDesktop.helper
 CrashReporter
 cura
 discord
@@ -142,4 +144,6 @@ Tunnelblick
 videosubscriptionsd
 virtualenv
 Vivaldi
+weave-gitops-config.json
+Xcode
 zoom.us
