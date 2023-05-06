@@ -23,6 +23,8 @@ brew "bat"
 brew "chezmoi"
 # CLI to install, manage & troubleshoot Kubernetes clusters running Cilium
 brew "cilium-cli"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Container Signing
