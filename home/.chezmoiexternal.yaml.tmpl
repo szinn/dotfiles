@@ -47,6 +47,15 @@
     command: tar
     args: ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "kubectl-cnpg"]
 
+".local/bin/rust-analyzer":
+  url: "https://github.com/rust-lang/rust-analyzer/releases/download/2023-05-08/rust-analyzer-aarch64-apple-darwin.gz"
+  type: file
+  executable: true
+  refreshPeriod: 168h
+  filter:
+    command: gzip
+    args: ["--decompress", "--to-stdout"]
+
 "Library/Fonts/FiraCodeNerd":
   url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraCode.zip"
   type: archive
