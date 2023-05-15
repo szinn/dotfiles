@@ -37,6 +37,10 @@ brew "direnv"
 brew "dotnet"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
+# Platform built on V8 to build network applications
+brew "node"
+# Development kit for the Java programming language
+brew "openjdk"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -59,6 +63,8 @@ brew "gnu-sed"
 brew "gnu-tar"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Language server for the Go language
+brew "gopls"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Like cURL, but for gRPC
@@ -85,10 +91,6 @@ brew "minio-mc"
 brew "mysql-client"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Platform built on V8 to build network applications
-brew "node"
-# Development kit for the Java programming language
-brew "openjdk"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # Object-relational database system
