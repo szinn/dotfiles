@@ -20,7 +20,7 @@ require("lazy").setup({
   },
   checker = {
     enabled = true,
-    notify = true,
+    notify = false,
     concurrency = 10
   },
   change_detection = {
