@@ -23,6 +23,7 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", desc = "Git Files" },
+    ["<leader>fl"] = { "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
   },
   t = {
     -- setting a mapping to false will disable it

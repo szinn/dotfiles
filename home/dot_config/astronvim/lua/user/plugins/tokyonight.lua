@@ -7,7 +7,7 @@ return {
     opts = {
       style = "night",
       disable_background = true,
-      on_highlights = function(hl, c)
+      on_highlights = function(hl, _)
         hl.Normal = {
           bg = "#000000",
         }
