@@ -38,6 +38,7 @@ _packages
 .templateengine
 .terraform.d
 .tool-versions
+.tmux
 .Trash
 .vim
 .viminfo
