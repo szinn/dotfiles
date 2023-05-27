@@ -29,6 +29,7 @@ _packages
 .npm
 .profile
 .psql_history
+.prettierd
 .python_history
 .rediscli_history
 .rustup
