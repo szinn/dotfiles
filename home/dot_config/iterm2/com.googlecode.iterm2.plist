@@ -127,6 +127,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>NeverWarnAboutShortLivedSessions_9B70FC07-05DE-4016-BFC6-523DAC2F41AC</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_9B70FC07-05DE-4016-BFC6-523DAC2F41AC_selection</key>
