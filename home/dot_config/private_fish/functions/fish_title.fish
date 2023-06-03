@@ -18,7 +18,8 @@ function fish_title
             set -f git_root (dirname $git_dir)/
           end
           set -l current_git_branch (git -C "$1" branch | sed  '/^\*/!d;s/\* //')
-          echo "$(hostname -s): $(string replace $git_root "" $PWD) ($git_repo: $current_git_branch)"
+          # echo "$(hostname -s): $(string replace $git_root "" $PWD) ($git_repo: $current_git_branch)"
+          echo "$(hostname -s): $(string replace $git_root "" $PWD)"
         else
           echo "$(hostname -s): $(thepath $PWD)"
         end

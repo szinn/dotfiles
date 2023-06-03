@@ -21,6 +21,12 @@ window:
     x: 14
     y: 10
 
+    # NOTE: helpful hex codes
+# \x1b = escape (useful for vim-related keybindings)
+# \x14 = control-b (the tmux prefix - C-t)
+key_bindings:
+  - { key: J, mods: Command, chars: "\x14\x54" }
+
 font:
   normal:
     family: "SFMono Nerd Font"

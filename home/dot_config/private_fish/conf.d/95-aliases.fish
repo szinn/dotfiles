@@ -15,3 +15,6 @@ if command -sq ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
   alias t ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
 end
 
+if command -sq tmux
+  alias ns "tmux new -s (basename $PWD)"
+end
