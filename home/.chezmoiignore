@@ -37,6 +37,7 @@ _packages
 .swiftpm
 .tekton
 .templateengine
+.terminfo
 .terraform.d
 .tool-versions
 .Trash

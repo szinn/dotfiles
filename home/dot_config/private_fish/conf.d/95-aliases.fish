@@ -10,3 +10,8 @@ if command -sq ssh-ident
   alias ssh=(which ssh-ident)
   alias rsync='BINARY_SSH=rsync /path/to/ssh-ident'
 end
+
+if command -sq ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
+  alias t ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
+end
+
