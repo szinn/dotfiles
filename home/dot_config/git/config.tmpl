@@ -22,23 +22,32 @@
   lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+  # diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only
 
 [delta]
-    features = decorations
-    side-by-side = true
+  navigate = true
+  light = false
+  features = decorations
+  side-by-side = true
 
-[delta "interactive"]
-    keep-plus-minus-markers = false
+[merge]
+  conflictstyle = diff3
 
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+[diff]
+  colorMoved = default
+
+# [delta "interactive"]
+#   keep-plus-minus-markers = false
+#
+# [delta "decorations"]
+#   commit-decoration-style = blue ol
+#   commit-style = raw
+#   file-style = omit
+#   hunk-header-decoration-style = blue box
+#   hunk-header-file-style = red
+#   hunk-header-line-number-style = "#067a00"
+#   hunk-header-style = file line-number syntax
 
 [color]
   ui = auto
@@ -85,7 +94,7 @@
 
 [commit]
 {{- if eq .chezmoi.os "darwin" }}
-  gpgsign = true
+  gpgsign = false
 {{- end }}
 {{- if (eq .chezmoi.os "linux") }}
   gpgsign = false
