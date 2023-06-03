@@ -3,6 +3,7 @@ tap "aquaproj/aqua"
 tap "armosec/kubescape"
 tap "cue-lang/tap"
 tap "derailed/k9s"
+tap "epk/epk"
 tap "espanso/espanso"
 tap "filosottile/musl-cross"
 tap "fluxcd/tap"
@@ -55,6 +56,8 @@ brew "fzf"
 brew "gh"
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Tcl/Tk UI for the git revision control system
 brew "git-gui"
 # GNU implementation of the famous stream editor
@@ -77,6 +80,8 @@ brew "jq"
 brew "kubernetes-cli"
 # Template-free customization of Kubernetes YAML manifests
 brew "kustomize"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Language Server for the Lua language
@@ -93,6 +98,8 @@ brew "mysql-client"
 brew "neovim"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
+# General-purpose scripting language
+brew "php"
 # Object-relational database system
 brew "postgresql@15"
 # Framework for managing multi-language pre-commit hooks
@@ -123,6 +130,8 @@ brew "tektoncd-cli"
 brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Terminal multiplexer
+brew "tmux"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
@@ -145,6 +154,8 @@ brew "weaveworks/tap/gitops"
 cask "1password"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 # Menu bar icon organizer
 cask "bartender"
 # Tool to customize input devices and automate computer systems
@@ -157,6 +168,7 @@ cask "discord"
 cask "docker"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
+cask "font-sf-mono-nerd-font"
 # Tools to protect your emails and files
 cask "gpg-suite"
 # Free and open-source media player
@@ -188,3 +200,26 @@ mas "TicketToRide", id: 470834073
 mas "WhatsApp", id: 1147396723
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
+vscode "aaron-bond.better-comments"
+vscode "alefragnani.Bookmarks"
+vscode "alefragnani.project-manager"
+vscode "bmalehorn.vscode-fish"
+vscode "DavidAnson.vscode-markdownlint"
+vscode "dracula-theme-pro.theme-dracula-pro"
+vscode "esbenp.prettier-vscode"
+vscode "fcrespo82.markdown-table-formatter"
+vscode "foxundermoon.shell-format"
+vscode "hashicorp.terraform"
+vscode "mhutchie.git-graph"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
+vscode "oderwat.indent-rainbow"
+vscode "PKief.material-icon-theme"
+vscode "redhat.vscode-yaml"
+vscode "rust-lang.rust-analyzer"
+vscode "samuelcolvin.jinjahtml"
+vscode "signageos.signageos-vscode-sops"
+vscode "usernamehw.errorlens"
+vscode "vadimcn.vscode-lldb"
+vscode "yzhang.markdown-all-in-one"
