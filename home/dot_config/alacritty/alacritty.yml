@@ -18,14 +18,8 @@ window:
   decorations: buttonless
   dynamic_padding: false
   padding:
-    x: 14
-    y: 10
-
-    # NOTE: helpful hex codes
-# \x1b = escape (useful for vim-related keybindings)
-# \x14 = control-b (the tmux prefix - C-t)
-key_bindings:
-  - { key: J, mods: Command, chars: "\x14\x54" }
+    x: 2
+    y: 2
 
 font:
   normal:
@@ -94,6 +88,25 @@ colors:
     magenta: "#FF99CC"
     cyan: "#99FFEE"
     white: "#FFFFFF"
+
+# Helpful hex codes
+#   \x1b = escape (useful for vim-related keybindings)
+#   \x14 = control-t (the tmux prefix)
+key_bindings:
+  - { key: G, mods: Command, chars: "\x14G" } # Show lazygit window
+  - { key: J, mods: Command, chars: "\x14T" } # Show tmux smart session manager
+  - { key: K, mods: Command, chars: "\x14L" } # Switch to the previous tmux session
+  - { key: T, mods: Command, chars: "\x14c" } # Create new tmux pane in current session
+  - { key: Key1, mods: Command, chars: "\x141" } # select tmux pane 1
+  - { key: Key2, mods: Command, chars: "\x142" } #              ... 2
+  - { key: Key3, mods: Command, chars: "\x143" } #              ... 3
+  - { key: Key4, mods: Command, chars: "\x144" } #              ... 4
+  - { key: Key5, mods: Command, chars: "\x145" } #              ... 5
+  - { key: Key6, mods: Command, chars: "\x146" } #              ... 6
+  - { key: Key7, mods: Command, chars: "\x147" } #              ... 7
+  - { key: Key8, mods: Command, chars: "\x148" } #              ... 8
+  - { key: Key9, mods: Command, chars: "\x149" } #              ... 9
+
 # Key bindings
 #
 # Key bindings are specified as a list of objects. For example, this is the
