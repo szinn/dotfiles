@@ -16,5 +16,5 @@ if command -sq ~/.config/tmux/plugins/t-smart-tmux-session-manager/bin/t
 end
 
 if command -sq tmux
-  alias ns "tmux attach -s (basename $PWD) || tmux new -s (basename $PWD)"
+  alias tm "tmux attach -t (basename $PWD) || tmux new -s (basename $PWD)"
 end
