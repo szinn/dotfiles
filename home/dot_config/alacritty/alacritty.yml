@@ -34,7 +34,7 @@ font:
   bold_italic:
     family: "SFMono Nerd Font"
     style: Heavy Italic
-  size: 11.0
+  size: 12.0
 
 colors:
   primary:
