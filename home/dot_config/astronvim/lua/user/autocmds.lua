@@ -39,12 +39,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-  desc = "Auto hide tabline",
-  group = vim.api.nvim_create_augroup("autohide_tabline", { clear = true }),
-  pattern = "AstroBufsUpdated",
-  callback = function()
-    local new_showtabline = #vim.t.bufs > 1 and 2 or 1
-    if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
-  end,
-})
+-- vim.api.nvim_create_autocmd("User", {
+--   desc = "Auto hide tabline",
+--   group = vim.api.nvim_create_augroup("autohide_tabline", { clear = true }),
+--   pattern = "AstroBufsUpdated",
+--   callback = function()
+--     local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+--     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+--   end,
+-- })
