@@ -4,6 +4,7 @@ tap "arl/arl"
 tap "armosec/kubescape"
 tap "cue-lang/tap"
 tap "derailed/k9s"
+tap "epk/epk"
 tap "espanso/espanso"
 tap "filosottile/musl-cross"
 tap "fluxcd/tap"
@@ -82,6 +83,8 @@ brew "kubernetes-cli"
 brew "kustomize"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Library for USB device access
+brew "libusb"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Language Server for the Lua language
@@ -108,6 +111,8 @@ brew "pre-commit"
 brew "prettier"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Python version management
+brew "pyenv"
 # QR Code generation
 brew "qrencode"
 # Persistent key-value database, with built-in net interface
@@ -172,6 +177,7 @@ cask "discord"
 cask "docker"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
+cask "font-sf-mono-nerd-font"
 # Tools to protect your emails and files
 cask "gpg-suite"
 # Free and open-source media player
