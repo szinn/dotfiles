@@ -30,6 +30,7 @@ _packages
 .profile
 .psql_history
 .prettierd
+.pyenv
 .python_history
 .rediscli_history
 .rustup
@@ -46,6 +47,7 @@ _packages
 .vimspector.log
 .vscode-cli
 .vscode-server
+.vscode/cli
 .wget-hsts
 .z
 .zsh_history

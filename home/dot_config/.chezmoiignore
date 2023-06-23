@@ -6,10 +6,10 @@ git/gitk
 helm
 JetBrains
 k9s
-nvim
 op
 pgcli
 procps
 rclone
 sops
-nvim/lazy-lock.json
+nvim.astro
+nvim.appel
