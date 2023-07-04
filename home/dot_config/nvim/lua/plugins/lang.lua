@@ -31,4 +31,5 @@ return {
   { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.dap.nlua" },
   { import = "plugins.extras.lang.rust" },
+  { import = "plugins.extras.lang.terraform" },
 }
