@@ -94,7 +94,7 @@
 
 [commit]
 {{- if eq .chezmoi.os "darwin" }}
-  gpgsign = false
+  gpgsign = true
 {{- end }}
 {{- if (eq .chezmoi.os "linux") }}
   gpgsign = false
