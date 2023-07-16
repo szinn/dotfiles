@@ -5,11 +5,23 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.cursorSurroundingLines": 10,
+  "editor.cursorSurroundingLinesStyle": "default",
+  "editor.hover.delay": 300,
+  "workbench.hover.delay": 1,
+  "workbench.colorCustomizations": {
+    "editorCursor.background": "#ff930f",
+    "editorCursor.foreground": "#ff930f"
+  },
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": true,
   "breadcrumbs.enabled": false,
   "editor.overviewRulerBorder": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 0,
+  "explorer.openEditors.visible": 1,
   "explorer.autoReveal": false,
   "files.associations": {
     "**/ansible/**/*.yaml": "ansible",
@@ -88,7 +100,7 @@
     "https://json.schemastore.org/taskfile.json": [
       "Taskfile.yaml",
       ".taskfiles/*.yaml"
-    ],
+    ]
   },
   "[rust]": {
     "editor.tabSize": 4
@@ -100,8 +112,7 @@
     "editor.formatOnType": true
   },
   "[lua]": {
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "sumneko.lua"
+    "editor.tabSize": 2
   },
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.connectTimeout": 30,
@@ -163,5 +174,5 @@
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
-  },
+  }
 }
