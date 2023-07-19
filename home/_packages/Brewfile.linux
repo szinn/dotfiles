@@ -1,6 +1,5 @@
 tap "derailed/k9s"
 tap "homebrew/bundle"
-tap "homebrew/core"
 # Simple, modern, secure file encryption
 brew "age"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -25,10 +24,14 @@ brew "git"
 brew "git-gui"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # Language Server for the Lua language
@@ -43,6 +46,10 @@ brew "protobuf"
 brew "ripgrep"
 # Editor of encrypted files
 brew "sops"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Terminal multiplexer
+brew "tmux"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
