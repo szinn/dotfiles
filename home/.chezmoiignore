@@ -8,6 +8,7 @@ _packages
 .cache
 .cargo
 .cups
+.curlrc
 .docker
 .dotnet
 .DS_Store
