@@ -103,16 +103,21 @@
     ]
   },
   "[rust]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
   },
   "[toml]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.formatOnSave": true
   },
   "[python]": {
     "editor.formatOnType": true
   },
   "[lua]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
   },
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.connectTimeout": 30,
@@ -173,6 +178,15 @@
     "ragnar": "linux"
   },
   "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "[go]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "golang.go"
   }
 }

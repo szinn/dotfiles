@@ -17,6 +17,8 @@ tap "sergiobenitez/osxct"
 tap "weaveworks/tap"
 # Simple, modern, secure file encryption
 brew "age"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -33,12 +35,16 @@ brew "coreutils"
 brew "cosign"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Debugger for the Go programming language
+brew "delve"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # .NET Core
 brew "dotnet"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Platform built on V8 to build network applications
 brew "node"
 # Development kit for the Java programming language
@@ -135,6 +141,10 @@ brew "tektoncd-cli"
 brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Terraform Language Server
+brew "terraform-ls"
+# Linter for Terraform files
+brew "tflint"
 # Terminal multiplexer
 brew "tmux"
 # Executes a program periodically, showing output fullscreen
@@ -212,12 +222,14 @@ mas "Xcode", id: 497799835
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.Bookmarks"
 vscode "alefragnani.project-manager"
+vscode "belfz.search-crates-io"
 vscode "bmalehorn.vscode-fish"
 vscode "DavidAnson.vscode-markdownlint"
 vscode "dracula-theme-pro.theme-dracula-pro"
 vscode "esbenp.prettier-vscode"
 vscode "fcrespo82.markdown-table-formatter"
 vscode "foxundermoon.shell-format"
+vscode "golang.go"
 vscode "hashicorp.terraform"
 vscode "mhutchie.git-graph"
 vscode "ms-vscode-remote.remote-ssh"
@@ -229,6 +241,8 @@ vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "samuelcolvin.jinjahtml"
 vscode "signageos.signageos-vscode-sops"
+vscode "tamasfe.even-better-toml"
 vscode "usernamehw.errorlens"
 vscode "vadimcn.vscode-lldb"
+vscode "yinfei.luahelper"
 vscode "yzhang.markdown-all-in-one"
