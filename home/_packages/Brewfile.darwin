@@ -198,6 +198,8 @@ cask "iterm2"
 cask "switchresx"
 # Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "AutoMounter", id: 1160435653
@@ -211,7 +213,6 @@ mas "Logic Pro", id: 634148309
 mas "Myst", id: 1580649368
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Pocket", id: 568494494
 mas "Save to Pocket", id: 1477385213
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
@@ -229,8 +230,10 @@ vscode "dracula-theme-pro.theme-dracula-pro"
 vscode "esbenp.prettier-vscode"
 vscode "fcrespo82.markdown-table-formatter"
 vscode "foxundermoon.shell-format"
+vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "hashicorp.terraform"
+vscode "ieni.glimpse"
 vscode "mhutchie.git-graph"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
@@ -240,6 +243,7 @@ vscode "PKief.material-icon-theme"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "samuelcolvin.jinjahtml"
+vscode "serayuzgur.crates"
 vscode "signageos.signageos-vscode-sops"
 vscode "tamasfe.even-better-toml"
 vscode "usernamehw.errorlens"
