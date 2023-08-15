@@ -44,6 +44,8 @@ brew "neovim"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Editor of encrypted files
 brew "sops"
 # Command-line interface for https://speedtest.net bandwidth tests
