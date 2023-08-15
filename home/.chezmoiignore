@@ -6,7 +6,6 @@ _packages
 .bash_logout
 .bashrc
 .cache
-.cargo
 .cups
 .curlrc
 .docker

@@ -127,6 +127,8 @@ brew "redis"
 brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Editor of encrypted files
@@ -229,6 +231,7 @@ vscode "DavidAnson.vscode-markdownlint"
 vscode "dracula-theme-pro.theme-dracula-pro"
 vscode "esbenp.prettier-vscode"
 vscode "fcrespo82.markdown-table-formatter"
+vscode "formulahendry.code-runner"
 vscode "foxundermoon.shell-format"
 vscode "github.vscode-github-actions"
 vscode "golang.go"
