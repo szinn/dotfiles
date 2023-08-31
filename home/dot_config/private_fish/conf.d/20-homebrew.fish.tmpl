@@ -8,9 +8,14 @@
 
 set HOMEBREW_PREFIX (brew --prefix)
 
-for package in gnu-sed findutils coreutils grep
+for package in gnu-sed findutils coreutils grep make
   if test -d "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
     fish_add_path "$HOMEBREW_PREFIX/opt/$package/libexec/gnubin"
+  end
+end
+for package in m4
+  if test -d "$HOMEBREW_PREFIX/opt/$package/bin"
+    fish_add_path "$HOMEBREW_PREFIX/opt/$package/bin"
   end
 end
 
