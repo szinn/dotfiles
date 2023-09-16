@@ -49,8 +49,8 @@ brew "harfbuzz"
 brew "node"
 # Development kit for the Java programming language
 brew "openjdk"
-# Modern replacement for 'ls'
-brew "exa"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Collection of GNU find, xargs, and locate
@@ -173,7 +173,7 @@ brew "homeport/tap/dyff"
 brew "weaveworks/tap/gitops"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
-# Command-line helper for the 1Password password manager
+# Command-line interface for 1Password
 cask "1password-cli"
 # GPU-accelerated terminal emulator
 cask "alacritty"
