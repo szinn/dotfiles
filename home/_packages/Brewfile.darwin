@@ -21,6 +21,8 @@ brew "age"
 brew "openssl@3"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
+# Improved shell history for zsh and bash
+brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Manage your dotfiles across multiple diverse machines, securely
