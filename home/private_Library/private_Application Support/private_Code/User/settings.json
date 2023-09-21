@@ -250,7 +250,8 @@
   "[rust]": {
     "editor.tabSize": 4,
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
   },
 
   "[python]": {
