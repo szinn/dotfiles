@@ -20,6 +20,7 @@ Colors
 com.apple.aiml.instrumentation
 com.apple.appleaccountd
 com.apple.bluetooth.services.cloud
+com.apple.bluetoothuser
 com.apple.icloud.searchpartyd
 com.apple.internal.ck
 com.apple.iTunesCloud
@@ -58,6 +59,7 @@ KeyboardServices
 Keychains
 LanguageModeling
 LaunchAgents
+LockdownMode
 Logs
 Mail
 Maps
@@ -99,5 +101,6 @@ Suggestions
 SyncedPreferences
 Translation
 Trial
+UnifiedAssetFramework
 Weather
 WebKit

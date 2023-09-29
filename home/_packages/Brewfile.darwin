@@ -105,6 +105,8 @@ brew "mas"
 brew "minio-mc"
 # Open source relational database management system
 brew "mysql-client"
+# Fast, highly customisable system info script
+brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # CLI for Postgres with auto-completion and syntax highlighting
@@ -218,6 +220,7 @@ mas "Myst", id: 1580649368
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Save to Pocket", id: 1477385213
+mas "Save to Reader", id: 1640236961
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
 mas "TicketToRide", id: 470834073

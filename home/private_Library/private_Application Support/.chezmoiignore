@@ -71,6 +71,7 @@ com.apple.ap.promotedcontentd
 com.apple.avfoundation
 com.apple.backgroundtaskmanagementagent
 com.apple.ContextStoreAgent
+com.apple.desktop.photos
 com.apple.exchangesync
 com.apple.MediaPlayer
 com.apple.NewDeviceOutreach
@@ -83,6 +84,7 @@ com.apple.sharedfilelist
 com.apple.spotlight
 com.apple.TCC
 com.apple.transparencyd
+com.apple.wallpaper
 com.apple.windowmanager
 com.bugsnag.Bugsnag
 com.colliderli.iina
@@ -102,6 +104,7 @@ GitHub Desktop
 Google
 gops
 Hazel
+homeenergyd
 icdd
 iCloud
 iTerm2
@@ -125,11 +128,13 @@ Mozilla
 Navigraph
 Navigraph Charts
 navigraph_charts
+networkserviceproxy
 obsidian
 OpenLens
 org.videolan.vlc
 PFU
 Plex
+Postman
 Rancher Desktop
 rancher-desktop
 Resilio Sync
