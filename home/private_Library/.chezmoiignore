@@ -19,6 +19,7 @@ ColorPickers
 Colors
 com.apple.aiml.instrumentation
 com.apple.appleaccountd
+com.apple.AppleMediaServices
 com.apple.bluetooth.services.cloud
 com.apple.bluetoothuser
 com.apple.icloud.searchpartyd

@@ -142,7 +142,9 @@
     "ui.semanticTokens": true
   },
 
-  "prettier.printWidth": 120,
+  "prettier": {
+    "printWidth": 120,
+  },
 
   "projectManager.any.maxDepthRecursion": 2,
 
@@ -230,7 +232,7 @@
 
   "yaml.format.enable": true,
   "yaml.schemas": {
-    "https://json.schemastore.org/taskfile.json": ["Taskfile.yaml", ".taskfiles/*.yaml"]
+    "https://taskfile.dev/schema.json": ["Taskfile.yaml", ".taskfiles/*.yaml"]
   },
 
   "zenMode.fullScreen": false,
@@ -267,5 +269,11 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "tamasfe.even-better-toml",
     "editor.formatOnSave": true
+  },
+
+  "[sql]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 }

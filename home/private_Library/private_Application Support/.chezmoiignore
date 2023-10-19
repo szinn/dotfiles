@@ -72,6 +72,7 @@ com.apple.avfoundation
 com.apple.backgroundtaskmanagementagent
 com.apple.ContextStoreAgent
 com.apple.desktop.photos
+com.apple.iTunesCloud
 com.apple.exchangesync
 com.apple.MediaPlayer
 com.apple.NewDeviceOutreach
@@ -149,6 +150,7 @@ Tunnelblick
 videosubscriptionsd
 virtualenv
 Vivaldi
+vscode-sqltools
 weave-gitops-config.json
 Xcode
 zoom.us
