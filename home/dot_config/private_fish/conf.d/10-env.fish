@@ -1,14 +1,19 @@
 # Configure environment
 set -gx EDITOR "nvim"
-set -Ux GOPATH (go env GOPATH)
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
 set -gx LESSHISTFILE -
 set -gx PAGER less
-set -gx SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
-set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+
+if command -sq sops
+  set -gx SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
+end
+
+if command -sq fd
+  set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+end
 
 if command -sq rg
   set -gx RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
