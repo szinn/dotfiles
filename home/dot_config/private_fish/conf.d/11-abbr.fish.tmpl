@@ -18,3 +18,8 @@ if type -q eza
     alias ll 'eza --long --all --group --header'
     alias lt 'eza --long --all --group --header --tree --level'
 end
+
+{{ if (eq .chezmoi.os "darwin") -}}
+abbr ap "ansible-playbook"
+abbr apb "ansible-playbook --ask-become"
+{{ end -}}

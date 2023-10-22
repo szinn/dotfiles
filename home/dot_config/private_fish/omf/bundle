@@ -1,5 +1,0 @@
-package brew
-package direnv
-package local-config
-package rustup
-theme default

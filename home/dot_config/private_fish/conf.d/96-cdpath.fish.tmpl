@@ -1,0 +1,7 @@
+{{ if (eq .chezmoi.os "darwin") -}}
+set -gx CDPATH . $HOME $HOME/Development $HOME/Development/XCode $HOME/.config
+{{ end -}}
+
+{{ if (eq .chezmoi.os "linux") -}}
+set -gx CDPATH . $HOME $HOME/dev
+{{ end -}}
