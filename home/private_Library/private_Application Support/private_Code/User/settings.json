@@ -214,6 +214,7 @@
     "vs-kubernetes.ignore-recommendations": true
   },
 
+  "workbench.activityBar.location": "top",
   "workbench.hover.delay": 1,
   "workbench.colorCustomizations": {
     "editorCursor.background": "#ff930f",
@@ -223,7 +224,6 @@
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 6,
-  "workbench.activityBar.visible": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula Pro (Van Helsing)",
 
