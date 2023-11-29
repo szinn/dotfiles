@@ -3,6 +3,7 @@
 .CCH_NGLW_Lock
 .CCH_UPI_Lock
 .DS_Store
+.keymapp
 .pbz.qriba-grpuabybtvrf.guvax3
 1Password
 ABBYY
@@ -102,6 +103,7 @@ FileProvider
 Finder Tags.txt
 Fusion 360
 GitHub Desktop
+go
 Google
 gops
 Hazel
@@ -151,6 +153,7 @@ videosubscriptionsd
 virtualenv
 Vivaldi
 vscode-sqltools
+wally
 weave-gitops-config.json
 Xcode
 zoom.us
