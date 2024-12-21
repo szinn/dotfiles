@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+KEY_ID="B2F1677DB0348B42"
+
+if gpg --list-secret-keys --keyid-format long | grep -q "${KEY_ID}"; then
+  echo "GPG key is present already"
+else
+  tmpDir=$(mktemp -d)
+  for uuid in enuuzu4ukabxz2rycjeikap3fa tsx66n5rb7garzfub7alm2smiq; do
+    tmpFile="${tmpDir}/${uuid}.asc"
+
+    op document get ${uuid} --out-file ${tmpFile}
+    gpg --import ${tmpFile}
+  done
+
+  tmpFile="${tmpDir}/owner_trust.asc"
+  op document get 3iefpzb6vlz4mtyakxrulu52iq  --out-file ${tmpFile}
+  gpg --import-ownertrust ${tmpFile}
+fi
