@@ -1,0 +1,73 @@
+add_newline = false
+command_timeout = 1000
+format = "$username$hostname$directory$git_branch$git_status${custom.direnv}$fill$python$status$cmd_duration$line_break$character"
+
+[character]
+error_symbol = "[](red)"
+success_symbol = "[](green)"
+vicmd_symbol = "[](purple)"
+
+[cmd_duration]
+format = "took [$duration]($style) "
+min_time = 2000
+style = "yellow"
+
+[custom.direnv]
+format = "[$symbol]($style)"
+style = "blue"
+symbol = "  "
+when = "env | grep -E '^DIRENV_FILE='"
+
+[directory]
+fish_style_pwd_dir_length = 1
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " "
+style = "blue"
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "../"
+
+[fill]
+symbol = " "
+
+[git_branch]
+format = "on [$symbol$branch]($style) "
+style = "purple"
+symbol = " "
+
+[git_status]
+ahead = " "
+behind = " "
+conflicted = " "
+deleted = " "
+diverged = "󰆗 "
+format = "([$all_status$ahead_behind]($style) )"
+modified = " "
+renamed = " "
+staged = " "
+stashed = " "
+style = "purple"
+untracked = " "
+up_to_date = " "
+
+[hostname]
+format = "[@$hostname]($style) in "
+ssh_only = true
+style = "green"
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
+symbol = "🐍 "
+
+[status]
+disabled = false
+format = "[$symbol]($style) "
+style = "red"
+success_symbol = " "
+symbol = " "
+
+[username]
+format = "[$user]($style)"
+show_always = false
+style_root = "red"
+style_user = "yellow"

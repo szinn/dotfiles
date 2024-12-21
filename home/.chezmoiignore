@@ -1,12 +1,17 @@
+.cache
 .CFUserTextEncoding
+.gnupg
 .local
 .Trash
+.krew
 .viminfo
+.vscode
 .zsh_history
 .zsh_sessions
 Desktop
 Documents
 Downloads
+go
 Library
 Movies
 Music

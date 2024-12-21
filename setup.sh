@@ -73,7 +73,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 install_chezmoi
 install_1password
 
-# Apply dotfiles
+ # Apply dotfiles
 echo "Applying Chezmoi configuration."
 chezmoi init "${DOTFILES_REPO_URL}"
 chezmoi apply
