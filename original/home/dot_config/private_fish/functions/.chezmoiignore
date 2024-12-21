@@ -1,8 +1,0 @@
-{{- if not (eq .chezmoi.os "darwin") }}
-df.fish
-flushdns.fish
-{{- end }}
-
-{{ if not (eq .chezmoi.os "linux") -}}
-agent.fish
-{{- end }}

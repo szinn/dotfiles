@@ -1,7 +1,0 @@
-.crates.toml
-.crates2.json
-.package-cache
-bin
-env
-git
-registry

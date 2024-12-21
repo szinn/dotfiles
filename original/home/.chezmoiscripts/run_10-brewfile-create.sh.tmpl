@@ -1,6 +1,0 @@
-{{- $brewfile := joinPath .chezmoi.sourceDir (print "_packages/Brewfile." .chezmoi.os) -}}
-#!/bin/bash
-{{- if (not (stat $brewfile)) }}
-echo "Dumping to Brewfile..."
-brew bundle dump --describe --file {{ $brewfile }} --force
-{{- end }}

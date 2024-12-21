@@ -1,7 +1,0 @@
-{{- if not (eq .chezmoi.os "darwin") }}
-dosync
-{{- end }}
-
-{{- if not (eq .chezmoi.os "linux") }}
-rebalance.sh
-{{- end }}
