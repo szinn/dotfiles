@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json" ]]; then
+  echo "settings.json already linked"
+else
+  rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
+  ln -s "{{ .chezmoi.homeDir }}/.config/vscode/settings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
+fi
+
+if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json" ]]; then
+  echo "keybindings.json already linked"
+else
+  rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
+  ln -s "{{ .chezmoi.homeDir }}/.config/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
+fi
+
+if code --list-extensions | grep "dracula-theme-pro.theme-dracula-pro"; then
+  echo "Dracula Pro VSCode theme is already installed"
+else
+  tmpDir=$(mktemp -d)
+  tmpFile="${tmpDir}/dracula.vsix"
+
+  op document get cpxuriqks6rhd7p6paycxqylsq --out-file ${tmpFile}
+  code --install-extension ${tmpFile}
+fi

@@ -9,6 +9,6 @@ echo "Running brew bundle"
 brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile"
 
 echo "Running brew bundle cleanup"
-brew bundle cleanup --force --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile" || true
+brew bundle cleanup --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile" || true
 
 {{- end }}
