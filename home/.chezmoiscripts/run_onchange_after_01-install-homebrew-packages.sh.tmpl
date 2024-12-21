@@ -10,7 +10,6 @@ brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile"
 
 echo "Running brew cleanup"
 brew cleanup --prune=all
-brew doctor
 
 echo "Running brew bundle cleanup"
 brew bundle cleanup --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile" || true
