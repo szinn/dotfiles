@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.toml.tmpl": "toml",
+    "*.sh.tmpl": "shellscript",
+    "**/home/dot_config/git/config.tmpl": "toml",
+    "**/.chezmoiignore": "plaintext"
+  }
+}

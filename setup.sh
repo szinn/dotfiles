@@ -33,8 +33,13 @@ function initialize_macos() {
     fi
   }
 
+  function install_rosetta() {
+      sudo softwareupdate --agree-to-license --install-rosetta
+  }
+
   echo "Initializing MacOS..."
   install_xcode
+  install_rosetta
 }
 
 function install_homebrew() {
@@ -76,4 +81,6 @@ install_1password
  # Apply dotfiles
 echo "Applying Chezmoi configuration."
 chezmoi init "${DOTFILES_REPO_URL}"
+cd ~/.local/shared/chezmoi
+git remote set-url origin git@github.com:szinn/dotfiles.git
 chezmoi apply

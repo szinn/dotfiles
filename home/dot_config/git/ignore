@@ -1,4 +1,5 @@
 .direnv/**
-result
 .DS_Store
-.decrypted-*
+.decrypted~*
+*.decrypted.*
+.venv

@@ -6,15 +6,15 @@ local fish_path = "/opt/homebrew/bin/fish"
 -- local workspace_switcher = wezterm.plugin.require("file:///Users/scotte/Development/Projects/smart_workspace_switcher.wezterm")
 -- local workspace_switcher = wezterm.plugin.require("https://github.com/szinn/smart_workspace_switcher.wezterm")
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-workspace_switcher.set_zoxide_path("/opt/homebrew/bin/zoxide")
-workspace_switcher.set_workspace_formatter(function(label)
+workspace_switcher.zoxide_path = "/opt/homebrew/bin/zoxide"
+workspace_switcher.workspace_formatter = function(label)
     return wezterm.format({
         { Attribute = { Italic = true } },
         { Foreground = { Color = "#9580FF" } },
         { Background = { Color = "black" } },
         { Text = "󱂬: " .. label },
     })
-end)
+end
 
 -- Use config builder object if possible
 if wezterm.config_builder then

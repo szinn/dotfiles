@@ -8,10 +8,10 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 
 eval (/opt/homebrew/bin/brew shellenv)
 
+update_path $HOMEBREW_PREFIX/bin
 update_path $HOMEBREW_PREFIX/opt/postgresql@17/bin
 update_path $HOMEBREW_PREFIX/opt/curl/bin
 update_path $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/gawk/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin
-update_path $HOMEBREW_PREFIX/bin

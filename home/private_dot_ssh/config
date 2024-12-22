@@ -1,0 +1,30 @@
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/controlmasters/ssh-%r@%h:%p
+  UseKeychain yes
+  AddKeysToAgent yes
+
+Include "config.d/*"
+
+Host zeus
+  user = root
+
+Host styx
+  user = root
+
+Host octo
+  user = pi
+
+Host github.com
+  hostname = "ssh.github.com"
+  port = 443
+  user = "ssh.github.com"
+
+Host pikvm
+  user = root
+
+Host ares
+  user = root
+
+Host magized.com
+  user = mailu

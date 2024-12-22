@@ -18,6 +18,19 @@ fi
 ! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i '2iauth        sufficient     pam_tid.so' /etc/pam.d/sudo
 
 # ---------------------------------------------------------------------------------------------------------------------
+# NFS settings
+# ---------------------------------------------------------------------------------------------------------------------
+! grep -q nfs.client.mount.options /etc/nfs.conf && sudo gsed -i '$anfs.client.mount.options = vers=4' /etc/nfs.conf
+
+# ---------------------------------------------------------------------------------------------------------------------
+# ssh settings
+# ---------------------------------------------------------------------------------------------------------------------
+if [[ ! -e /etc/ssh/sshd_config.d/disable-password.conf ]]; then
+  echo "PasswordAuthentication no" > /tmp/disable-password.conf
+  sudo mv /tmp/disable-password.conf /etc/ssh/sshd_config.d/disable-password.conf
+fi
+
+# ---------------------------------------------------------------------------------------------------------------------
 # Dock settings
 # ---------------------------------------------------------------------------------------------------------------------
 __clear_apps_from_dock() {
@@ -68,7 +81,7 @@ __add_app_to_dock /Applications/1Password.app
 __add_app_to_dock /Applications/Safari.app
 __add_app_to_dock /Applications/Spark\ Desktop.app
 __add_app_to_dock /Applications/DEVONthink\ 3.app
-__add_app_to_dock /Applications/OmniFocus.localized/OmniFocus.app
+__add_app_to_dock /Applications/OmniFocus.app
 __add_app_to_dock /Applications/Drafts.app
 __add_app_to_dock /Applications/Visual\ Studio\ Code.app
 __add_app_to_dock /Applications/WezTerm.app
@@ -139,7 +152,7 @@ defaults write -g com.apple.sound.beep.feedback -int 1
 defaults write -g com.apple.sound.beep.volume -float 0.500
 defaults write -g com.apple.springing.delay -float 0.0
 defaults write -g com.apple.springing.enabled -bool true
-defaults write -g com.apple.swipescrolldirection -bool false
+defaults write -g com.apple.swipescrolldirection -bool true
 defaults write -g com.apple.trackpad.enableSecondaryClick -bool true
 defaults write -g com.apple.trackpad.scaling -float 1.0
 defaults write -g com.apple.trackpad.trackpadCornerClickBehavior -int 1
