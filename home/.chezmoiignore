@@ -1,6 +1,7 @@
 .bash_history
 .cache
 .CFUserTextEncoding
+.docker
 .DS_Store
 .gnupg/common.conf
 .gnupg/private-keys-v1.d
@@ -47,6 +48,7 @@ Library
 Movies
 Multimedia
 Music
+OrbStack
 Parallels
 Pictures
 Public
