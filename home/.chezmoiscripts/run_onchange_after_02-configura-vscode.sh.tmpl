@@ -3,14 +3,18 @@
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json" ]]; then
   echo "settings.json already linked"
 else
-  rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
+  if [[ -e "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json" ]]; then
+    rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
+  fi
   ln -s "{{ .chezmoi.homeDir }}/.config/vscode/settings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
 fi
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json" ]]; then
   echo "keybindings.json already linked"
 else
-  rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
+  if [[ -e "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json" ]]; then
+    rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
+  fi
   ln -s "{{ .chezmoi.homeDir }}/.config/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
 fi
 
