@@ -18,6 +18,7 @@
 .lesshst
 .local/share
 .local/state
+.npm
 .orbstack
 .profile
 .rustup
