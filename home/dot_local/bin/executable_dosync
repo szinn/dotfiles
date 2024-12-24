@@ -15,6 +15,7 @@ PHOTOS="/Users/scotte/Multimedia/Photos"
 BOOKS="/Users/scotte/Multimedia/Books"
 DATABASES="/Users/scotte/Databases"
 GAMES="/Users/scotte/Games"
+DOCUMENTS="/Users/scotte/Documents"
 AUDIO_BOOKS="/Users/scotte/Multimedia/AudioBooks"
 
 LOCAL_MEDIA="/Users/scotte/Ragnar/dosync_media"
@@ -115,6 +116,12 @@ echo " " | tee -a ${LOGFILE}
 echo "*** Syncing databases..." | tee -a ${LOGFILE}
 echo " " | tee -a ${LOGFILE}
 ${RSYNC} ${DATABASES}/Backups/. ${LOCAL_BACKUP}/Databases/ | tee -a ${LOGFILE}
+
+# Sync Documents
+echo " " | tee -a ${LOGFILE}
+echo "*** Syncing Documents..." | tee -a ${LOGFILE}
+echo " " | tee -a ${LOGFILE}
+${RSYNC} ${DOCUMENTS}/. ${LOCAL_BACKUP}/Documents/ | tee -a ${LOGFILE}
 
 # Sync games
 echo " " | tee -a ${LOGFILE}
