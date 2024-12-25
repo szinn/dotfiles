@@ -1,1 +1,4 @@
-{{ onepasswordDocument "kft2pu2ounwa6izh7eidgyte4u" }}
+export PGHOST='{{ onepasswordRead "op://Kubernetes/cloudnative-pg-superuser/MAIN_PGHOST" }}'
+export PGUSER='{{ onepasswordRead "op://Kubernetes/cloudnative-pg-superuser/POSTGRES_SUPER_USER" }}'
+export PGPASSWORD='{{ onepasswordRead "op://Kubernetes/cloudnative-pg-superuser/POSTGRES_SUPER_PASS" }}'
+export PGDATABASE=
