@@ -1,8 +1,12 @@
+.ansible
 .bash_history
 .cache
 .CFUserTextEncoding
+.config/.DS_Store
+.cups
 .docker
 .DS_Store
+.gnupg/.DS_Store
 .gnupg/common.conf
 .gnupg/private-keys-v1.d
 .gnupg/public-keys.d
@@ -19,6 +23,8 @@
 .lesshst
 .local/share
 .local/state
+.mc/certs
+.mc/share
 .npm
 .orbstack
 .profile
@@ -26,6 +32,7 @@
 .ssh/1Password
 .ssh/agent
 .ssh/controlmasters/ssh*
+.ssh/environment
 .ssh/known_hosts
 .ssh/known_hosts.old
 .terraform.d

@@ -1,0 +1,17 @@
+{
+        "version": "10",
+        "aliases": {
+                "s3": {
+                        "url": "http://{{ onepasswordRead "op://Kubernetes/minio/MINIO_SERVER" }}",
+                        "accessKey": "{{ onepasswordRead "op://Kubernetes/minio/username" }}",
+                        "secretKey": "{{ onepasswordRead "op://Kubernetes/minio/password" }}",
+                        "api": "S3v4",
+                        "path": "auto"
+                },
+                "google": {
+                        "url": "https://storage.googleapis.com",
+                        "api": "S3v4",
+                        "path": "auto"
+                }
+        }
+}
