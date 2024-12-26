@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+mkdir -p "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind/Note.dtTemplate/English.lproj"
+if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind/Note.dtTemplate/English.lproj/Note.md" ]]; then
+  echo "Note.md already linked"
+else
+  if [[ -e "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind/Note.dtTemplate/English.lproj/Note.md" ]]; then
+    rm "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind/Note.dtTemplate/English.lproj/Note.md"
+  fi
+  ln -s "{{ .chezmoi.homeDir }}/.config/devonthink/Note.md" "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind/Note.dtTemplate/English.lproj/Note.md"
+fi

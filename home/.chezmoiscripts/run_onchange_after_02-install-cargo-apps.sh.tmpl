@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+if type -q cargo
+  if type -q mdbook
+    cargo install mdbook-admonish mdbook-linkcheck mdbook-toc
+  end
+end
+
