@@ -3,8 +3,9 @@ Host *
   ControlPath ~/.ssh/controlmasters/ssh-%r@%h:%p
   UseKeychain yes
   AddKeysToAgent yes
-
-Include "config.d/*"
+{{- if (eq .chezmoi.os "darwin") }}
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{- end }}
 
 Host zeus
   user = root
