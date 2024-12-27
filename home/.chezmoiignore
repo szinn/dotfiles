@@ -3,6 +3,7 @@
 .cache
 .CFUserTextEncoding
 .config/.DS_Store
+.config/k9s/skins
 .cups
 .docker
 .DS_Store
@@ -35,6 +36,7 @@
 .ssh/environment
 .ssh/known_hosts
 .ssh/known_hosts.old
+.terminfo
 .terraform.d
 .Trash
 .viminfo

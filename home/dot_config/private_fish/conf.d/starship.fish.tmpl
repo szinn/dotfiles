@@ -1,0 +1,8 @@
+# starship setup
+# Requires `brew install starship`
+if type -q starship
+    if status --is-interactive
+        set -gx STARSHIP_CONFIG "{{ .chezmoi.homeDir }}/.config/starship/starship.toml"
+        starship init fish | source
+    end
+end
