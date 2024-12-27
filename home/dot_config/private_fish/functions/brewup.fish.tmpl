@@ -1,0 +1,11 @@
+function brewup --description="Update homebrew applications"
+    if type -q brew
+        {{ lookPath "brew" }} update
+        {{ lookPath "brew" }} upgrade
+        {{ lookPath "brew" }} cleanup --prune=all
+        {{ lookPath "brew" }} doctor
+    end
+    if type -q mas
+        {{ lookPath "mas" }} upgrade
+    end
+end

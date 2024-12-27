@@ -1,0 +1,16 @@
+auto-update = download
+auto-update-channel = stable
+clipboard-trim-trailing-spaces = true
+font-family = FiraCode Nerd Font
+font-family-bold = FiraCode Nerd Font Bold
+font-family-italic = FiraCode Nerd Font Italic
+font-family-bold-italic = FiraCode Nerd Font Bold Italic
+font-size = 11
+macos-titlebar-style = tabs
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+quit-after-last-window-closed = true
+shell-integration = detect
+# theme = catppuccin-mocha
+window-height = 45
+window-width = 180

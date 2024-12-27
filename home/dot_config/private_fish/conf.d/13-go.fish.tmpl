@@ -1,3 +1,5 @@
-# go setup
+set -gx GOBIN "{{ .chezmoi.homeDir }}/go/bin"
+set -gx GOPATH "{{ .chezmoi.homeDir }}/go"
+
 # Requires `brew install go`
-update_path {{ .chezmoi.homeDir }}/go/bin
+update_path "{{ .chezmoi.homeDir }}/go/bin"

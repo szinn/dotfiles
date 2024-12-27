@@ -1,3 +1,6 @@
 # krew setup
 # Requires `brew install krew`
-update_path {{ .chezmoi.homeDir }}/.krew/bin
+if type -q kubectl-krew
+  abbr --add -- krew 'kubectl krew'
+  update_path {{ .chezmoi.homeDir }}/.krew/bin
+end

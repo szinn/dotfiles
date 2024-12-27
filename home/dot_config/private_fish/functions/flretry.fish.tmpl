@@ -1,0 +1,5 @@
+function flretry --description="Retry a flux update"
+    {{ lookPath "flux" }} suspend $argv
+    {{ lookPath "flux" }} resume $argv
+    {{ lookPath "flux" }} reconcile $argv
+end
