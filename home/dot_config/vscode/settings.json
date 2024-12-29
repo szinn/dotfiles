@@ -118,11 +118,7 @@
   "editor.overviewRulerBorder": false,
   "editor.tabSize": 2,
 
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "svelte"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "svelte"],
 
   "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
@@ -165,9 +161,7 @@
   },
 
   "projectManager.any.maxDepthRecursion": 2,
-  "projectManager.git.baseFolders": [
-    "/Users/scotte/Development/Projects"
-  ],
+  "projectManager.git.baseFolders": ["/Users/scotte/Development/Projects"],
   "projectManager.git.maxDepthRecursion": 2,
 
   "redhat.telemetry.enabled": false,
@@ -229,6 +223,12 @@
     }
   },
 
+  "sops": {
+    "binPath": "/opt/homebrew/bin/sops",
+    "defaults.ageKeyFile": "/Users/scotte/.config/sops/age/keys.txt",
+    "configPath": "./.sops.yaml"
+  },
+
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
 
@@ -256,7 +256,10 @@
   "window.menuBarVisibility": "compact",
   "window.commandCenter": true,
 
-  "yaml.format.enable": true,
+  "yaml.format": {
+    "enable": true,
+    "yaml.format.printWidth": 120
+  },
   "yaml.schemas": {
     "https://taskfile.dev/schema.json": ["Taskfile.yaml"]
   },
@@ -316,9 +319,6 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "sops.binPath": "/opt/homebrew/bin/sops",
-  "sops.defaults.ageKeyFile": "/Users/scotte/.config/sops/age/keys.txt",
-  "sops.configPath": "./.sops.yaml",
   "svelte.enable-ts-plugin": true,
   "playwright.reuseBrowser": true
 }
