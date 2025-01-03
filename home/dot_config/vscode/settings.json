@@ -104,19 +104,22 @@
 
   "diffEditor.ignoreTrimWhitespace": false,
 
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": "off",
-  "editor.cursorSurroundingLines": 10,
-  "editor.cursorSurroundingLinesStyle": "default",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "FiraCode Nerd Font Mono",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 11,
-  "editor.hover.delay": 300,
-  "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.minimap.enabled": false,
-  "editor.overviewRulerBorder": false,
-  "editor.tabSize": 2,
+  "editor": {
+    "cursorBlinking": "solid",
+    "cursorSmoothCaretAnimation": "off",
+    "cursorSurroundingLines": 10,
+    "cursorSurroundingLinesStyle": "default",
+    "defaultFormatter": "esbenp.prettier-vscode",
+    "fontFamily": "FiraCode Nerd Font Mono",
+    "fontLigatures": true,
+    "fontSize": 11,
+    "hover.delay": 300,
+    "inlayHints.enabled": "offUnlessPressed",
+    "lineNumbers": "relative",
+    "minimap.enabled": false,
+    "overviewRulerBorder": false,
+    "tabSize": 2
+  },
 
   "eslint.validate": ["javascript", "javascriptreact", "svelte"],
 
@@ -154,6 +157,8 @@
       }
     }
   },
+
+ "playwright.reuseBrowser": true,
 
   "prettier": {
     "printWidth": 120,
@@ -229,6 +234,8 @@
     "configPath": "./.sops.yaml"
   },
 
+  "svelte.enable-ts-plugin": true,
+ 
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
 
@@ -264,8 +271,12 @@
     "https://taskfile.dev/schema.json": ["Taskfile.yaml"]
   },
 
-  "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
+  "zenMode": {
+    "centerLayout": false,
+    "fullScreen": false,
+    "hideLineNumbers": false,
+    "showTabs": "single"
+  },
 
   "[go]": {
     "editor.tabSize": 4,
@@ -318,7 +329,5 @@
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "svelte.enable-ts-plugin": true,
-  "playwright.reuseBrowser": true
+  }
 }
