@@ -113,20 +113,34 @@
     "fontFamily": "FiraCode Nerd Font Mono",
     "fontLigatures": true,
     "fontSize": 11,
-    "hover.delay": 300,
-    "inlayHints.enabled": "offUnlessPressed",
+    "hover": {
+      "delay": 300
+    },
+    "inlayHints": {
+      "enabled": "offUnlessPressed"
+    },
     "lineNumbers": "relative",
-    "minimap.enabled": false,
+    "minimap": {
+      "enabled": false
+    },
     "overviewRulerBorder": false,
     "tabSize": 2
   },
 
-  "eslint.validate": ["javascript", "javascriptreact", "svelte"],
+  "eslint": {
+    "validate": ["javascript", "javascriptreact", "svelte"]
+  },
 
-  "explorer.autoReveal": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 1,
+  "explorer": {
+    "autoReveal": false,
+    "confirmDelete": false,
+    "confirmDragAndDrop": false,
+    "openEditors.visible": 1
+  },
+  
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 
   "files.associations": {
     "**/ansible/**/*.yaml": "ansible",
@@ -138,8 +152,10 @@
   },
   "files.autoSave": "afterDelay",
 
-  "git.autofetch": true,
-  "git.confirmSync": false,
+  "git": {
+    "autofetch": true,
+    "confirmSync": false
+  },
 
   "gopls": {
     "ui.semanticTokens": true
@@ -158,16 +174,22 @@
     }
   },
 
- "playwright.reuseBrowser": true,
+  "playwright.reuseBrowser": true,
 
   "prettier": {
     "printWidth": 120,
     "prettier.configPath": ".prettierrc"
   },
 
-  "projectManager.any.maxDepthRecursion": 2,
-  "projectManager.git.baseFolders": ["/Users/scotte/Development/Projects"],
-  "projectManager.git.maxDepthRecursion": 2,
+  "projectManager": {
+    "any": {
+      "maxDepthRecursion": 2
+    },
+    "git": {
+      "baseFolders": ["/Users/scotte/Development/Projects"],
+      "maxDepthRecursion": 2
+    }
+  },
 
   "redhat.telemetry.enabled": false,
 
@@ -183,6 +205,11 @@
   "rust-analyzer": {
     "check": {
       "command": "clippy"
+    },
+    "inlayHints": {
+      "parameterHints.enable": false,
+      "typeHints.enable": false,
+      "renderColons": false
     }
   },
 
@@ -235,7 +262,7 @@
   },
 
   "svelte.enable-ts-plugin": true,
- 
+
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
 
