@@ -290,12 +290,14 @@
   "window.menuBarVisibility": "compact",
   "window.commandCenter": true,
 
-  "yaml.format": {
-    "enable": true,
-    "yaml.format.printWidth": 120
-  },
-  "yaml.schemas": {
-    "https://taskfile.dev/schema.json": ["Taskfile.yaml"]
+  "yaml": {
+    "format": {
+      "enable": true,
+      "printWidth": 120
+    },
+    "schemas": {
+      "https://taskfile.dev/schema.json": ["Taskfile.yaml"]
+    }
   },
 
   "zenMode": {
@@ -356,5 +358,9 @@
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
