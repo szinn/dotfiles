@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# Install cargo applications
+# cargo applications hash: {{ include "dot_cargo/cargo_apps" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
+  if command -v $app; then
+    cargo install $app
+  fi
+done
