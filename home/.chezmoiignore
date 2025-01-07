@@ -29,6 +29,7 @@
 .npm
 .orbstack
 .profile
+.psql_history
 .rustup
 .ssh/1Password
 .ssh/agent
