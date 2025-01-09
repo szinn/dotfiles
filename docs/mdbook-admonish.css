@@ -9,7 +9,9 @@
   border: 0 solid black;
   border-inline-start-width: 0.4rem;
   border-radius: 0.2rem;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05), 0 0 0.1rem rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 0.2rem 1rem rgba(0, 0, 0, 0.05),
+    0 0 0.1rem rgba(0, 0, 0, 0.1);
 }
 @media print {
   :is(.admonition) {
@@ -36,14 +38,16 @@ a.admonition-anchor-link {
   left: -1.2rem;
   padding-right: 1rem;
 }
-a.admonition-anchor-link:link, a.admonition-anchor-link:visited {
+a.admonition-anchor-link:link,
+a.admonition-anchor-link:visited {
   color: var(--fg);
 }
-a.admonition-anchor-link:link:hover, a.admonition-anchor-link:visited:hover {
+a.admonition-anchor-link:link:hover,
+a.admonition-anchor-link:visited:hover {
   text-decoration: none;
 }
 a.admonition-anchor-link::before {
-  content: "§";
+  content: '§';
 }
 
 :is(.admonition-title, summary.admonition-title) {
@@ -80,7 +84,7 @@ html :is(.admonition-title, summary.admonition-title):last-child {
   -webkit-mask-repeat: no-repeat;
   mask-size: contain;
   -webkit-mask-size: contain;
-  content: "";
+  content: '';
 }
 :is(.admonition-title, summary.admonition-title):hover a.admonition-anchor-link {
   display: initial;
@@ -99,7 +103,7 @@ details.admonition > summary.admonition-title::after {
   -webkit-mask-repeat: no-repeat;
   mask-size: contain;
   -webkit-mask-size: contain;
-  content: "";
+  content: '';
   transform: rotate(0deg);
   transition: transform 0.25s;
 }
@@ -343,6 +347,7 @@ details[open].admonition > summary.admonition-title::after {
   background-color: var(--sidebar-bg);
   color: var(--sidebar-fg);
 }
-.rust .admonition-anchor-link:link, .rust .admonition-anchor-link:visited {
+.rust .admonition-anchor-link:link,
+.rust .admonition-anchor-link:visited {
   color: var(--sidebar-fg);
 }

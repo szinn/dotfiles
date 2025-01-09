@@ -3,7 +3,6 @@
 .cache
 .CFUserTextEncoding
 .config/.DS_Store
-.config/k9s/skins
 .cups
 .docker
 .DS_Store

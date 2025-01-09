@@ -1,3 +1,4 @@
+---
 k9s:
   disablePodCounting: false
   imageScans:
@@ -8,7 +9,6 @@ k9s:
   liveViewAutoRefresh: false
   logger:
     buffer: 5000
-    fullScreen: false
     showTime: false
     sinceSeconds: -1
     tail: 100
@@ -21,6 +21,7 @@ k9s:
     image: busybox:1.35.0
     limits:
       cpu: 100m
+      memory: 512Mi
     namespace: default
   skipLatestRevCheck: false
   thresholds:
@@ -37,3 +38,4 @@ k9s:
     logoless: false
     noIcons: false
     reactive: false
+    skin: dracula
