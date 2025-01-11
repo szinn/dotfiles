@@ -5,7 +5,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
-  if command -v $app; then
-    cargo install $app
+  if test -z "$(command -v ${app})"; then
+    cargo install ${app}
   fi
 done

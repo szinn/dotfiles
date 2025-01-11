@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# Install helm plugins
+# krewfile_plugins hash: {{ include "dot_config/helm/plugins" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+if test -n "$(command -v helm)"; then
+  while IFS= read -r plugin; do
+    # name="$(echo "${plugin}" | cut -d ' ' -f 1)"
+    local_name="$(echo "${plugin}" | cut -d ' ' -f 2)"
+    source="$(echo "${plugin}" | cut -d ' ' -f 3)"
+
+    if ! test -d "{{ .chezmoi.homeDir }}/.local/share/helm/plugins/${local_name}"; then
+      helm plugin install "${source}"
+    fi
+  done < "{{ .chezmoi.homeDir }}/.config/helm/plugins"
+fi
