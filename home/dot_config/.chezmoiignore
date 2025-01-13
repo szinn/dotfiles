@@ -1,4 +1,6 @@
 chezmoi
 fish/completions
 fish/fish_variables
+helm/repositories.lock
+helm/repositories.yaml
 op
