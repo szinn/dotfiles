@@ -302,6 +302,8 @@
     "showTabs": "single"
   },
 
+  "zig.zls.enabled": "on",
+
   "[go]": {
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
@@ -358,5 +360,11 @@
   "[yaml]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[zig]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ziglang.vscode-zig",
+    "files.eol": "\n",
+    "editor.tabSize": 4
   }
 }
