@@ -198,8 +198,24 @@
   "remote.SSH.useLocalServer": false,
 
   "rust-analyzer": {
-    "check": {
-      "command": "clippy"
+    // "check": {
+    //   "command": "clippy"
+    // },
+    "cargo": {
+      "allFeatures": false
+    },
+    "trace": {
+      "server": "verbose",
+      "extension": true
+    },
+    "diagnostics": {
+      "enableExperimental": false
+    },
+    "checkOnSave": {
+      "command": "cargo check",
+      "enable": true,
+      "allTargets": false,
+      "overrideCommand": ["cargo", "check", "--message-format=json"]
     },
     "inlayHints": {
       "parameterHints.enable": false,
