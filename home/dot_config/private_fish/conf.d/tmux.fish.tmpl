@@ -1,3 +1,3 @@
 if type -q tmux
-  abbr --add -- tm 'tmux new -A -s main -c {{ .chezmoi.homeDir }}'
+  abbr --add -- tm 'tmux attach || tmux new -A -s main -c {{ .chezmoi.homeDir }}'
 end

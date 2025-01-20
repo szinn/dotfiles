@@ -1,8 +1,10 @@
 auto-update = download
 auto-update-channel = stable
 clipboard-trim-trailing-spaces = true
+confirm-close-surface = false
 cursor-style = block
 cursor-style-blink = false
+font-family = ""
 font-family = FiraCode Nerd Font
 font-family-bold = FiraCode Nerd Font Bold
 font-family-bold-italic = FiraCode Nerd Font Bold Italic
@@ -16,5 +18,5 @@ shell-integration = fish
 shell-integration-features = no-cursor
 theme = dracula-pro-van-helsing
 window-decoration = false
-window-height = 45
+window-height = 80
 window-width = 180

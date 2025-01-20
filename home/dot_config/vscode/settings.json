@@ -154,7 +154,8 @@
 
   "git": {
     "autofetch": true,
-    "confirmSync": false
+    "confirmSync": false,
+    "replaceTagsWhenPull": true
   },
 
   "gopls": {
