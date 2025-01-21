@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+{{ if (eq .chezmoi.os "darwin") }}
+# ---------------------------------------------------------------------------------------------------------------------
+# Install VSCode Themes
+# DraculaPro hash: {{ include "../../../../.config/vscode/dracula-pro.vsix" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+code --install-extension "{{ .chezmoi.homeDir }}/.config/vscode/dracula-pro.vsix"
+
+{{- end }}

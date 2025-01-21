@@ -17,13 +17,3 @@ else
   fi
   ln -s "{{ .chezmoi.homeDir }}/.config/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
 fi
-
-if code --list-extensions | grep "dracula-theme-pro.theme-dracula-pro"; then
-  echo "Dracula Pro VSCode theme is already installed"
-else
-  tmpDir=$(mktemp -d)
-  tmpFile="${tmpDir}/dracula.vsix"
-
-  op document get cpxuriqks6rhd7p6paycxqylsq --out-file ${tmpFile}
-  code --install-extension ${tmpFile}
-fi
