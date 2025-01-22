@@ -13,4 +13,9 @@ function update --description="Update everything"
       helm plugin update $plugin
     end
   end
+
+  if type -q nvim
+    nvim --headless "+Lazy! sync" +qa
+    chezmoi add {{ .chezmoi.homeDir }}/.config/nvim
+  end
 end
