@@ -119,7 +119,7 @@
     "inlayHints": {
       "enabled": "offUnlessPressed"
     },
-    "lineNumbers": "relative",
+    // "lineNumbers": "relative",
     "minimap": {
       "enabled": false
     },
