@@ -13,7 +13,6 @@ unbind C-b
 set -g prefix C-t
 bind-key C-t send-prefix
 
-# set -g default-shell "/run/current-system/sw/bin/fish"
 set -g default-terminal "xterm-256color"
 set-option -g terminal-overrides ',xterm-256color:RGB'
 set-option -g focus-events on
@@ -26,38 +25,28 @@ set -g mouse on              # enable mouse support
 set -g renumber-windows on   # renumber all windows when any window is closed
 set -g set-clipboard on      # use system clipboard
 set -g status-interval 3     # update the status bar every 3 seconds
+
 setw -g pane-base-index 1
 setw -g automatic-rename on
 set -g renumber-windows on
 
-set -g status-left "#[fg=blue]#S #[fg=white,nobold]#(gitmux -cfg $HOME/.config/tmux/gitmux.conf)"
-set -g status-left-length 200            # increase length (from 10)
+set -g status-left "#[fg=blue]#S #[fg=white,nobold]#(gitmux -cfg {{ .chezmoi.homeDir }}/.config/tmux/gitmux.conf)"
+set -g status-left-length 300            # increase length (from 10)
+set -g status-right ""
 set -g status-position top               # macOS / darwin style
-set -g status-right '#{pomodoro_status}' # toggle 25m pomodoro
-set -g status-right-length 6             # decrease length (from 10)
-set -g status-style 'bg=#333333'         # transparent
+set -g status-style 'bg=#333333'
 # set -g status-left "#{pane_title}"
 
 set -g status-justify centre
-set -g window-status-current-format '#[fg=gray]#{pane_title}'
+set -g window-status-current-format '*#[fg=gray]#{pane_title}'
 set -g window-status-format ''
 
+set -g allow-passthrough on
 set -g message-command-style bg=default,fg=yellow
 set -g message-style bg=default,fg=yellow
 set -g mode-style bg=default,fg=yellow
 set -g pane-active-border-style 'fg=magenta,bg=default'
 set -g pane-border-style 'fg=brightblack,bg=default'
-
-set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
-set -g @tmux-nerd-font-window-name-show-name false
-set -g @tmux-nerd-font-window-name-shell-icon ''
-set -g @t-fzf-prompt '  '
-set -g @t-bind 'T'
-set -g @fzf-url-history-limit '2000'
-set -g @pomodoro_on ' 🍅'       # The formatted output when the pomodoro is running
-set -g @pomodoro_complete ' ✅' # The formatted output when the pomodoro is finished
-set -g @pomodoro_start 'P'     # Start a Pomodoro with tmux-prefix + p
-# set -g @pomodoro_cancel '-'    # Cancel a Pomodoro with tmux-prefix key + P
 
 set -g message-command-style bg=default,fg=yellow
 set -g message-style bg=default,fg=yellow
@@ -67,9 +56,9 @@ set -g pane-border-style 'fg=brightblack,bg=default'
 
 # Change window split keys
 unbind %
-bind | split-window -h
+bind | split-window -c '#{pane_current_path}'  -h
 unbind '"'
-bind - split-window -v
+bind - split-window -c '#{pane_current_path}'  -v
 
 unbind r
 bind r source-file ~/.config/tmux/tmux.conf
@@ -77,16 +66,21 @@ bind r source-file ~/.config/tmux/tmux.conf
 bind c new-window -c '#{pane_current_path}'
 bind g new-window -n '' lazygit
 
-bind -r j resize-pane -D 2
-bind -r k resize-pane -U 2
-bind -r l resize-pane -R 2
-bind -r h resize-pane -L 2
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
-# set -g set-titles on
-# set -g set-titles-string '#{pane_title}'
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
 
 bind C-k send-keys 'C-k'
 bind C-l send-keys 'C-l'
+
+# set -g set-titles on
+# set -g set-titles-string '#{pane_title}'
 
 set-window-option -g mode-keys vi
 
@@ -109,6 +103,14 @@ bind-key "t" run-shell "sesh connect \"$(
     --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
     --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
     --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+    --margin 8% \
     --preview-window 'right:55%' \
     --preview 'sesh preview {}'
 )\""
+
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'rickstaa/tmux-notify'
+
+# Load and run tpm
+set -g @plugin 'tmux-plugins/tpm'
+run "/opt/homebrew/opt/tpm/share/tpm/tpm"

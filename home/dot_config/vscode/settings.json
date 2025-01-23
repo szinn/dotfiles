@@ -332,7 +332,7 @@
     "editor.tabSize": 2
   },
   "[lua]": {
-    "editor.defaultFormatter": "yinfei.luahelper",
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
     "editor.formatOnSave": false,
     "editor.tabSize": 2
   },
