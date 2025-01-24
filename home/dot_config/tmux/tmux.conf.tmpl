@@ -6,47 +6,41 @@
 #    ╚═╝   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝
 # Terminal multiplexer
 # https://github.com/tmux/tmux
-# cSpell:words christoomey joshmedeski lazygit brightblack nobold gitmux olimorris
 
 # Switch tmux key to C-t
 unbind C-b
 set -g prefix C-t
 bind-key C-t send-prefix
 
-set -g default-terminal "xterm-256color"
-set-option -g terminal-overrides ',xterm-256color:RGB'
-set-option -g focus-events on
+set -g default-terminal "screen-256color"
 
-set -g base-index 1          # start indexing windows at 1 instead of 0
-set -g detach-on-destroy off # don't exit from tmux when closing a session
-set -g escape-time 0         # zero-out escape time delay
-set -g history-limit 1000000 # increase history size (from 2,000)
-set -g mouse on              # enable mouse support
-set -g renumber-windows on   # renumber all windows when any window is closed
-set -g set-clipboard on      # use system clipboard
-set -g status-interval 3     # update the status bar every 3 seconds
+set -g mouse on               # enable mouse support
+set -g base-index 1           # start indexing windows at 1 instead of 0
+setw -g pane-base-index 1     # make pane numbering consistent with windows
+set -g detach-on-destroy off  # don't exit from tmux when closing a session
+set -g escape-time 0          # zero-out escape time delay
+set -g history-limit 1000000  # increase history size (from 2,000)
+set -g renumber-windows on    # renumber all windows when any window is closed
+set -g set-clipboard on       # use system clipboard
+set -g status-interval 2      # update the status bar every 2 seconds
+setw -g automatic-rename on   # rename window to reflect current program
+set -g set-titles on          # set terminal title
+set -g display-panes-time 800 # slightly longer pane indicators display time
+set -g display-time 1000      # slightly longer status messages display time
+set -g allow-passthrough on   # allow programs to bypass tmux
 
-setw -g pane-base-index 1
-setw -g automatic-rename on
-set -g renumber-windows on
+set-option -g focus-events on # pass through focus events
 
-set -g status-left "#[fg=blue]#S #[fg=white,nobold]#(gitmux -cfg {{ .chezmoi.homeDir }}/.config/tmux/gitmux.conf)"
-set -g status-left-length 300            # increase length (from 10)
-set -g status-right ""
-set -g status-position top               # macOS / darwin style
+# activity
+set -g monitor-activity on
+set -g visual-activity off
+
+# Status line formatting
+set -g status-position top
 set -g status-style 'bg=#333333'
-# set -g status-left "#{pane_title}"
-
-set -g status-justify centre
-set -g window-status-current-format '*#[fg=gray]#{pane_title}'
-set -g window-status-format ''
-
-set -g allow-passthrough on
-set -g message-command-style bg=default,fg=yellow
-set -g message-style bg=default,fg=yellow
-set -g mode-style bg=default,fg=yellow
-set -g pane-active-border-style 'fg=magenta,bg=default'
-set -g pane-border-style 'fg=brightblack,bg=default'
+set -g status-left " #[fg=blue]#{session_name} #[fg=white,nobold]#(gitmux -cfg {{ .chezmoi.homeDir }}/.config/tmux/gitmux.conf \"#{pane_current_path}\") "
+set -g status-left-length 100
+set -g status-right "#{?window_bigger,[#{window_offset_x}#,#{window_offset_y}] ,}#{=21:pane_title} "
 
 set -g message-command-style bg=default,fg=yellow
 set -g message-style bg=default,fg=yellow
@@ -56,38 +50,26 @@ set -g pane-border-style 'fg=brightblack,bg=default'
 
 # Change window split keys
 unbind %
-bind | split-window -c '#{pane_current_path}'  -h
+bind | split-window -c '#{pane_current_path}' -h
 unbind '"'
-bind - split-window -c '#{pane_current_path}'  -v
+bind - split-window -c '#{pane_current_path}' -v
 
 unbind r
-bind r source-file ~/.config/tmux/tmux.conf
+bind r source-file ~/.config/tmux/tmux.conf \\; display "Config reloaded"
 
+bind -r m resize-pane -Z  # Toggle maximize current pane
+
+unbind c
 bind c new-window -c '#{pane_current_path}'
-bind g new-window -n '' lazygit
+bind g new-window -n 'LazyGit' lazygit
 
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
-bind-key -T copy-mode-vi 'C-h' select-pane -L
-bind-key -T copy-mode-vi 'C-j' select-pane -D
-bind-key -T copy-mode-vi 'C-k' select-pane -U
-bind-key -T copy-mode-vi 'C-l' select-pane -R
-
-bind C-k send-keys 'C-k'
-bind C-l send-keys 'C-l'
-
-# set -g set-titles on
-# set -g set-titles-string '#{pane_title}'
-
+# Vi mode in tmux
 set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
+bind-key -T copy-mode-vi 'y' send -X copy-selection  # copy text with "y"
+unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode when dragging with mouse
 
-bind -T copy-mode-vi 'v' send -X begin-selection
-bind -T copy-mode-vi 'y' send -X copy-selection
-
-unbind -T copy-mode-vi MouseDragEnd1Pane
+bind C-l send-keys 'C-l'
 
 # Session management
 bind X confirm-before -p "kill-session #S (y/n)" kill-session
@@ -108,8 +90,8 @@ bind-key "t" run-shell "sesh connect \"$(
     --preview 'sesh preview {}'
 )\""
 
+# Plugins
 set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'rickstaa/tmux-notify'
 
 # Load and run tpm
 set -g @plugin 'tmux-plugins/tpm'
