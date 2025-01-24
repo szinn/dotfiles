@@ -1,11 +1,10 @@
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname$directory$git_branch$git_status${custom.direnv}$fill$python$status$cmd_duration$line_break$character"
+format = "$username$hostname$directory$git_branch$fill$python$status$cmd_duration$line_break$character"
 
 [character]
 error_symbol = "[](red)"
 success_symbol = "[](green)"
-vicmd_symbol = "[](purple)"
 
 [cmd_duration]
 format = "took [$duration]($style) "
@@ -21,11 +20,14 @@ when = "env | grep -E '^DIRENV_FILE='"
 [directory]
 fish_style_pwd_dir_length = 1
 format = "[$path]($style)[$read_only]($read_only_style) "
-read_only = " "
+read_only = ""
 style = "blue"
 truncate_to_repo = true
 truncation_length = 3
 truncation_symbol = "../"
+repo_root_format = '[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+before_repo_root_style = "blue"
+repo_root_style = "blue"
 
 [fill]
 symbol = " "
@@ -62,7 +64,8 @@ symbol = "🐍 "
 [status]
 disabled = false
 format = "[$symbol]($style) "
-style = "red"
+success_style = "green"
+failure_style = "red"
 success_symbol = " "
 symbol = " "
 
