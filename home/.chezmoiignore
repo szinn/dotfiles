@@ -29,6 +29,7 @@
 .orbstack
 .profile
 .psql_history
+.rediscli_history
 .rustup
 .ssh/1Password
 .ssh/agent
