@@ -1,4 +1,8 @@
 function fish_title --description="Set the title"
+    echo "$(hostname -s)"
+    return
+
+    # Set title including CWD
     function _thepath --description 'Shorten given path with substitutions'
         set -l subs "$HOME:~"
 
