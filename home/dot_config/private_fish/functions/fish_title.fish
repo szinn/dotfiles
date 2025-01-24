@@ -1,5 +1,13 @@
 function fish_title --description="Set the title"
-    echo "$(hostname -s)"
+    set -f command (echo $_)
+
+    if test $command = fish
+        # we are sitting at the fish prompt
+        echo "$(hostname -s)"
+    else
+        # we are busy running some non-fish command, so use the command name
+        echo "$(hostname -s): $command"
+    end
     return
 
     # Set title including CWD
