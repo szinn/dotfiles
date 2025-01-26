@@ -1,6 +1,7 @@
 index netshoot https://github.com/nilic/kubectl-netshoot.git
 
 browse-pvc
+klock
 netshoot/netshoot
 rook-ceph
 cnpg

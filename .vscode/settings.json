@@ -4,6 +4,7 @@
     "*.sh.tmpl": "shellscript",
     "*.fish.tmpl": "shellscript",
     "**/home/dot_config/git/config.tmpl": "toml",
-    "**/.chezmoiignore": "plaintext"
+    "**/.chezmoiignore": "plaintext",
+    "**/krewfile": "plaintext"
   }
 }
