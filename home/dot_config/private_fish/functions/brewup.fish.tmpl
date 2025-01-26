@@ -1,11 +1,16 @@
 function brewup --description="Update homebrew applications"
     if type -q brew
-        {{ lookPath "brew" }} update
-        {{ lookPath "brew" }} upgrade --greedy
-        {{ lookPath "brew" }} cleanup --prune=all
-        {{ lookPath "brew" }} doctor
-    end
-    if type -q mas
-        {{ lookPath "mas" }} upgrade
+        if test "$argv[1]" = "-c"
+            echo "Cleaning out uninstalled homebrews"
+            brew bundle cleanup --force --file "$XDG_CONFIG_HOME/homebrew/Brewfile"
+        else
+            {{ lookPath "brew" }} update
+            {{ lookPath "brew" }} upgrade --greedy
+            {{ lookPath "brew" }} cleanup --prune=all
+            {{ lookPath "brew" }} doctor
+            if type -q mas
+                {{ lookPath "mas" }} upgrade
+            end
+        end
     end
 end
