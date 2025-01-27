@@ -47,64 +47,69 @@
     }
   ],
 
-  "code-runner.executorMap": {
-    "ahk": "autohotkey",
-    "applescript": "osascript",
-    "autoit": "autoit3",
-    "bat": "cmd /c",
-    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "clojure": "lein exec",
-    "coffeescript": "coffee",
-    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "crystal": "crystal",
-    "csharp": "scriptcs",
-    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-    "dart": "dart",
-    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fsharp": "fsi",
-    "go": "go run",
-    "groovy": "groovy",
-    "haskell": "runghc",
-    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    "javascript": "node",
-    "julia": "julia",
-    "kit": "kitc --run",
-    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-    "lisp": "sbcl --script",
-    "lua": "lua",
-    "nim": "nim compile --verbosity:0 --hints:off --run",
-    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "ocaml": "ocaml",
-    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-    "perl": "perl",
-    "perl6": "perl6",
-    "php": "php",
-    "powershell": "powershell -ExecutionPolicy ByPass -File",
-    "python": "python -u",
-    "r": "Rscript",
-    "racket": "racket",
-    "ruby": "ruby",
-    "rust": "cargo run # $fileName",
-    "sass": "sass --style expanded",
-    "scala": "scala",
-    "scheme": "csi -script",
-    "scss": "scss --style expanded",
-    "shellscript": "bash",
-    "sml": "cd $dir && sml $fileName",
-    "swift": "swift",
-    "typescript": "ts-node",
-    "v": "v run",
-    "vbscript": "cscript //Nologo",
-    "zig": "zig run"
+  "code-runner": {
+    "executorMap": {
+      "ahk": "autohotkey",
+      "applescript": "osascript",
+      "autoit": "autoit3",
+      "bat": "cmd /c",
+      "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "clojure": "lein exec",
+      "coffeescript": "coffee",
+      "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "crystal": "crystal",
+      "csharp": "scriptcs",
+      "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+      "dart": "dart",
+      "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "fsharp": "fsi",
+      "go": "go run",
+      "groovy": "groovy",
+      "haskell": "runghc",
+      "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+      "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+      "javascript": "node",
+      "julia": "julia",
+      "kit": "kitc --run",
+      "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+      "lisp": "sbcl --script",
+      "lua": "lua",
+      "nim": "nim compile --verbosity:0 --hints:off --run",
+      "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+      "ocaml": "ocaml",
+      "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+      "perl": "perl",
+      "perl6": "perl6",
+      "php": "php",
+      "powershell": "powershell -ExecutionPolicy ByPass -File",
+      "python": "python -u",
+      "r": "Rscript",
+      "racket": "racket",
+      "ruby": "ruby",
+      "rust": "cargo run # $fileName",
+      "sass": "sass --style expanded",
+      "scala": "scala",
+      "scheme": "csi -script",
+      "scss": "scss --style expanded",
+      "shellscript": "bash",
+      "sml": "cd $dir && sml $fileName",
+      "swift": "swift",
+      "typescript": "ts-node",
+      "v": "v run",
+      "vbscript": "cscript //Nologo",
+      "zig": "zig run"
+    }
   },
 
   "diffEditor.ignoreTrimWhitespace": false,
 
   "editor": {
+    "bracketPairColorization": {
+      "enabled": true
+    },
     "cursorBlinking": "solid",
     "cursorSmoothCaretAnimation": "off",
     "cursorSurroundingLines": 10,
@@ -113,6 +118,11 @@
     "fontFamily": "FiraCode Nerd Font Mono",
     "fontLigatures": true,
     "fontSize": 11,
+    "guides": {
+      "bracketPairs": "active",
+      "bracketPairsHorizontal": "active",
+      "highlightActiveBracketPair": true
+    },
     "hover": {
       "delay": 300
     },
@@ -135,22 +145,36 @@
     "autoReveal": false,
     "confirmDelete": false,
     "confirmDragAndDrop": false,
-    "openEditors.visible": 1
+    "openEditors": {
+      "visible": 1
+    }
   },
 
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+  "extensions": {
+    "autoCheckUpdates": true,
+    "autoUpdate": true,
+    "experimental": {
+      "affinity": {
+        "asvetliakov.vscode-neovim": 1
+      }
+    }
   },
 
-  "files.associations": {
-    "**/ansible/**/*.yaml": "ansible",
-    "*.yml": "yaml",
-    "*.yaml": "yaml",
-    "*.json5": "jsonc",
-    "*.rs": "rust",
-    "*.toml": "toml"
+  "files": {
+    "associations": {
+      "**/ansible/**/*.yaml": "ansible",
+      "*.yml": "yaml",
+      "*.yaml": "yaml",
+      "*.json5": "jsonc",
+      "*.rs": "rust",
+      "*.toml": "toml"
+    },
+    "autoSave": "onFocusChange",
+    "eol": "\n",
+    "insertFinalNewline": true,
+    "trimFinalNewlines": true,
+    "trimTrailingWhitespace": true
   },
-  "files.autoSave": "afterDelay",
 
   "git": {
     "autofetch": true,
@@ -158,8 +182,16 @@
     "replaceTagsWhenPull": true
   },
 
+  "go": {
+    "toolsManagement": {
+      "autoUpdate": true
+    }
+  },
+
   "gopls": {
-    "ui.semanticTokens": true
+    "ui": {
+      "semanticTokens": true
+    }
   },
 
   "linter": {
@@ -181,6 +213,7 @@
     "any": {
       "maxDepthRecursion": 2
     },
+    "filterOnnfullPath": true,
     "git": {
       "baseFolders": ["/Users/scotte/Development/Projects"],
       "maxDepthRecursion": 2
@@ -273,34 +306,75 @@
     "configPath": "./.sops.yaml"
   },
 
-  "svelte.enable-ts-plugin": true,
+  "svelte": {
+    "enable-ts-plugin": true
+  },
 
-  "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "telemetry": {
+    "telemetryLevel": "off"
+  },
+
+  "terminal": {
+    "integrated.defaultProfile.osx": "fish",
+    "integrated.fontFamily": "FiraCode Nerd Font Mono"
+  },
+
+  "todo-tree": {
+    "highlights.useColourScheme": true,
+    "tree.expanded": true
+  },
+
+  "update": {
+    "mode": "default",
+    "showReleaseNotes": false
+  },
 
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.ignore-recommendations": true
   },
 
-  "workbench.activityBar.location": "top",
-  "workbench.hover.delay": 1,
-  "workbench.colorCustomizations": {
-    "editorCursor.background": "#ff930f",
-    "editorCursor.foreground": "#ff930f",
-    "input.background": "#22212C",
-    "editorWidget.background": "#151320",
-    "quickInputList.focusBackground": "#454158"
+  "window": {
+    "menuBarVisibility": "compact",
+    "commandCenter": true
   },
-  "workbench.colorTheme": "Dracula Pro (Van Helsing)",
-  "workbench.layoutControl.enabled": false,
-  "workbench.sideBar.location": "left",
-  "workbench.startupEditor": "none",
-  "workbench.tree.indent": 6,
-  "workbench.iconTheme": "material-icon-theme",
 
-  "window.menuBarVisibility": "compact",
-  "window.commandCenter": true,
+  "workbench": {
+    "activityBar": {
+      "location": "top"
+    },
+    "hover": {
+      "delay": 1
+    },
+    "colorCustomizations": {
+      "editorCursor": {
+        "background": "#ff930f",
+        "foreground": "#ff930f"
+      },
+      "input": {
+        "background": "#22212C"
+      },
+      "editorWidget": {
+        "background": "#151320"
+      },
+      "quickInputList": {
+        "focusBackground": "#454158"
+      }
+    },
+    "colorTheme": "Dracula Pro (Van Helsing)",
+    "layoutControl": {
+      "enabled": false
+    },
+    "sideBar": {
+      "location": "left"
+    },
+    "startupEditor": "none",
+    "tree": {
+      "indent": 3,
+      "renderIndentGuides": "none"
+    },
+    "iconTheme": "material-icon-theme"
+  },
 
   "yaml": {
     "format": {
@@ -319,7 +393,11 @@
     "showTabs": "single"
   },
 
-  "zig.zls.enabled": "on",
+  "zig": {
+    "zls": {
+      "enabled": "on"
+    }
+  },
 
   "[fish]": {
     "editor.tabSize": 2,
@@ -337,6 +415,7 @@
     "editor.formatOnSave": false,
     "editor.tabSize": 2
   },
+
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua",
     "editor.formatOnSave": false,
@@ -362,7 +441,8 @@
 
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
   },
 
   "[toml]": {
@@ -372,22 +452,24 @@
   },
 
   "[sql]": {
-    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.tabSize": 4
   },
+
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode",
     "editor.tabSize": 4
   },
+
   "[yaml]": {
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
+
   "[zig]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "ziglang.vscode-zig",
-    "files.eol": "\n",
+    "editor.formatOnSave": true,
     "editor.tabSize": 4
   }
 }
