@@ -1,5 +1,6 @@
 .DS_Store
 chezmoi
+colima
 fish/completions
 fish/fish_variables
 helm/repositories.lock
