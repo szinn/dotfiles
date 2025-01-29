@@ -5,6 +5,7 @@
 .cups
 .docker
 .DS_Store
+.freelens
 .gnupg/.DS_Store
 .gnupg/common.conf
 .gnupg/private-keys-v1.d

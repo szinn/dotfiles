@@ -1,53 +1,57 @@
 {
-  "better-comments.tags": [
-    {
-      "tag": "!",
-      "color": "#FF2D00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "?",
-      "color": "#3498DB",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "//",
-      "color": "#474747",
-      "strikethrough": true,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "todo",
-      "color": "#FF8C00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "*",
-      "color": "#98C379",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    }
-  ],
+  "better-comments": {
+    "tags": [
+      {
+        "tag": "!",
+        "color": "#FF2D00",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "?",
+        "color": "#3498DB",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "//",
+        "color": "#474747",
+        "strikethrough": true,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "todo",
+        "color": "#FF8C00",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "*",
+        "color": "#98C379",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      }
+    ]
+  },
 
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor": {
+    "ignoreTrimWhitespace": false
+  },
 
   "editor": {
     "bracketPairColorization": {
@@ -137,17 +141,19 @@
 
   "linter": {
     "linters": {
-      "yamllint": {
-        "configFiles": [".yamllint.yml", ".yamllint.yaml", ".yamllint", ".ci/yamllint/.yamllint.yaml"]
-      }
+      "yamllint.configFiles": [".yamllint.yml", ".yamllint.yaml", ".yamllint", ".ci/yamllint/.yamllint.yaml"]
     }
   },
 
-  "playwright.reuseBrowser": true,
+  "playwright": {
+    "reuseBrowser": true
+  },
 
   "prettier": {
     "printWidth": 120,
-    "prettier.configPath": ".prettierrc"
+    "prettier": {
+      "configPath": ".prettierrc"
+    }
   },
 
   "projectManager": {
@@ -161,16 +167,22 @@
     }
   },
 
-  "redhat.telemetry.enabled": false,
-
-  "remote.SSH.connectTimeout": 30,
-  "remote.SSH.remotePlatform": {
-    "ragnar": "linux",
-    "macvm": "macOS",
-    "hera": "linux"
+  "redhat": {
+    "telemetry.enabled": false
   },
-  "remote.SSH.showLoginTerminal": true,
-  "remote.SSH.useLocalServer": false,
+
+  "remote": {
+    "SSH": {
+      "connectTimeout": 30,
+      "remotePlatform": {
+        "ragnar": "linux",
+        "macvm": "macOS",
+        "hera": "linux"
+      },
+      "showLoginTerminal": true,
+      "useLocalServer": false
+    }
+  },
 
   "rust-analyzer": {
     // "check": {
@@ -193,57 +205,69 @@
       "overrideCommand": ["cargo", "check", "--message-format=json"]
     },
     "inlayHints": {
-      "parameterHints.enable": false,
-      "typeHints.enable": false,
+      "parameterHints": {
+        "enable": false
+      },
+      "typeHints": {
+        "enable": false
+      },
       "renderColons": false
     }
   },
 
-  "rust-analyzer.completion.snippets.custom": {
-    "Arc::new": {
-      "postfix": "arc",
-      "body": "Arc::new(${receiver})",
-      "requires": "std::sync::Arc",
-      "description": "Put the expression into an `Arc`",
-      "scope": "expr"
-    },
-    "Rc::new": {
-      "postfix": "rc",
-      "body": "Rc::new(${receiver})",
-      "requires": "std::rc::Rc",
-      "description": "Put the expression into an `Rc`",
-      "scope": "expr"
-    },
-    "Box::pin": {
-      "postfix": "pinbox",
-      "body": "Box::pin(${receiver})",
-      "requires": "std::boxed::Box",
-      "description": "Put the expression into a pinned `Box`",
-      "scope": "expr"
-    },
-    "Ok": {
-      "postfix": "ok",
-      "body": "Ok(${receiver})",
-      "description": "Wrap the expression in a `Result::Ok`",
-      "scope": "expr"
-    },
-    "Err": {
-      "postfix": "err",
-      "body": "Err(${receiver})",
-      "description": "Wrap the expression in a `Result::Err`",
-      "scope": "expr"
-    },
-    "Some": {
-      "postfix": "some",
-      "body": "Some(${receiver})",
-      "description": "Wrap the expression in an `Option::Some`",
-      "scope": "expr"
+  "rust-analyzer": {
+    "completion": {
+      "snippets": {
+        "custom": {
+          "Arc::new": {
+            "postfix": "arc",
+            "body": "Arc::new(${receiver})",
+            "requires": "std::sync::Arc",
+            "description": "Put the expression into an `Arc`",
+            "scope": "expr"
+          },
+          "Rc::new": {
+            "postfix": "rc",
+            "body": "Rc::new(${receiver})",
+            "requires": "std::rc::Rc",
+            "description": "Put the expression into an `Rc`",
+            "scope": "expr"
+          },
+          "Box::pin": {
+            "postfix": "pinbox",
+            "body": "Box::pin(${receiver})",
+            "requires": "std::boxed::Box",
+            "description": "Put the expression into a pinned `Box`",
+            "scope": "expr"
+          },
+          "Ok": {
+            "postfix": "ok",
+            "body": "Ok(${receiver})",
+            "description": "Wrap the expression in a `Result::Ok`",
+            "scope": "expr"
+          },
+          "Err": {
+            "postfix": "err",
+            "body": "Err(${receiver})",
+            "description": "Wrap the expression in a `Result::Err`",
+            "scope": "expr"
+          },
+          "Some": {
+            "postfix": "some",
+            "body": "Some(${receiver})",
+            "description": "Wrap the expression in an `Option::Some`",
+            "scope": "expr"
+          }
+        }
+      }
     }
   },
 
   "sops": {
     "binPath": "/opt/homebrew/bin/sops",
-    "defaults.ageKeyFile": "/Users/scotte/.config/sops/age/keys.txt",
+    "defaults": {
+      "ageKeyFile": "/Users/scotte/.config/sops/age/keys.txt"
+    },
     "configPath": "./.sops.yaml"
   },
 
@@ -256,13 +280,21 @@
   },
 
   "terminal": {
-    "integrated.defaultProfile.osx": "fish",
-    "integrated.fontFamily": "FiraCode Nerd Font Mono"
+    "integrated": {
+      "defaultProfile": {
+        "osx": "fish"
+      },
+      "fontFamily": "FiraCode Nerd Font Mono"
+    }
   },
 
   "todo-tree": {
-    "highlights.useColourScheme": true,
-    "tree.expanded": true
+    "highlights": {
+      "useColourScheme": true
+    },
+    "tree": {
+      "expanded": true
+    }
   },
 
   "update": {
@@ -271,8 +303,10 @@
   },
 
   "vs-kubernetes": {
-    "vs-kubernetes.crd-code-completion": "enabled",
-    "vs-kubernetes.ignore-recommendations": true
+    "vs-kubernetes": {
+      "crd-code-completion": "enabled",
+      "ignore-recommendations": true
+    }
   },
 
   "window": {
@@ -341,76 +375,102 @@
   },
 
   "[fish]": {
-    "editor.tabSize": 2,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "bmalehorn.vscode-fish"
+    "editor": {
+      "tabSize": 2,
+      "formatOnSave": true,
+      "defaultFormatter": "bmalehorn.vscode-fish"
+    }
   },
 
   "[go]": {
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "golang.go"
+    "editor": {
+      "tabSize": 4,
+      "formatOnSave": true,
+      "defaultFormatter": "golang.go"
+    }
   },
 
   "[json]": {
-    "editor.formatOnSave": false,
-    "editor.tabSize": 2
+    "editor": {
+      "formatOnSave": false,
+      "tabSize": 2
+    }
   },
 
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua",
-    "editor.formatOnSave": false,
-    "editor.tabSize": 2
+    "editor": {
+      "defaultFormatter": "JohnnyMorganz.stylua",
+      "formatOnSave": false,
+      "tabSize": 2
+    }
   },
 
   "[nix]": {
-    "editor.defaultFormatter": "kamadorueda.alejandra",
-    "editor.formatOnSave": false,
-    "editor.tabSize": 2
+    "editor": {
+      "defaultFormatter": "kamadorueda.alejandra",
+      "formatOnSave": false,
+      "tabSize": 2
+    }
   },
 
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file",
-    "editor.tabSize": 4
+    "editor": {
+      "defaultFormatter": "rust-lang.rust-analyzer",
+      "formatOnSave": true,
+      "formatOnSaveMode": "file",
+      "tabSize": 4
+    }
   },
 
   "[python]": {
-    "editor.formatOnType": true
+    "editor": {
+      "formatOnType": true
+    }
   },
 
   "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 2
+    "editor": {
+      "defaultFormatter": "hashicorp.terraform",
+      "formatOnSave": true,
+      "tabSize": 2
+    }
   },
 
   "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4
+    "editor": {
+      "defaultFormatter": "tamasfe.even-better-toml",
+      "formatOnSave": true,
+      "tabSize": 4
+    }
   },
 
   "[sql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4
+    "editor": {
+      "defaultFormatter": "esbenp.prettier-vscode",
+      "formatOnSave": true,
+      "tabSize": 4
+    }
   },
 
   "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode",
-    "editor.tabSize": 4
+    "editor": {
+      "defaultFormatter": "svelte.svelte-vscode",
+      "tabSize": 4
+    }
   },
 
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor": {
+      "defaultFormatter": "esbenp.prettier-vscode",
+      "tabSize": 2
+    }
   },
 
   "[zig]": {
-    "editor.defaultFormatter": "ziglang.vscode-zig",
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4
+    "editor": {
+      "defaultFormatter": "ziglang.vscode-zig",
+      "formatOnSave": true,
+      "tabSize": 4
+    }
   }
 }
