@@ -47,63 +47,6 @@
     }
   ],
 
-  "code-runner": {
-    "executorMap": {
-      "ahk": "autohotkey",
-      "applescript": "osascript",
-      "autoit": "autoit3",
-      "bat": "cmd /c",
-      "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "clojure": "lein exec",
-      "coffeescript": "coffee",
-      "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "crystal": "crystal",
-      "csharp": "scriptcs",
-      "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-      "dart": "dart",
-      "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fsharp": "fsi",
-      "go": "go run",
-      "groovy": "groovy",
-      "haskell": "runghc",
-      "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-      "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-      "javascript": "node",
-      "julia": "julia",
-      "kit": "kitc --run",
-      "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-      "lisp": "sbcl --script",
-      "lua": "lua",
-      "nim": "nim compile --verbosity:0 --hints:off --run",
-      "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "ocaml": "ocaml",
-      "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-      "perl": "perl",
-      "perl6": "perl6",
-      "php": "php",
-      "powershell": "powershell -ExecutionPolicy ByPass -File",
-      "python": "python -u",
-      "r": "Rscript",
-      "racket": "racket",
-      "ruby": "ruby",
-      "rust": "cargo run # $fileName",
-      "sass": "sass --style expanded",
-      "scala": "scala",
-      "scheme": "csi -script",
-      "scss": "scss --style expanded",
-      "shellscript": "bash",
-      "sml": "cd $dir && sml $fileName",
-      "swift": "swift",
-      "typescript": "ts-node",
-      "v": "v run",
-      "vbscript": "cscript //Nologo",
-      "zig": "zig run"
-    }
-  },
-
   "diffEditor.ignoreTrimWhitespace": false,
 
   "editor": {
@@ -189,9 +132,7 @@
   },
 
   "gopls": {
-    "ui": {
-      "semanticTokens": true
-    }
+    "semanticTokens": true
   },
 
   "linter": {
@@ -370,7 +311,7 @@
     },
     "startupEditor": "none",
     "tree": {
-      "indent": 3,
+      "indent": 6,
       "renderIndentGuides": "none"
     },
     "iconTheme": "material-icon-theme"
