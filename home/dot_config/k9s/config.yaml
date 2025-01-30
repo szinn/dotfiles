@@ -32,10 +32,5 @@ k9s:
       critical: 90
       warn: 70
   ui:
-    crumbsless: false
-    enableMouse: false
-    headless: false
-    logoless: false
-    noIcons: false
-    reactive: false
-    skin: dracula
+    skin: catppuccin-mocha
+    logoless: true

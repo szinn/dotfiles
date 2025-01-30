@@ -8,3 +8,6 @@ aliases:
   rb: rolebindings
   ro: roles
   sec: v1/secrets
+  rs: replicationsource
+  rd: replicationdestination
+  cx: context
