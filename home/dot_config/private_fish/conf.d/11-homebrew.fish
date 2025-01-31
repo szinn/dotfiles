@@ -5,6 +5,8 @@ set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew/brewfile
 set -gx HOMEBREW_CASK_OPTS --no-quarantine
 # More frequent package updates
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
+# Don't use vendored mise activation
+set -gx MISE_FISH_AUTO_ACTIVATE 0
 
 eval (/opt/homebrew/bin/brew shellenv)
 
