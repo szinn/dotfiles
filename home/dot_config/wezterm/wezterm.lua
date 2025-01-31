@@ -16,12 +16,12 @@ workspace_switcher.workspace_formatter = function(label)
     },
     {
       Foreground = {
-        Color = '#9580FF',
+        AnsiColor = 'Navy',
       },
     },
     {
       Background = {
-        Color = 'black',
+        AnsiColor = 'Black',
       },
     },
     {
@@ -46,11 +46,13 @@ config.font = wezterm.font {
 config.font_size = 11.0
 config.line_height = 1.0
 
+config.color_scheme = "Dracula Pro Van Helsing"
 config.window_background_opacity = 1.0
 config.window_decorations = 'RESIZE'
 config.window_close_confirmation = 'AlwaysPrompt'
 config.scrollback_lines = 3000
 config.default_workspace = 'main'
+config.use_fancy_tab_bar = true
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
@@ -58,17 +60,12 @@ config.inactive_pane_hsb = {
   brightness = 0.5,
 }
 
--- Colors
--- config.color_scheme = "Tokyo Night"
-config.colors = require('colors').colors
-
-config.use_fancy_tab_bar = true
-
 config.leader = {
   key = 't',
   mods = 'CTRL',
   timeout_milliseconds = 2000,
 }
+
 config.keys = { -- Send C-t when pressing C-a twice
   {
     key = 't',
@@ -317,14 +314,9 @@ local function update_right_status(window)
   title = basename(window:active_workspace())
   if window:is_focused() then
     window:set_right_status(wezterm.format {
-      {
-        Foreground = {
-          Color = '#F8F8F2',
-        },
-      },
-      {
-        Text = title .. '  ',
-      },
+      { Foreground = { Color = '#AAAAAA' } },
+      { Background = { Color = '#333333' } },
+      { Text = '  ' .. title .. '  ' },
     })
   end
 end
