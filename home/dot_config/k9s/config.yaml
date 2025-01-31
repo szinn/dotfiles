@@ -32,5 +32,4 @@ k9s:
       critical: 90
       warn: 70
   ui:
-    skin: catppuccin-mocha
     logoless: true
