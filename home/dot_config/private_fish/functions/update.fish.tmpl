@@ -1,21 +1,21 @@
 function update --description="Update everything"
-  brewup
-  if type -q kubectl-krew
-    kubectl-krew update
-    kubectl-krew upgrade
-  end
-  if type -q fisher
-    fisher update
-  end
-
-  if type -q helm
-    for plugin in (helm plugin list | grep -v "VERSION" | awk '{print $1}')
-      helm plugin update $plugin
+    brewup
+    if type -q kubectl-krew
+        kubectl-krew update
+        kubectl-krew upgrade
     end
-  end
+    if type -q fisher
+        fisher update
+    end
 
-  if type -q nvim
-    nvim --headless "+Lazy! sync" +qa
-    chezmoi add {{ .chezmoi.homeDir }}/.config/nvim
-  end
+    if type -q helm
+        for plugin in (helm plugin list | grep -v "VERSION" | awk '{print $1}')
+            helm plugin update $plugin
+        end
+    end
+
+    if type -q nvim
+        nvim --headless "+Lazy! sync" +qa 2>&1 >/dev/null
+        chezmoi add {{ .chezmoi.homeDir }}/.config/nvim
+    end
 end
