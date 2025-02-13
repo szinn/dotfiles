@@ -5,6 +5,7 @@ fish/completions
 fish/fish_variables
 helm/repositories.lock
 helm/repositories.yaml
+htop
 op
 swiftpm
 tmux/plugins
