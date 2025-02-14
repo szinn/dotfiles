@@ -46,6 +46,7 @@
 .zsh_history
 .zsh_sessions
 .zshenv
+**/.DS_Store
 Applications
 Databases
 Desktop
