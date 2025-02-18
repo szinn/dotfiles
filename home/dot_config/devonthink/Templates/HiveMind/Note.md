@@ -1,9 +1,9 @@
-# %@
+#
 
-Previous Note:
+---
 
-_________________________
+Previous:
 
-## Related Notes
+Related:
 
-## References
+References:
