@@ -1,0 +1,7 @@
+# k9s setup
+# Requires `brew install k9s`
+if type -q k9s
+    if status --is-interactive
+        abbr --add -- kk '{{ lookPath "k9s" }}'
+    end
+end
