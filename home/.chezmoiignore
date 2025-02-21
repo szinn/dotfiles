@@ -19,7 +19,7 @@
 .gnupg/trustdb.gpg
 .k8slens
 .krew
-.kube/cache
+.kube
 .lesshst
 .local/share
 .local/state
@@ -37,6 +37,7 @@
 .ssh/known_hosts
 .ssh/known_hosts.old
 .swiftpm
+.talos
 .terminfo
 .terraform.d
 .Trash
