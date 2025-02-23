@@ -4,8 +4,10 @@
 # cargo applications hash: {{ include "dot_cargo/cargo_apps" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
-  if test -z "$(command -v ${app})"; then
-    cargo install ${app}
-  fi
-done
+if test -n "$(command -v cargo)"; then
+  for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
+    if test -z "$(command -v ${app})"; then
+      cargo install ${app}
+    fi
+  done
+fi

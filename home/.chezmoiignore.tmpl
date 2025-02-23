@@ -1,5 +1,11 @@
+{{ if (eq .chezmoi.os "darwin") }}
+.bashrc
+{{ end }}
+
 .ansible
 .bash_history
+.bash_logout
+.bash_profile
 .cache
 .CFUserTextEncoding
 .cups
@@ -7,9 +13,12 @@
 .DS_Store
 .freelens
 .gnupg/.DS_Store
+.gnupg/.#*
 .gnupg/common.conf
 .gnupg/private-keys-v1.d
 .gnupg/public-keys.d
+.gnupg/pubring.kbx
+.gnupg/pubring.kbx~
 .gnupg/S.gpg-agent
 .gnupg/S.gpg-agent.browser
 .gnupg/S.gpg-agent.extra
@@ -25,6 +34,7 @@
 .local/state
 .mc/certs
 .mc/share
+.mozilla
 .npm
 .orbstack
 .profile
@@ -42,6 +52,7 @@
 .terraform.d
 .Trash
 .viminfo
+.vnc
 .vscode
 .wget-hsts
 .zsh_history
@@ -67,3 +78,5 @@ Parallels
 Pictures
 Public
 Ragnar
+Templates
+Videos

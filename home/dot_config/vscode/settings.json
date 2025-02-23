@@ -212,10 +212,7 @@
         "enable": false
       },
       "renderColons": false
-    }
-  },
-
-  "rust-analyzer": {
+    },
     "completion": {
       "snippets": {
         "custom": {
@@ -413,6 +410,12 @@
     }
   },
 
+  "[python]": {
+    "editor": {
+      "formatOnType": true
+    }
+  },
+
   "[rust]": {
     "editor": {
       "defaultFormatter": "rust-lang.rust-analyzer",
@@ -422,9 +425,17 @@
     }
   },
 
-  "[python]": {
+  "[sh]": {
     "editor": {
-      "formatOnType": true
+      "defaultFormatter": "foxundermoon.shell-format",
+      "tabSize": 2
+    }
+  },
+
+  "[shellscript]": {
+    "editor": {
+      "defaultFormatter": "foxundermoon.shell-format",
+      "tabSize": 2
     }
   },
 

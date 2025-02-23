@@ -1,0 +1,34 @@
+.DS_Store
+chezmoi
+colima
+fish/completions
+fish/fish_variables
+helm/repositories.lock
+helm/repositories.yaml
+htop
+op
+swiftpm
+tmux/plugins
+wireshark
+
+{{ if (eq .chezmoi.os "linux") }}
+.gsd-keyboard.settings-ported
+abrt
+connections.db
+dconf
+evolution
+glib-2.0
+gnome-initial-setup-done
+gnome-session
+go
+goa-1.0
+gtk-3.0
+gtk-4.0
+ibus
+nautilus
+org.gnome.Ptyxis
+pulse
+systemd
+user-dirs.dirs
+user-dirs.locale
+{{ end }}

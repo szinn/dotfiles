@@ -27,9 +27,17 @@ theme = dracula-pro-van-helsing
 adjust-cell-height = -12%
 # better colors
 window-colorspace = display-p3
-window-decoration = false
-window-height = 80
-window-width = 180
 confirm-close-surface = false
 cursor-style = block
 cursor-style-blink = false
+
+{{ if (eq .chezmoi.os "darwin") }}
+window-decoration = false
+window-height = 80
+window-width = 180
+{{ end }}
+
+{{ if (eq .chezmoi.os "linux") }}
+window-height = 35
+window-width = 150
+{{ end }}

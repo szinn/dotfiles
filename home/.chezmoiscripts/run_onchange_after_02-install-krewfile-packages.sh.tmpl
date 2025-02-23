@@ -4,9 +4,11 @@
 # krewfile_plugins hash: {{ include "dot_config/krewfile/krewfile" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-if command -v kubectl; then
-  go install github.com/brumhard/krewfile@latest
+if test -n "$(command -v kubectl)"; then
+  if test -n "$(command -v go)"; then
+    go install github.com/brumhard/krewfile@latest
 
-  kubectl krew update
-  {{ .chezmoi.homeDir }}/go/bin/krewfile -command "kubectl krew" -file {{ .chezmoi.homeDir }}/.config/krewfile/krewfile -upgrade
+    kubectl krew update
+    {{ .chezmoi.homeDir }}/go/bin/krewfile -command "kubectl krew" -file {{ .chezmoi.homeDir }}/.config/krewfile/krewfile -upgrade
+  fi
 fi

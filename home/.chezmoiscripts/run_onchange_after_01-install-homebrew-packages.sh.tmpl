@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Homebrew packages
 # homebrew/brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
@@ -13,5 +12,3 @@ brew cleanup --prune=all
 
 echo "Running brew bundle cleanup"
 brew bundle cleanup --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile" || true
-
-{{- end }}

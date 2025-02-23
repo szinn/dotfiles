@@ -1,9 +1,9 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
-if type -q fisher
-  for plugin in jorgebucaran/autopair.fish
+if test -n "$(command -v fisher)"; then
+  for plugin in jorgebucaran/autopair.fish; do
     fisher install $plugin
-  end
+  done
 
   fisher update
-end
+fi

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+{{ if (eq .chezmoi.os "linux") }}
+
+if test -z "$(command -v /home/linuxbrew/.linuxbrew/opt/gnu-sed/bin/sed)"; then
+  brew install gnu-sed
+fi
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Add fish shell
+# ---------------------------------------------------------------------------------------------------------------------
+! grep -q fish /etc/shells && sudo /home/linuxbrew/.linuxbrew/opt/gnu-sed/bin/sed -i '$a/home/linuxbrew/.linuxbrew/bin/fish' /etc/shells
+
+{{ end }}

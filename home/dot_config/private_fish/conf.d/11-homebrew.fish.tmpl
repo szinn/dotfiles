@@ -8,6 +8,7 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 # Don't use vendored mise activation
 set -gx MISE_FISH_AUTO_ACTIVATE 0
 
+{{ if (eq .chezmoi.os "darwin") }}
 eval (/opt/homebrew/bin/brew shellenv)
 
 update_path $HOMEBREW_PREFIX/bin
@@ -17,3 +18,15 @@ update_path $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/gawk/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin
+{{ end }}
+
+{{ if (eq .chezmoi.os "linux") }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+update_path $HOMEBREW_PREFIX/bin
+update_path $HOMEBREW_PREFIX/opt/curl/bin
+update_path $HOMEBREW_PREFIX/opt/coreutils/bin
+update_path $HOMEBREW_PREFIX/opt/gnu-sed/bin
+update_path $HOMEBREW_PREFIX/opt/gawk/bin
+update_path $HOMEBREW_PREFIX/opt/findutils/bin
+{{ end }}
