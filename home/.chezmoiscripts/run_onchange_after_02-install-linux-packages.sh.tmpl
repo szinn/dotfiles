@@ -11,7 +11,8 @@ if test -n "$(command -v go)"; then
   done
 fi
 
+sudo dnf copr enable pgdev/ghostty -y
 sudo dnf copr enable atim/lazygit -y
-sudo dnf -q -y install lazygit gcc
+sudo dnf -q -y install lazygit gcc ghostty
 
 {{ end }}
