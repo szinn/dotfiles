@@ -1,8 +1,8 @@
 return {
   {
-    "ibhagwan/fzf-lua",
+    'ibhagwan/fzf-lua',
     opts = {
-      fzf_args = "--walker-skip=.git,node_modules,.zig-cache",
-    },   
+      fzf_args = '--walker-skip=.git,node_modules,.zig-cache,.jj',
+    },
   },
 }
