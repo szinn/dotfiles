@@ -3,8 +3,8 @@ name = "Scotte Zinn"
 email = "scotte@zinn.ca"
 
 [ui]
+editor = "nvim"
 default-command = "log"
-paginate = "never"
 diff.tool = "delta"
 
 [git]
