@@ -1,7 +1,9 @@
-set -gx VISUAL "nvim"
-set -gx EDITOR "nvim"
+set -gx VISUAL nvim
+set -gx EDITOR nvim
 set -gx LANG "en_US.utf-8"
 set -gx MANPAGER "nvim +Man!"
+
+set -gx GOPATH {{ .chezmoi.homeDir }}/.go
 
 set -gx XDG_CACHE_HOME "{{ .chezmoi.homeDir }}/.cache"
 set -gx XDG_CONFIG_HOME "{{ .chezmoi.homeDir }}/.config"
