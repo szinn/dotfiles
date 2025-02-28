@@ -1,64 +1,65 @@
 [include]
-    path = alias
+  path = alias
 
 [color]
-	ui = "auto"
+  ui = "auto"
 
 [commit]
-	gpgSign = true
+  gpgSign = true
 
 [core]
-	autocrlf = "input"
-	editor = "nvim"
-	pager = "delta"
+  autocrlf = "input"
+  editor = "nvim"
+  pager = "delta"
+  excludesfile = "{{ .chezmoi.homeDir }}/.config/git/ignore"
 
 {{ if (eq .chezmoi.os "darwin") }}
 [credential]
-	helper = "osxkeychain"
+  helper = "osxkeychain"
 {{ end }}
 
 [delta]
-	features = "decorations"
-	light = "false"
-	navigate = "true"
-	side-by-side = "true"
+  features = "decorations"
+  light = "false"
+  navigate = "true"
+  side-by-side = "true"
 
 [diff]
-	colorMoved = "default"
+  colorMoved = "default"
 
 [diff "sopsdiffer"]
-	textconv = "sops decrypt"
+  textconv = "sops decrypt"
 
 [fetch]
-	prune = "true"
+  prune = "true"
 
 [gpg "ssh"]
-	allowedSignersFile = "~/.ssh/allowed_signers"
+  allowedSignersFile = "~/.ssh/allowed_signers"
 
 [init]
-	defaultBranch = "main"
+  defaultBranch = "main"
 
 [interactive]
-	diffFilter = "delta --color-only"
+  diffFilter = "delta --color-only"
 
 [merge]
-	conflictstyle = "diff3"
+  conflictstyle = "diff3"
 
 [pager]
-	branch = "false"
+  branch = "false"
 
 [pull]
-	rebase = "true"
+  rebase = "true"
 
 [push]
-	autoSetupRemote = "true"
+  autoSetupRemote = "true"
 
 [rebase]
-	autoStash = "true"
+  autoStash = "true"
 
 [user]
-	email = "scotte@zinn.ca"
-	name = "Scotte Zinn"
+  email = "scotte@zinn.ca"
+  name = "Scotte Zinn"
 
 [user "signing"]
-	key = "B2F1677DB0348B42"
+  key = "B2F1677DB0348B42"
