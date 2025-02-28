@@ -1,0 +1,11 @@
+[user]
+name = "Scotte Zinn"
+email = "scotte@zinn.ca"
+
+[ui]
+default-command = "log"
+paginate = "never"
+diff.tool = "delta"
+
+[git]
+subprocess = true
