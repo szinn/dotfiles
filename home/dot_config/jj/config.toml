@@ -6,9 +6,12 @@ email = "scotte@zinn.ca"
 
 [ui]
 default-command = "log"
-diff.tool = "delta"
+diff.format = "git"
 editor = "nvim"
-pager = ["less", "-FRX"]
+pager = ["delta", "--pager", "less -FRX"]
+
+[merge-tools.delta]
+diff-expected-exit-codes = [0, 1]
 
 [git]
 sign-on-push = false
