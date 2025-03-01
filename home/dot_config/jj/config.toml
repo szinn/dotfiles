@@ -16,6 +16,7 @@ subprocess = true
 
 [aliases]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
+la = ["log", "-r", "::@"]
 nt = ["new", "trunk()"]
 rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
 
