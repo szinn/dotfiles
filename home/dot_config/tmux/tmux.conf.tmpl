@@ -12,7 +12,8 @@ unbind C-b
 set -g prefix C-t
 bind-key C-t send-prefix
 
-set -g default-terminal "screen-256color"
+set-option -g default-shell $SHELL
+set -g default-terminal "xterm-256color"
 
 set -g mouse on                 # enable mouse support
 set -g base-index 1             # start indexing windows at 1 instead of 0
@@ -103,4 +104,9 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Load and run tpm
 set -g @plugin 'tmux-plugins/tpm'
+{{ if (eq .chezmoi.os "darwin") }}
 run "/opt/homebrew/opt/tpm/share/tpm/tpm"
+{{ end }}
+{{ if (eq .chezmoi.os "linux") }}
+run "/home/linuxbrew/.linuxbrew/opt/tpm/share/tpm/tpm"
+{{ end }}
