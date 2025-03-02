@@ -3,3 +3,4 @@
 .decrypted~*
 *.decrypted.*
 .venv
+.jj
