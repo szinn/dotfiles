@@ -1,0 +1,65 @@
+[include]
+  path = alias
+
+[color]
+  ui = "auto"
+
+[commit]
+  gpgSign = true
+
+[core]
+  autocrlf = "input"
+  editor = "nvim"
+  pager = "delta"
+  excludesfile = "{{ .chezmoi.homeDir }}/.config/git/ignore"
+
+{{ if (eq .chezmoi.os "darwin") }}
+[credential]
+  helper = "osxkeychain"
+{{ end }}
+
+[delta]
+  features = "decorations"
+  light = "false"
+  navigate = "true"
+  side-by-side = "true"
+
+[diff]
+  colorMoved = "default"
+
+[diff "sopsdiffer"]
+  textconv = "sops decrypt"
+
+[fetch]
+  prune = "true"
+
+[gpg "ssh"]
+  allowedSignersFile = "~/.ssh/allowed_signers"
+
+[init]
+  defaultBranch = "main"
+
+[interactive]
+  diffFilter = "delta --color-only"
+
+[merge]
+  conflictstyle = "diff3"
+
+[pager]
+  branch = "false"
+
+[pull]
+  rebase = "true"
+
+[push]
+  autoSetupRemote = "true"
+
+[rebase]
+  autoStash = "true"
+
+[user]
+  email = "scotte@zinn.ca"
+  name = "Scotte Zinn"
+
+[user "signing"]
+  key = "B2F1677DB0348B42"

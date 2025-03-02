@@ -1,7 +1,7 @@
 Host *
-  UseKeychain yes
   AddKeysToAgent yes
 {{- if (eq .chezmoi.os "darwin") }}
+  UseKeychain yes
   # This will require 1Password to be unlocked to perform as the identity agent.
   # With TouchId, not easily done when remoting in.
   # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

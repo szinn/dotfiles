@@ -14,6 +14,6 @@ else
   done
 
   tmpFile="${tmpDir}/owner_trust.asc"
-  op document get 3iefpzb6vlz4mtyakxrulu52iq  --out-file ${tmpFile}
+  op document get 3iefpzb6vlz4mtyakxrulu52iq --out-file ${tmpFile}
   gpg --import-ownertrust ${tmpFile}
 fi

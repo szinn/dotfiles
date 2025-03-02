@@ -1,3 +1,7 @@
 {{- if (eq .chezmoi.os "darwin") }}
 pinentry-program /opt/homebrew/bin/pinentry-mac
 {{- end }}
+{{- if (eq .chezmoi.os "linux") }}
+pinentry-program /home/linuxbrew/.linuxbrew/bin/pinentry-curses
+allow-loopback-pinentry
+{{- end }}

@@ -1,10 +1,15 @@
 {
-  "files.associations": {
-    "*.toml.tmpl": "toml",
-    "*.sh.tmpl": "shellscript",
-    "*.fish.tmpl": "fish",
-    "**/home/dot_config/git/config.tmpl": "toml",
-    "**/.chezmoiignore": "plaintext",
-    "**/krewfile": "plaintext"
+  "files": {
+    "associations": {
+      "*.toml.tmpl": "toml",
+      "*.sh.tmpl": "shellscript",
+      "*.fish.tmpl": "fish",
+      "**/home/dot_config/git/config.tmpl": "toml",
+      "**/.chezmoiignore": "plaintext",
+      "**/krewfile": "plaintext"
+    },
+    "exclude": {
+      ".jj/": true
+    }
   }
 }

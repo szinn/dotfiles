@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+{{ if (eq .chezmoi.os "linux") }}
+
+if test -z "$(command -v /home/linuxbrew/.linuxbrew/opt/gnu-sed/bin/sed)"; then
+  brew install gnu-sed
+fi
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Add fish shell
+# ---------------------------------------------------------------------------------------------------------------------
+! grep -q fish /etc/shells && sudo /home/linuxbrew/.linuxbrew/opt/gnu-sed/bin/sed -i '$a/home/linuxbrew/.linuxbrew/bin/fish' /etc/shells
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Add sudoer and set shell
+# ---------------------------------------------------------------------------------------------------------------------
+echo "scotte ALL=(ALL) NOPASSWD:ALL" > /tmp/scotte
+sudo chown root:root /tmp/scotte
+sudo mv /tmp/scotte /etc/sudoers.d
+
+chsh -s /home/linuxbrew/.linuxbrew/bin/fish
+
+{{ end }}

@@ -1,0 +1,33 @@
+"$schema" = 'https://jj-vcs.github.io/jj/prerelease/config-schema.json'
+
+[user]
+name = "Scotte Zinn"
+email = "scotte@zinn.ca"
+
+[ui]
+default-command = "log"
+diff.format = "git"
+editor = "nvim"
+pager = ["delta", "--pager", "less -FRX"]
+
+[merge-tools.delta]
+diff-expected-exit-codes = [0, 1]
+
+[git]
+sign-on-push = true
+subprocess = true
+
+[aliases]
+d = ["diff"]
+l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
+ll = ["log", "-T", "builtin_log_detailed"]
+la = ["log", "-r", "::@"]
+nt = ["new", "trunk()"]
+rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+s = ["show"]
+
+[signing]
+backend = "gpg"
+key = "B2F1677DB0348B42"
+backends.gpg.allow-expired-keys = false
+backends.ssh.allowed-signers = "{{ chezmoi.homeDir }}/.ssh/allowed_signers"

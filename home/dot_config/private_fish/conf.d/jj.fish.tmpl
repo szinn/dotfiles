@@ -1,0 +1,5 @@
+if type -q jj
+    set -gx JJ_CONFIG "{{ .chezmoi.homeDir }}/.config/jj/config.toml"
+    abbr --add -- jjf '{{ lookPath "jj" }} git fetch && {{ lookPath "jj" }} rebase-all'
+    abbr --add -- jjst '{{ lookPath "jj" }} st'
+end

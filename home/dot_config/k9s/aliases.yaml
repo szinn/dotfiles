@@ -11,3 +11,5 @@ aliases:
   rs: replicationsource
   rd: replicationdestination
   cx: context
+  ks: kustomizations
+  hr: helmreleases

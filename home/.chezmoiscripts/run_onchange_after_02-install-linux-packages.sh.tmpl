@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# Install linux applications
+# ---------------------------------------------------------------------------------------------------------------------
+
+{{ if (eq .chezmoi.os "linux") }}
+
+if test -n "$(command -v go)"; then
+  for app in github.com/arl/gitmux@latest; do
+    go install ${app}
+  done
+fi
+
+sudo dnf copr enable pgdev/ghostty -y
+sudo dnf copr enable atim/lazygit -y
+sudo dnf -q -y install lazygit gcc ghostty
+
+{{ end }}

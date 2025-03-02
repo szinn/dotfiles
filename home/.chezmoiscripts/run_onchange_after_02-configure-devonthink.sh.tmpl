@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+{{ if (eq .chezmoi.hostname "Odin") }}
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind" ]]; then
   echo "DEVONthink templates already linked"
@@ -12,3 +13,4 @@ if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Scripts/com.devon-technolog
 else
   ln -s "{{ .chezmoi.homeDir }}/.config/devonthink/Scripts/HiveMind" "{{ .chezmoi.homeDir }}/Library/Application Scripts/com.devon-technologies.think3/Menu/HiveMind"
 fi
+{{ end }}
