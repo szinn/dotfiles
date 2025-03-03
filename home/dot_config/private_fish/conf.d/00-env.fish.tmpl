@@ -4,6 +4,7 @@ set -gx LANG "en_US.utf-8"
 set -gx MANPAGER "nvim +Man!"
 
 set -gx GOPATH {{ .chezmoi.homeDir }}/.go
+set -gx GOBIN "$GOPATH/bin"
 
 set -gx XDG_CACHE_HOME "{{ .chezmoi.homeDir }}/.cache"
 set -gx XDG_CONFIG_HOME "{{ .chezmoi.homeDir }}/.config"

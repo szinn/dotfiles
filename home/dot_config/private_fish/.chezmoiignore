@@ -1,5 +1,4 @@
 conf.d/autopair.fish
-fish_plugins
 functions/_autopair_backspace.fish
 functions/_autopair_insert_left.fish
 functions/_autopair_insert_right.fish
