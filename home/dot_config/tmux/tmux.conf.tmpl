@@ -39,7 +39,7 @@ set -g monitor-activity on
 set -g visual-activity off
 
 # Status line formatting
-set -g status-position top
+set -g status-position bottom
 set -g status-style 'bg=#333333'
 set -g status-left " #[fg=blue]#{session_name} #[fg=white,nobold]#(gitmux -cfg {{ .chezmoi.homeDir }}/.config/tmux/gitmux.conf \"#{pane_current_path}\") "
 set -g status-left-length 100
