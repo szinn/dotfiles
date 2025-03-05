@@ -299,6 +299,8 @@
     "showReleaseNotes": false
   },
 
+  "visualjj.showSourceControlColocated": true,
+
   "vs-kubernetes": {
     "vs-kubernetes": {
       "crd-code-completion": "enabled",
