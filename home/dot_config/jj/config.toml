@@ -18,6 +18,8 @@ sign-on-push = true
 subprocess = true
 
 [aliases]
+b = ["bookmark"]
+bt = ["bookmark", "move", "--to", "@-"]
 d = ["diff"]
 l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
 ll = ["log", "-T", "builtin_log_detailed"]
