@@ -1,0 +1,11 @@
+# This is the 1Password SSH agent config file, which allows you to customize the
+# behavior of the SSH agent running on this machine.
+#
+# You can use it to:
+# * Enable keys from other vaults than the Private vault
+# * Control the order in which keys are offered to SSH servers
+#
+
+[[ssh-keys]]
+vault = "Private"
+item = "SSH key"
