@@ -1,6 +1,6 @@
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname$directory$git_branch$fill$python$status$cmd_duration$line_break$character"
+format = "$username$hostname$directory$git_branch$git_status$fill$python$status$cmd_duration$line_break$character"
 
 [character]
 error_symbol = "[](red)"
@@ -38,12 +38,13 @@ style = "purple"
 symbol = " "
 
 [git_status]
-ahead = " "
-behind = " "
+disabled = false
+ahead = "▲"
+behind = "▼"
 conflicted = " "
 deleted = " "
 diverged = "󰆗 "
-format = "([$all_status$ahead_behind]($style) )"
+format = "([$ahead_behind]($style))"
 modified = " "
 renamed = " "
 staged = " "
