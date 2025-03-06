@@ -33,3 +33,7 @@ backend = "gpg"
 key = "B2F1677DB0348B42"
 backends.gpg.allow-expired-keys = false
 backends.ssh.allowed-signers = "{{ chezmoi.homeDir }}/.ssh/allowed_signers"
+
+[template-aliases]
+'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_short_signature(signature)' = 'signature.email().local()'
