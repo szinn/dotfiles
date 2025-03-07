@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+tasks:
+  default:
+    cmd: task --list
+    silent: true
+
+  format:
+    desc: Format all files
+    cmds:
+      - prettier -w .
+      - stylua -f home/dot_config/nvim/stylua.toml home/dot_config/nvim
