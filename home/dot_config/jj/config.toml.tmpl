@@ -29,10 +29,12 @@ rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
 s = ["show"]
 
 [signing]
-backend = "gpg"
-key = "B2F1677DB0348B42"
-backends.gpg.allow-expired-keys = false
-backends.ssh.allowed-signers = "{{ chezmoi.homeDir }}/.ssh/allowed_signers"
+# backend = "gpg"
+# key = "B2F1677DB0348B42"
+# backends.gpg.allow-expired-keys = false
+backend = "ssh"
+key = '{{ onepasswordRead "op://Private/SSH Key/public key" }}'
+backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
