@@ -4,9 +4,6 @@
 [color]
   ui = "auto"
 
-[commit]
-  gpgSign = true
-
 [core]
   autocrlf = "input"
   editor = "nvim"
@@ -33,9 +30,6 @@
 [fetch]
   prune = "true"
 
-[gpg "ssh"]
-  allowedSignersFile = "~/.ssh/allowed_signers"
-
 [init]
   defaultBranch = "main"
 
@@ -57,9 +51,19 @@
 [rebase]
   autoStash = "true"
 
+[commit]
+  gpgSign = true
+
+[tag]
+  gpgSign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = "~/.ssh/allowed_signers"
+
 [user]
   email = "scotte@zinn.ca"
   name = "Scotte Zinn"
-
-[user "signing"]
-  key = "B2F1677DB0348B42"
+  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key" }}
