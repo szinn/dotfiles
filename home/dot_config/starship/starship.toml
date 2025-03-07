@@ -36,6 +36,7 @@ symbol = " "
 format = "on [$symbol$branch]($style) "
 style = "purple"
 symbol = " "
+only_attached = true
 
 [git_status]
 disabled = false
