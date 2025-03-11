@@ -126,6 +126,7 @@
   "git": {
     "autofetch": true,
     "confirmSync": false,
+    "enableSmartCommit": true,
     "replaceTagsWhenPull": true
   },
 
@@ -160,7 +161,7 @@
     "any": {
       "maxDepthRecursion": 2
     },
-    "filterOnnfullPath": true,
+    "filterOnFullPath": true,
     "git": {
       "baseFolders": ["/Users/scotte/Development/Projects"],
       "maxDepthRecursion": 2
