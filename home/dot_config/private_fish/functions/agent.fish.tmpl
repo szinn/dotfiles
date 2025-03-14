@@ -18,7 +18,7 @@ function agent -d "Start or connect to existing ssh-agent"
         if ! test -z '({{ lookPath "pgrep" }} ssh-agent)'
             {{ lookPath "pkill" }} -f ssh-agent >/dev/null
         end
-        {{ lookPath "ssh-agent" }} -c | grep -v echo >$SSH_ENV
+        {{ lookPath "ssh-agent" }} -c | grep -v echo | sed -e "s/setenv/set -xg/" >$SSH_ENV
         chmod 600 $SSH_ENV
         source $SSH_ENV >/dev/null
         true # suppress errors from setenv, i.e. set -gx
