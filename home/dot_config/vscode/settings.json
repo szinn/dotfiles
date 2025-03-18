@@ -76,7 +76,8 @@
     "inlayHints": {
       "enabled": "offUnlessPressed"
     },
-    // "lineNumbers": "relative",
+    // Enable relative line numbers if using vscode-neovim extension
+    "lineNumbers": "relative",
     "minimap": {
       "enabled": false
     },
@@ -301,6 +302,15 @@
   },
 
   "visualjj.showSourceControlColocated": true,
+
+  "vscode-neovim": {
+    "neovimEcecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "compositeKeys": {
+      "jl": {
+        "command": "vscode-neovim.escape"
+      }
+    }
+  },
 
   "vs-kubernetes": {
     "vs-kubernetes": {
