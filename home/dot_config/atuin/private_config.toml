@@ -5,6 +5,18 @@ search_mode = "fuzzy"
 sync_address = "https://atuin.zinn.ca"
 update_check = false
 workspaces = true
+history_filter = [
+    "^/opt/homebrew/bin/jj",
+    "^cd",
+    "^chezmoi",
+    "^cm",
+    "^git",
+    "^gst$",
+    "^jj",
+    "^ll",
+    "^ls",
+    "^x$",
+]
 
 [sync]
 records = true
