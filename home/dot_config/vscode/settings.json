@@ -76,7 +76,6 @@
     "inlayHints": {
       "enabled": "offUnlessPressed"
     },
-    // Enable relative line numbers if using vscode-neovim extension
     "lineNumbers": "relative",
     "minimap": {
       "enabled": false
@@ -261,6 +260,8 @@
       }
     }
   },
+
+  "search.showLineNumbers": true,
 
   "sops": {
     "binPath": "/opt/homebrew/bin/sops",
