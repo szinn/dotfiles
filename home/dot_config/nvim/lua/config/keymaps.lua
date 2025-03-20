@@ -4,4 +4,8 @@
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
+if vim.g.vscode then
+  return
+end
+
 vim.api.nvim_set_keymap("i", "jl", "<Esc>", { noremap = false })
