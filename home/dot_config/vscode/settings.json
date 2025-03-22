@@ -54,8 +54,7 @@
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.cursorSurroundingLines": 10,
   "editor.cursorSurroundingLinesStyle": "default",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.autoReveal": false,
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
@@ -69,7 +68,7 @@
   "editor.overviewRulerBorder": false,
   "editor.tabSize": 2,
 
-  "eslint.validate": ["javascript", "javascriptreact", "svelte"],
+  // "eslint.validate": ["javascript", "javascriptreact", "svelte"],
 
   "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
@@ -107,14 +106,14 @@
 
   "go.toolsManagement.autoUpdate": true,
 
-  "gopls.semanticTokens": true,
-
-  "linter.linters.yamllint.configFiles": [".yamllint.yml", ".yamllint.yaml", ".yamllint", ".ci/yamllint/.yamllint.yaml"],
+  // "linter.linters": {
+  //   "yamllint.configFiles": [".yamllint.yml", ".yamllint.yaml", ".yamllint", ".ci/yamllint/.yamllint.yaml"]
+  // },
 
   "playwright.reuseBrowser": true,
 
   "prettier.printWidth": 120,
-  "prettier.prettier.configPath": ".prettierrc",
+  "prettier.configPath": ".prettierrc",
 
   "projectManager.any.maxDepthRecursion": 2,
   "projectManager.filterOnFullPath": true,
@@ -132,22 +131,11 @@
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.useLocalServer": false,
 
-  "rust-analyzer.cargo": {
-    "allFeatures": false
-  },
-  "rust-analyzer.trace": {
-    "server": "verbose",
-    "extension": true
-  },
-  "rust-analyzer.diagnostics": {
-    "enableExperimental": false
-  },
-  "rust-analyzer.checkOnSave": {
-    "command": "cargo check",
-    "enable": true,
-    "allTargets": false,
-    "overrideCommand": ["cargo", "check", "--message-format=json"]
-  },
+  "rust-analyzer.trace.server": "verbose",
+  "rust-analyzer.diagnostics.experimental.enable": false,
+  "rust-analyzer.check.command": "cargo check",
+  "rust-analyzer.check.allTargets": false,
+  "rust-analyzer.check.overrideCommand": ["cargo", "check", "--message-format=json"],
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "rust-analyzer.inlayHints.renderColons": false,
@@ -202,10 +190,7 @@
   "svelte.enable-ts-plugin": true,
 
   "telemetry.telemetryLevel": "off",
-
-  "terminal.integrated.defaultProfile": {
-    "osx": "fish"
-  },
+  "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
 
   "todo-tree.highlights.useColourScheme": true,
@@ -280,12 +265,6 @@
     "n"
   ],
 
-  "vs-kubernetes.vs-kubernetes": {
-    "crd-code-completion": "enabled",
-    "ignore-recommendations": true
-  },
-
-  "window.menuBarVisibility": "compact",
   "window.commandCenter": true,
 
   "workbench.activityBar.location": "top",
@@ -340,6 +319,13 @@
   },
 
   "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
+  },
+
+  "[json5]": {
+    "editor.defaultFormatter": "BlueGlassBlock.better-json5",
     "editor.formatOnSave": false,
     "editor.tabSize": 2
   },
