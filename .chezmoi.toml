@@ -1,7 +1,0 @@
-[diff]
-    exclude = ["scripts"]
-    command = "delta"
-    pager = "delta"
-
-[status]
-    exclude = ["scripts"]

@@ -1,8 +1,8 @@
 "$schema" = 'https://jj-vcs.github.io/jj/prerelease/config-schema.json'
 
 [user]
-name = "Scotte Zinn"
-email = "scotte@zinn.ca"
+name = "{{ .user.name }}"
+email = "{{ .user.email }}"
 
 [ui]
 default-command = "log"
@@ -35,7 +35,7 @@ s = ["show"]
 # key = "B2F1677DB0348B42"
 # backends.gpg.allow-expired-keys = false
 backend = "ssh"
-key = '{{ onepasswordRead "op://Private/SSH Key/public key" }}'
+key = "{{ .user.signingKey }}"
 backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
 
 [template-aliases]

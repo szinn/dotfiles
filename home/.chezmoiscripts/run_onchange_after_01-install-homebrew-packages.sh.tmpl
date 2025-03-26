@@ -5,10 +5,10 @@
 # ---------------------------------------------------------------------------------------------------------------------
 export HOMEBREW_CASK_OPTS=--no-quarantine
 echo "Running brew bundle"
-brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile"
+brew bundle --all --file "{{ .paths.config }}/homebrew/Brewfile"
 
 echo "Running brew cleanup"
 brew cleanup --prune=all
 
 echo "Running brew bundle cleanup"
-brew bundle cleanup --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/Brewfile" || true
+brew bundle cleanup --all --file "{{ .paths.config }}/homebrew/Brewfile" || true

@@ -7,7 +7,7 @@ else
   if [[ -e "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json" ]]; then
     rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
   fi
-  ln -s "{{ .chezmoi.homeDir }}/.config/vscode/settings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
+  ln -s "{{ .paths.config }}/vscode/settings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json"
 fi
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json" ]]; then
@@ -16,7 +16,7 @@ else
   if [[ -e "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json" ]]; then
     rm "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
   fi
-  ln -s "{{ .chezmoi.homeDir }}/.config/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
+  ln -s "{{ .paths.config }}/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
 fi
 
 {{ end }}

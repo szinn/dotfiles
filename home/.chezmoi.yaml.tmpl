@@ -1,0 +1,18 @@
+---
+diff:
+  exclude: ["scripts"]
+  command: "delta"
+  pager: "delta"
+
+status:
+  exclude: ["scripts"]
+
+data:
+  paths:
+    cache: {{ .chezmoi.homeDir }}/.cache
+    config: {{ .chezmoi.homeDir }}/.config
+    local: {{ .chezmoi.homeDir }}/.local
+  user:
+    name: Scotte Zinn
+    email: scotte@zinn.ca
+    signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}

@@ -4,13 +4,13 @@
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind" ]]; then
   echo "DEVONthink templates already linked"
 else
-  ln -s "{{ .chezmoi.homeDir }}/.config/devonthink/Templates/HiveMind" "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind"
+  ln -s "{{ .paths.config }}/devonthink/Templates/HiveMind" "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind"
 fi
 
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Scripts/com.devon-technologies.think3/Menu/HiveMind" ]]; then
   echo "DEVONthink scripts already linked"
 else
-  ln -s "{{ .chezmoi.homeDir }}/.config/devonthink/Scripts/HiveMind" "{{ .chezmoi.homeDir }}/Library/Application Scripts/com.devon-technologies.think3/Menu/HiveMind"
+  ln -s "{{ .paths.config }}/devonthink/Scripts/HiveMind" "{{ .chezmoi.homeDir }}/Library/Application Scripts/com.devon-technologies.think3/Menu/HiveMind"
 fi
 {{ end }}

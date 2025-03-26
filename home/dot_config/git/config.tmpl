@@ -8,7 +8,7 @@
   autocrlf = "input"
   editor = "nvim"
   pager = "delta"
-  excludesfile = "{{ .chezmoi.homeDir }}/.config/git/ignore"
+  excludesfile = "{{ .paths.config }}/git/ignore"
 
 {{ if (eq .chezmoi.os "darwin") }}
 [credential]
@@ -64,6 +64,6 @@
   allowedSignersFile = "~/.ssh/allowed_signers"
 
 [user]
-  email = "scotte@zinn.ca"
-  name = "Scotte Zinn"
-  signingkey = {{ onepasswordRead "op://Private/SSH Key/public key" }}
+  email = "{{ .user.email }}"
+  name = "{{ .user.name }}"
+  signingkey = "{{ .user.signingKey }}"

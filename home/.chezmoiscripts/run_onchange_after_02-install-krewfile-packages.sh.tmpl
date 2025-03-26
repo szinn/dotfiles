@@ -9,6 +9,6 @@ if test -n "$(command -v kubectl)"; then
     go install github.com/brumhard/krewfile@latest
 
     kubectl krew update
-    {{ .chezmoi.homeDir }}/.go/bin/krewfile -command "kubectl krew" -file {{ .chezmoi.homeDir }}/.config/krewfile/krewfile -upgrade
+    {{ .chezmoi.homeDir }}/.go/bin/krewfile -command "kubectl krew" -file {{ .paths.config }}/krewfile/krewfile -upgrade
   fi
 fi

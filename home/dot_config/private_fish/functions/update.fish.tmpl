@@ -22,6 +22,6 @@ function update --description="Update everything"
 
     if type -q nvim
         nvim --headless "+Lazy! sync" +qa 2>&1 >/dev/null
-        chezmoi add {{ .chezmoi.homeDir }}/.config/nvim
+        chezmoi add {{ .paths.config }}/nvim
     end
 end

@@ -6,8 +6,8 @@ set -gx MANPAGER "nvim +Man!"
 set -gx GOPATH {{ .chezmoi.homeDir }}/.go
 set -gx GOBIN "$GOPATH/bin"
 
-set -gx XDG_CACHE_HOME "{{ .chezmoi.homeDir }}/.cache"
-set -gx XDG_CONFIG_HOME "{{ .chezmoi.homeDir }}/.config"
-set -gx XDG_CONFIG_LOCAL "{{ .chezmoi.homeDir }}/.local"
+set -gx XDG_CACHE_HOME "{{ .paths.cache }}"
+set -gx XDG_CONFIG_HOME "{{ .paths.config }}"
+set -gx XDG_CONFIG_LOCAL "{{ .paths.local }}"
 set -gx XDG_DATA_HOME "$XDG_CONFIG_LOCAL/share"
 set -gx XDG_STATE_HOME "$XDG_CONFIG_LOCAL/state"
