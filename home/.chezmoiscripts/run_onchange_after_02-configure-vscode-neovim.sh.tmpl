@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# chezmoi configuration hash: {{ include ".chezmoi.yaml.tmpl" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+{{ if (eq .chezmoi.os "darwin") }}
+
+{{ if not .vscode.neovim }}
+if test -n $(code --list-extensions | grep "asvetliakov.vscode-neovim"); then
+  code --uninstall-extension asvetliakov.vscode-neovim
+fi
+{{ end }}
+
+{{ end }}

@@ -2,6 +2,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Homebrew packages
 # homebrew/brewfile hash: {{ include "dot_config/homebrew/Brewfile.tmpl" | sha256sum }}
+# chezmoi configuration hash: {{ include ".chezmoi.yaml.tmpl" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 export HOMEBREW_CASK_OPTS=--no-quarantine
 echo "Running brew bundle"

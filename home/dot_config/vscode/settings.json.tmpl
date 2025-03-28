@@ -54,7 +54,6 @@
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.cursorSurroundingLines": 10,
   "editor.cursorSurroundingLinesStyle": "default",
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
@@ -63,12 +62,14 @@
   "editor.guides.highlightActiveBracketPair": true,
   "editor.hover.delay": 300,
   "editor.inlayHints.enabled": "offUnlessPressed",
+  {{- if .vscode.neovim }}
+  "editor.lineNumbers": "relative",
+  {{- else }}
   "editor.lineNumbers": "on",
+  {{- end }}
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
   "editor.tabSize": 2,
-
-  // "eslint.validate": ["javascript", "javascriptreact", "svelte"],
 
   "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
@@ -78,8 +79,7 @@
   "extensions.autoCheckUpdates": true,
   "extensions.autoUpdate": true,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1,
-    "vscodevim.vim": 1
+    "asvetliakov.vscode-neovim": 1
   },
 
   "files.associations": {
@@ -105,10 +105,6 @@
   "git.replaceTagsWhenPull": true,
 
   "go.toolsManagement.autoUpdate": true,
-
-  // "linter.linters": {
-  //   "yamllint.configFiles": [".yamllint.yml", ".yamllint.yaml", ".yamllint", ".ci/yamllint/.yamllint.yaml"]
-  // },
 
   "playwright.reuseBrowser": true,
 
@@ -199,19 +195,9 @@
   "update.mode": "default",
   "update.showReleaseNotes": false,
 
-  "vim.enableNeovim": true,
-  "vim.neovimUseConfigFile": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
-
   "visualjj.showSourceControlColocated": true,
 
+  {{- if .vscode.neovim }}
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.compositeKeys": {
     "jl": {
@@ -264,6 +250,7 @@
     "delete",
     "n"
   ],
+  {{- end }}
 
   "window.commandCenter": true,
 

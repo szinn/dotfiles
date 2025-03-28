@@ -174,7 +174,9 @@ mas "WhatsApp", id: 310633997
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.bookmarks"
 vscode "alefragnani.project-manager"
+{{- if .vscode.neovim }}
 vscode "asvetliakov.vscode-neovim"
+{{- end }}
 vscode "belfz.search-crates-io"
 vscode "bierner.markdown-mermaid"
 vscode "blueglassblock.better-json5"
@@ -216,7 +218,6 @@ vscode "tobias-z.vscode-harpoon"
 vscode "usernamehw.errorlens"
 vscode "vadimcn.vscode-lldb"
 vscode "visualjj.visualjj"
-# vscode "vscodevim.vim"
 vscode "yzhang.markdown-all-in-one"
 vscode "ziglang.vscode-zig"
 {{ end }}
