@@ -8,7 +8,6 @@ if vim.g.vscode then
     return
 end
 
--- Configuration for vscode
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
