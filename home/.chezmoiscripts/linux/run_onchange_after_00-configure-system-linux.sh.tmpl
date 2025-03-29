@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "linux") }}
 
 if test -z "$(command -v /home/linuxbrew/.linuxbrew/opt/gnu-sed/bin/sed)"; then
   brew install gnu-sed
@@ -18,5 +17,3 @@ sudo chown root:root /tmp/scotte
 sudo mv /tmp/scotte /etc/sudoers.d
 
 chsh -s /home/linuxbrew/.linuxbrew/bin/fish
-
-{{ end }}

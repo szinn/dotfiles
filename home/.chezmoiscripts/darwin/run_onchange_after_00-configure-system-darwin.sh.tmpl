@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
 osascript -e 'tell application "System Preferences" to quit'
 
 if test -z "$(command -v gsed)"; then
@@ -311,4 +310,3 @@ sudo /usr/sbin/systemsetup -setcomputersleep Off 2> /dev/null 1>&2
 sudo /usr/sbin/systemsetup -setrestartfreeze on 2> /dev/null 1>&2
 
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-{{- end }}

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/settings.json" ]]; then
   echo "settings.json already linked"
@@ -18,5 +17,3 @@ else
   fi
   ln -s "{{ .paths.config }}/vscode/keybindings.json" "{{ .chezmoi.homeDir }}/Library/Application Support/Code/User/keybindings.json"
 fi
-
-{{ end }}

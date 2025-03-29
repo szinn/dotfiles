@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.os "darwin") }}
 # ---------------------------------------------------------------------------------------------------------------------
-# Install mise packages
-# mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+# Install VSCode Themes
+# DraculaPro hash: {{ include "../../../../.config/vscode/dracula-pro.vsix" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-if command -v mise; then
-  mise install -y
-fi
-
-{{- end }}
+code --install-extension "{{ .paths.config }}/vscode/dracula-pro.vsix"
