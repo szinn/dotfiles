@@ -66,6 +66,12 @@ unbind c
 bind c new-window -c '#{pane_current_path}'
 bind g new-window -n 'LazyGit' lazygit
 
+# Pane navigation (on colemak)
+bind C-n select-pane -L
+bind C-e select-pane -D
+bind C-i select-pane -U
+bind C-o select-pane -R
+
 # Vi mode in tmux
 set-window-option -g mode-keys vi
 bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
