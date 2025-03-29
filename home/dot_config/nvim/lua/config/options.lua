@@ -5,6 +5,9 @@ if vim.g.vscode then
   return
 end
 
+-- Use system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 vim.g.moonflyNormalFloat = true
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
