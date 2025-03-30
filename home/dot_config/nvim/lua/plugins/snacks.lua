@@ -7,6 +7,9 @@ return {
             },
             picker = {
                 sources = {
+                    explorer = {
+                        hidden = true,
+                    },
                     files = {
                         hidden = true,
                         exclude = { ".git", ".jj" },

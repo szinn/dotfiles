@@ -5,7 +5,6 @@ if vim.g.vscode then
   return
 end
 
--- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.moonflyNormalFloat = true
