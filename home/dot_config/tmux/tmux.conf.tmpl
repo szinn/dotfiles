@@ -77,6 +77,17 @@ bind C-e select-pane -D
 bind C-i select-pane -U
 bind C-o select-pane -R
 
+# Resize pane
+unbind C-Down
+unbind C-Up
+unbind C-Left
+unbind C-Right
+
+bind -r M-Down resize-pane -D
+bind -r M-Up resize-pane -U
+bind -r M-Left resize-pane -L
+bind -r M-Right resize-pane -R
+
 # Vi mode in tmux
 set-window-option -g mode-keys vi
 bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
