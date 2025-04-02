@@ -2,6 +2,6 @@
 require("config.lazy")
 
 if vim.g.vscode then
-    -- running neovim in VSCode
-    require("config.vscode-neovim")
+  -- running neovim in VSCode
+  require("config.vscode-neovim")
 end

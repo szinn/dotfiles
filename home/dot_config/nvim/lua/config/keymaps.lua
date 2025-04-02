@@ -5,7 +5,7 @@
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 if vim.g.vscode then
-    return
+  return
 end
 
 local keymap = vim.keymap.set
