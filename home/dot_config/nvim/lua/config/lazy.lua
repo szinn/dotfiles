@@ -30,23 +30,29 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  git = {
+    log = { "--since=4 days ago" }, -- `:Lazy log` shows commits since last x days
+  },
+  install = { colorscheme = { "tokyonight" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
+    frequency = 60 * 60 * 24 * 7, -- = 7 days
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
+        "rplugin", -- needed when using `:UpdateRemotePlugins` (e.g. magma.nvim)
+        "netrwPlugin",
+        "man",
         "tutor",
+        "health",
+        "tohtml",
+        "gzip",
         "zipPlugin",
+        "tarPlugin",
+        "osc52",
       },
     },
   },
