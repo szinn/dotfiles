@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# Install gh applications
+# cargo applications hash: {{ include "dot_config/gh/gh-plugins" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+if test -n "$(command -v gh)"; then
+  for app in $(cat {{ .paths.config }}/gh/gh-plugins); do
+    gh extension install ${app}
+  done
+fi
+
