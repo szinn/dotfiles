@@ -33,6 +33,7 @@ return {
         },
         animate = {
           -- slower for more dramatic effect :D
+          enabled = false,
           duration = { steps = 200, total = 1000 },
         },
       },
@@ -51,16 +52,19 @@ return {
           explorer = {
             hidden = true,
             auto_close = true,
-            layout = "small_no_preview",
+            layout = "ivy",
+            -- layout = "small_no_preview",
           },
           files = {
             hidden = true,
             exclude = { ".git", ".jj", ".DS_Store" },
-            layout = "wide_with_preview",
+            layout = "ivy",
+            -- layout = "wide_with_preview",
           },
         },
 
-        layout = "wide_with_preview",
+        layout = "ivy",
+        -- layout = "wide_with_preview",
 
         layouts = { -- define available layouts
           small_no_preview = {
@@ -108,7 +112,10 @@ return {
         modes = { "n" },
         debounce = 300,
       },
+
+      zen = { enabled = true },
     },
+
     -- stylua: ignore
     keys = {
       { "<leader>e", function() Snacks.explorer() end, desc = "Explorer" },
