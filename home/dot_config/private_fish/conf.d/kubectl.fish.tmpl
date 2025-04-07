@@ -1,7 +1,7 @@
 # kubectl setup
 # Requires `brew install kubectl`
 if type -q kubectl
-  if status --is-interactive
-    alias k "{{ lookPath "kubectl" }}"
-  end
+    if status --is-interactive
+        alias k "{{ lookPath "kubectl" }}"
+    end
 end

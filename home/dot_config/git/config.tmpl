@@ -63,6 +63,9 @@
 [gpg "ssh"]
   allowedSignersFile = ~/.ssh/allowed_signers
 
+[url "ssh://git@github.com/"]
+  pushInsteadOf = https://github.com/
+
 [user]
   email = {{ .user.email }}
   name = {{ .user.name }}

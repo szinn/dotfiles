@@ -1,11 +1,7 @@
 set -gx HOMEBREW_NO_ANALYTICS 1
-# Specify where the brew bundle input file lives
 set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew/brewfile
-# Automatically remove quarantine flag from casks
 set -gx HOMEBREW_CASK_OPTS --no-quarantine
-# More frequent package updates
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
-# Don't use vendored mise activation
 set -gx MISE_FISH_AUTO_ACTIVATE 0
 
 {{ if (eq .chezmoi.os "darwin") }}

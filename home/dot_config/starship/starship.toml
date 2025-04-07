@@ -1,15 +1,29 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname$directory$git_branch$git_status$fill$python$status$cmd_duration$line_break$character"
+format = """\
+  $username\
+  $hostname\
+  $directory\
+  $git_branch\
+  $git_status\
+  $fill\
+  $python\
+  $status\
+  $cmd_duration\
+  $line_break\
+  $character\
+  """
 
 [character]
-error_symbol = "[](red)"
-success_symbol = "[](green)"
+error_symbol = "[✖](red)"
+success_symbol = "[❯](green)"
 
 [cmd_duration]
-format = "took [$duration]($style) "
 min_time = 2000
-style = "yellow"
+# format = "took [$duration]($style) "
+# style = "yellow"
 
 [custom.direnv]
 format = "[$symbol]($style)"
@@ -21,9 +35,10 @@ when = "env | grep -E '^DIRENV_FILE='"
 fish_style_pwd_dir_length = 1
 format = "[$path]($style)[$read_only]($read_only_style) "
 read_only = ""
+home_symbol = "~"
 style = "blue"
 truncate_to_repo = true
-truncation_length = 3
+truncation_length = 8
 truncation_symbol = "../"
 repo_root_format = '[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 before_repo_root_style = "blue"
@@ -33,7 +48,7 @@ repo_root_style = "blue"
 symbol = " "
 
 [git_branch]
-format = "on [$symbol$branch]($style) "
+format = "[$symbol$branch]($style) "
 style = "purple"
 symbol = " "
 only_attached = true
@@ -60,7 +75,7 @@ ssh_only = true
 style = "green"
 
 [python]
-format = "[${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
+format = "[${symbol}${pyenv_prefix}(${version})(($virtualenv))]($style)"
 symbol = "🐍 "
 
 [status]
@@ -68,8 +83,8 @@ disabled = false
 format = "[$symbol]($style) "
 success_style = "green"
 failure_style = "red"
-success_symbol = " "
-symbol = " "
+success_symbol = ""
+symbol = ""
 
 [username]
 format = "[$user]($style)"
