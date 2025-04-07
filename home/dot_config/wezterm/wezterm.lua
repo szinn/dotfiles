@@ -46,7 +46,7 @@ config.font = wezterm.font {
 config.font_size = 11.0
 config.line_height = 1.0
 
-config.color_scheme = "Dracula Pro Van Helsing"
+config.color_scheme = 'Dracula Pro Van Helsing'
 config.window_background_opacity = 1.0
 config.window_decorations = 'RESIZE'
 config.window_close_confirmation = 'AlwaysPrompt'
@@ -67,6 +67,11 @@ config.leader = {
 }
 
 config.keys = { -- Send C-t when pressing C-a twice
+  {
+    key = 'q',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
   {
     key = 't',
     mods = 'LEADER|CTRL',
