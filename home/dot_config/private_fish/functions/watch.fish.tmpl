@@ -1,5 +1,5 @@
 function watch --description="Watch with fish alias support"
     if count $argv >/dev/null
-        watch -x {{ lookPath "fish" }} -c "$argv"
+        command {{ lookPath "watch" }} -x {{ lookPath "fish" }} -c "$argv"
     end
 end
