@@ -48,18 +48,21 @@ return {
       },
 
       picker = {
+        hidden = true,
         sources = {
           explorer = {
-            hidden = true,
             auto_close = true,
             layout = "ivy",
             -- layout = "small_no_preview",
           },
           files = {
-            hidden = true,
             exclude = { ".git", ".jj", ".DS_Store" },
             layout = "ivy",
             -- layout = "wide_with_preview",
+          },
+          todo_comments = {
+            hidden = false,
+            ignored = false,
           },
         },
 
