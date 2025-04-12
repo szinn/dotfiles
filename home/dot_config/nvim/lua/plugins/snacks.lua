@@ -56,6 +56,7 @@ return {
             -- layout = "small_no_preview",
           },
           files = {
+            hidden = true,
             exclude = { ".git", ".jj", ".DS_Store" },
             layout = "ivy",
             -- layout = "wide_with_preview",

@@ -17,7 +17,8 @@ format = """\
   """
 
 [character]
-error_symbol = "[✖](red)"
+# error_symbol = "[✖](red)"
+error_symbol = "[❯](green)"
 success_symbol = "[❯](green)"
 
 [cmd_duration]
