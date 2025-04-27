@@ -45,7 +45,7 @@ require("lazy").setup({
       disabled_plugins = {
         "rplugin", -- needed when using `:UpdateRemotePlugins` (e.g. magma.nvim)
         "netrwPlugin",
-        "man",
+        -- "man",
         "tutor",
         "health",
         "tohtml",
