@@ -15,11 +15,13 @@
 .bash_history
 .bash_logout
 .bash_profile
+.cabal
 .cache
 .cups
 .docker
 .fontconfig
 .freelens
+.ghcup/
 .gnupg/.#*
 .gnupg/.DS_Store
 .gnupg/S.gpg-agent
@@ -55,6 +57,7 @@
 .ssh/environment
 .ssh/known_hosts
 .ssh/known_hosts.old
+.stack
 .swiftpm
 .talos
 .terminfo
