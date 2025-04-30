@@ -11,3 +11,16 @@ function update_path
         remove_path $argv[1]
     end
 end
+
+function clean_path
+    set -l newpath
+    for path in $PATH
+        if test -d $path
+            set -a newpath $path
+        end
+    end
+    set -gx PATH $newpath
+    # echo $newpath
+end
+
+clean_path
