@@ -57,6 +57,12 @@ brew "yamllint"
 brew "yq"
 brew "zoxide"
 
+{{ if (eq .chezmoi.hostname "hera") }}
+brew "k9s"
+brew "kubernetes-cli"
+brew "talosctl"
+{{ end }}
+
 {{ if (eq .chezmoi.os "darwin") }}
 brew "mas"
 brew "pinentry-mac"
