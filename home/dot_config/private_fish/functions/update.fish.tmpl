@@ -22,7 +22,7 @@ function update --description="Update everything"
 
     if type -q nvim
         nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
-        # nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c MasonUpdateAll >/dev/null 2>&1
+        nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c MasonUpdateAll >/dev/null 2>&1
         chezmoi add {{ .paths.config }}/nvim
     end
 end
