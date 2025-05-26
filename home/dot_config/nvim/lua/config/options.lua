@@ -177,3 +177,8 @@ vim.diagnostic.config({
     end,
   },
 })
+
+--------------------------------------------------------------------------------
+-- RUST
+
+vim.g.lazyvim_rust_diagnostics = "bacon-ls"
