@@ -37,6 +37,7 @@
 .gnupg/pubring.kbx~
 .gnupg/trustdb.gpg
 .go
+.gradle
 .k8slens
 .krew
 .kube
@@ -52,6 +53,7 @@
 .psql_history
 .rediscli_history
 .rustup
+.sqlite_history
 .ssh/1Password
 .ssh/agent
 .ssh/environment
