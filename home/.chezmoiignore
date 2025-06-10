@@ -52,6 +52,7 @@
 .psql_history
 .rediscli_history
 .rustup
+.sqlite_history
 .ssh/1Password
 .ssh/agent
 .ssh/environment
