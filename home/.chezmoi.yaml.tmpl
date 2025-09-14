@@ -1,4 +1,14 @@
 ---
+{{- if eq .chezmoi.hostname "Odin" }}
+homeMachine: true
+{{- else if eq .chezmoi.hostname "hera" }}
+homeMachine: true
+{{- else if eq .chezmoi.hostname "hera" }}
+homeMachine: true
+{{- else }}
+homeMachine: false
+{{- end }}
+
 diff:
   exclude: ["scripts"]
   command: "delta"
@@ -8,6 +18,7 @@ status:
   exclude: ["scripts"]
 
 data:
+  homeMachine: {{ .homeMachine }}
   paths:
     cache: {{ .chezmoi.homeDir }}/.cache
     config: {{ .chezmoi.homeDir }}/.config
