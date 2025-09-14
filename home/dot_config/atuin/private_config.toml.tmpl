@@ -2,7 +2,9 @@ auto_sync = true
 ctrl_n_shortcuts = true
 filter_mode = "workspace"
 search_mode = "fuzzy"
+{{- if .homeMachine }}
 sync_address = "https://atuin.zinn.ca"
+{{- end }}
 update_check = false
 workspaces = true
 history_filter = [
