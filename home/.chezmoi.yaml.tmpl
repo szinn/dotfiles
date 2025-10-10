@@ -19,13 +19,16 @@ status:
 
 data:
   homeMachine: {{ .homeMachine }}
+  workMachine: {{ not .homeMachine }}
   paths:
     cache: {{ .chezmoi.homeDir }}/.cache
     config: {{ .chezmoi.homeDir }}/.config
     local: {{ .chezmoi.homeDir }}/.local
   user:
     name: Scotte Zinn
+    {{- if .homeMachine }}
     email: {{ onepasswordRead "op://Private/Scotte Zinn/email" }}
     signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}
+    {{- end }}
   vscode:
     neovim: true
