@@ -75,7 +75,9 @@ cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sf-mono"
 cask "hyperkey"
+{{ if .homeMachine }}
 cask "visual-studio-code"
+{{ end }}
 {{ end }}
 
 {{ if (eq .chezmoi.hostname "Odin") }}
@@ -186,6 +188,15 @@ mas "Xcode", id: 497799835
 mas "WhatsApp", id: 310633997
 {{ end }}
 
+{{- if .workMachine }}
+brew "bacon"
+brew "bacon-ls"
+cask "ghostty"
+cask "rectangle-pro"
+mas "Drafts", id: 1435957248
+{{- end }}
+
+{{ if .homeMachine }}
 {{ if (eq .chezmoi.os "darwin") }}
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.bookmarks"
@@ -236,4 +247,5 @@ vscode "vadimcn.vscode-lldb"
 vscode "visualjj.visualjj"
 vscode "yzhang.markdown-all-in-one"
 vscode "ziglang.vscode-zig"
+{{ end }}
 {{ end }}

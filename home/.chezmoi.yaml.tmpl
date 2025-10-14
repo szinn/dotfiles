@@ -1,13 +1,5 @@
 ---
-{{- if eq .chezmoi.hostname "Odin" }}
-homeMachine: true
-{{- else if eq .chezmoi.hostname "hera" }}
-homeMachine: true
-{{- else if eq .chezmoi.hostname "hera" }}
-homeMachine: true
-{{- else }}
-homeMachine: false
-{{- end }}
+{{- $homeMachine := promptBoolOnce . "homeMachine" "Is this your home machine?" -}}
 
 diff:
   exclude: ["scripts"]
@@ -18,16 +10,19 @@ status:
   exclude: ["scripts"]
 
 data:
-  homeMachine: {{ .homeMachine }}
-  workMachine: {{ not .homeMachine }}
+  homeMachine: {{ $homeMachine }}
+  workMachine: {{ not $homeMachine }}
   paths:
     cache: {{ .chezmoi.homeDir }}/.cache
     config: {{ .chezmoi.homeDir }}/.config
     local: {{ .chezmoi.homeDir }}/.local
   user:
     name: Scotte Zinn
-    {{- if .homeMachine }}
+    {{- if $homeMachine }}
     email: {{ onepasswordRead "op://Private/Scotte Zinn/email" }}
+    signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}
+    {{- else }}
+    email: {{ onepasswordRead "op://Faire/Faire/username" }}
     signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}
     {{- end }}
   vscode:

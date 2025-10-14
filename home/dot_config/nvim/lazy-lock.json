@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "dc1ffa5bcb66f46284f91a8593dda5c7c54a1824" },
-  "LuaSnip": { "branch": "master", "commit": "73813308abc2eaeff2bc0d3f2f79270c491be9d7" },
+  "LuaSnip": { "branch": "master", "commit": "21e9fecfc07fb2cd707b6c7c3fa148550a34d053" },
   "SchemaStore.nvim": { "branch": "main", "commit": "caad5439cc80809be7475b625a5e36d1bb06cc7e" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
@@ -13,7 +13,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "1ee5c1fd068c81f9dd06483e639c2aa4587dc197" },
   "grug-far.nvim": { "branch": "main", "commit": "2e991081c0e653e151fc9e659514d7c2fc31d22a" },
   "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
-  "haskell-snippets.nvim": { "branch": "master", "commit": "5ae77cec64a2bfa309ace03a8343ce06cbeb9c5e" },
+  "haskell-snippets.nvim": { "branch": "master", "commit": "06be2f61d2970a90e8c4db16ab8cd450233db5c1" },
   "haskell-tools.nvim": { "branch": "master", "commit": "65d6993eba1a56bbd5211ef13a100d26ce3e644a" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "e28ce52fc7ff79fcb76f0e79ee6fb6182fca90b9" },

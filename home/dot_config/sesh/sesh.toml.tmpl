@@ -7,6 +7,7 @@ name = "Dotfiles"
 path = "{{ .paths.local }}/share/chezmoi"
 startup_command = "tmux split-window -l 20 && tmux select-pane -t 1 && clear"
 
+{{- if .homeMachine }}
 [[session]]
 name = "HomeLab"
 path = "{{ .chezmoi.homeDir }}/Development/Projects/k8s-homelab"
@@ -23,4 +24,4 @@ path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/bjw-home-ops"
 [[session]]
 name = "Bernd's Dotfiles"
 path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/bjw-dotfiles"
-
+{{- end }}
