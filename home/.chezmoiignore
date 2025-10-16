@@ -12,6 +12,9 @@
 .DS_Store
 .Trash
 .ansible
+{{- if .workMachine }}
+.aws
+{{- end }}
 .bash_history
 .bash_logout
 .bash_profile
@@ -51,6 +54,7 @@
 .orbstack
 .profile
 .psql_history
+.rd
 .rediscli_history
 .rustup
 .sqlite_history

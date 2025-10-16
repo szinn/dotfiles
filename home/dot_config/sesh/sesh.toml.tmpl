@@ -25,3 +25,10 @@ path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/bjw-home-ops"
 name = "Bernd's Dotfiles"
 path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/bjw-dotfiles"
 {{- end }}
+
+{{- if .workMachine }}
+[[session]]
+name = "Backend"
+path = "{{ .chezmoi.homeDir }}/faire/backend"
+{{- end }}
+

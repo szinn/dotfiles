@@ -9,7 +9,12 @@ font-family = FiraCode Nerd Font
 font-family-bold = FiraCode Nerd Font Bold
 font-family-bold-italic = FiraCode Nerd Font Bold Italic
 font-family-italic = FiraCode Nerd Font Italic
+{{- if .homeMachine }}
 font-size = 11
+{{- end }}
+{{- if .workMachine }}
+font-size = 13
+{{- end }}
 
 # MacOS settings
 macos-auto-secure-input = true

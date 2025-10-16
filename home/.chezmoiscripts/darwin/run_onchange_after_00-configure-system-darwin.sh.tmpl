@@ -106,6 +106,7 @@ __add_folder_to_dock /Users/scotte/Downloads/ 1 1 0
 __add_app_to_dock /Applications/1Password.app
 __add_app_to_dock /Applications/Google\ Chrome.app
 __add_app_to_dock /Applications/Slack.app
+__add_app_to_dock /Applications/zoom.us.app
 __add_app_to_dock /Applications/Notion.app
 __add_app_to_dock /Applications/Drafts.app
 __add_app_to_dock /Applications/Ghostty.app
@@ -115,8 +116,6 @@ __add_app_to_dock /Applications/Managed\ Software\ Center.app
 __add_folder_to_dock /Users/scotte.zinn/Documents/ 1 1 0
 __add_folder_to_dock /Users/scotte.zinn/Downloads/ 1 1 0
 {{- end }}
-
-
 
 defaults write com.apple.dock appswitcher-all-displays -bool false
 defaults write com.apple.dock autohide -bool true
@@ -321,6 +320,10 @@ defaults write -g NSUseAnimatedFocusRing -bool true
 defaults write -g NSWindowResizeTime -float 0.001000
 defaults write -g PMPrintingExpandedStateForPrint -bool true
 defaults write -g PMPrintingExpandedStateForPrint2 -bool true
+
+{{- if .workMachine }}
+sudo /usr/bin/defaults write com.apple.controlcenter.plist AirplayRecieverEnabled -bool false
+{{- end }}
 
 mkdir -p $HOME/Downloads/Screenshots
 
