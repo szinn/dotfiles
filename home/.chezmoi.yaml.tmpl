@@ -23,7 +23,7 @@ data:
     signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}
     {{- else }}
     email: {{ onepasswordRead "op://Faire/Faire/username" }}
-    signingKey: {{ onepasswordRead "op://Private/SSH Key/public key" }}
+    signingKey: {{ onepasswordRead "op://Faire/Faire/ssh-public" }}
     {{- end }}
   vscode:
     neovim: true

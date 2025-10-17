@@ -1,2 +1,8 @@
 set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
 update_path "/Users/scotte.zinn/.rd/bin"
+
+set -gx PYENV_ROOT "{{ .chezmoi.homeDir }}/.pyenv"
+update_path "$PYENV_ROOT/bin"
+set pyx "(pyenv init -)" $pyx
+
+update_path $HOMEBREW_PREFIX/opt/mysql-client/bin

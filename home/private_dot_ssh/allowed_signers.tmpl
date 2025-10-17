@@ -1,1 +1,7 @@
+{{- if .homeMachine }}
 {{ onepasswordRead "op://Private/SSH Key/username" }} {{ onepasswordRead "op://Private/SSH Key/public key" }}
+{{- end }}
+{{- if .workMachine }}
+{{ onepasswordRead "op://Faire/Faire/username" }} {{ onepasswordRead "op://Faire/Faire/ssh-public" }}
+{{- end }}
+

@@ -95,3 +95,10 @@ Ragnar
 Templates
 Videos
 navigraph
+{{- if .workMachine }}
+.ecr
+.hawtjni
+.cshrc
+.tcshrc
+faire/
+{{- end }}
