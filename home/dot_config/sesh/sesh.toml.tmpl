@@ -26,9 +26,10 @@ name = "Bernd's Dotfiles"
 path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/bjw-dotfiles"
 {{- end }}
 
-{{- if .workMachine }}
+{{ if .workMachine }}
 [[session]]
 name = "Backend"
 path = "{{ .chezmoi.homeDir }}/faire/backend"
+startup_command = "tmux split-window -l 10 && tmux select-pane -t 1 && clear"
 {{- end }}
 

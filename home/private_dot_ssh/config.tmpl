@@ -46,3 +46,13 @@ Host hades
   user = scotte
 
 Include /Users/scotte/.config/colima/ssh_config
+
+{{ if .workMachine }}
+Host *-faire.faire.sandboxes.site
+  ProxyCommand /Users/scotte.zinn/.crafting/sandbox/cli/current/bin/cs ssh-proxy %h:443
+  UserKnownHostsFile /Users/scotte.zinn/.crafting/sandbox/known_hosts
+  User owner
+  StrictHostKeyChecking yes
+  HashKnownHosts no
+  IdentityFile /Users/scotte.zinn/.crafting/sandbox/id_client
+{{- end }}
