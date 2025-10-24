@@ -6,6 +6,10 @@
 
 if test -n "$(command -v kubectl)"; then
   if test -n "$(command -v go)"; then
+    export KREW_ROOT="{{ .chezmoi.homeDir }}/.krew"
+    export GOPATH="{{ .chezmoi.homeDir }}/.go"
+    export GOBIN="$GOPATH/bin"
+
     go install github.com/brumhard/krewfile@latest
 
     kubectl krew update

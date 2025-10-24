@@ -5,6 +5,9 @@
 
 if test -n "$(command -v go)"; then
   for app in github.com/arl/gitmux@latest; do
+    export GOPATH="{{ .chezmoi.homeDir }}/.go"
+    export GOBIN="$GOPATH/bin"
+
     go install "${app}"
   done
 fi
