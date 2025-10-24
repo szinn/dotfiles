@@ -4,15 +4,17 @@
 # krewfile_plugins hash: {{ include "dot_config/krewfile/krewfile" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-if test -n "$(command -v kubectl)"; then
-  if test -n "$(command -v go)"; then
-    export KREW_ROOT="{{ .chezmoi.homeDir }}/.krew"
-    export GOPATH="{{ .chezmoi.homeDir }}/.go"
-    export GOBIN="$GOPATH/bin"
+if test {{ .homeMachine }} = true; then
+  if test -n "$(command -v kubectl)"; then
+    if test -n "$(command -v go)"; then
+      export KREW_ROOT="{{ .chezmoi.homeDir }}/.krew"
+      export GOPATH="{{ .chezmoi.homeDir }}/.go"
+      export GOBIN="$GOPATH/bin"
 
-    go install github.com/brumhard/krewfile@latest
+      go install github.com/brumhard/krewfile@latest
 
-    kubectl krew update
-    {{ .chezmoi.homeDir }}/.go/bin/krewfile -command "kubectl krew" -file {{ .paths.config }}/krewfile/krewfile -upgrade
+      kubectl krew update
+      {{ .chezmoi.homeDir }}/.go/bin/krewfile -command "kubectl krew" -file {{ .paths.config }}/krewfile/krewfile -upgrade
+    fi
   fi
 fi
