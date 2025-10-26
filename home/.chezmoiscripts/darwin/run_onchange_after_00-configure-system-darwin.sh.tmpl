@@ -14,7 +14,8 @@ fi
 # Security settings
 # ---------------------------------------------------------------------------------------------------------------------
 # Enable TouchID for sudo
-! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i '2iauth        sufficient     pam_tid.so' /etc/pam.d/sudo
+sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+# ! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i '2iauth        sufficient     pam_tid.so' /etc/pam.d/sudo
 
 # ---------------------------------------------------------------------------------------------------------------------
 # NFS settings
