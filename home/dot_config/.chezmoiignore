@@ -34,3 +34,11 @@ systemd
 user-dirs.dirs
 user-dirs.locale
 {{ end }}
+
+{{- if .workMachine }}
+github-copilot
+{{ end }}
+
+{{- if not .workMachine }}
+graphite
+{{ end }}

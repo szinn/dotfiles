@@ -191,6 +191,9 @@ mas "WhatsApp", id: 310633997
 {{ end }}
 
 {{- if .workMachine }}
+
+tap "withgraphite/tap"
+
 brew "bacon"
 brew "bacon-ls"
 brew "docker"
@@ -198,6 +201,7 @@ brew "docker-compose"
 brew "docker-credential-helper"
 brew "docker-credential-helper-ecr"
 brew "gitleaks"
+brew "withgraphite/tap/graphite"
 brew "mysql-client"
 brew "pipx"
 brew "pyenv"

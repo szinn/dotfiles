@@ -12,9 +12,6 @@
 .DS_Store
 .Trash
 .ansible
-{{- if .workMachine }}
-.aws
-{{- end }}
 .bash_history
 .bash_logout
 .bash_profile
@@ -101,4 +98,12 @@ navigraph
 .cshrc
 .tcshrc
 faire/
+.aws
+.claude*
+.crafting
+.kuberlr
+.local/bin/poetry
+.local/pipx
+.pyenv
+java_error_in_idea.hprof
 {{- end }}
