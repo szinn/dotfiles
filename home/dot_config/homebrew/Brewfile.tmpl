@@ -65,6 +65,7 @@ brew "talosctl"
 {{ if (eq .chezmoi.os "darwin") }}
 brew "mas"
 brew "pinentry-mac"
+brew "pam-reattach"
 
 brew "arl/arl/gitmux"
 
@@ -80,7 +81,7 @@ cask "visual-studio-code"
 {{ end }}
 {{ end }}
 
-{{ if (eq .chezmoi.hostname "Odin") }}
+{{ if (or (eq .chezmoi.hostname "Odin") (eq .chezmoi.hostname "odin")) }}
 brew "actionlint"
 brew "bacon"
 brew "bacon-ls"

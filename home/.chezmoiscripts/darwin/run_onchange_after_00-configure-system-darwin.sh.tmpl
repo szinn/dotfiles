@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# sudo_local hash: {{ include "dot_config/homebrew/sudo_local" | sha256sum }}
+#
 osascript -e 'tell application "System Preferences" to quit'
 
 if test -z "$(command -v gsed)"; then
@@ -14,7 +17,8 @@ fi
 # Security settings
 # ---------------------------------------------------------------------------------------------------------------------
 # Enable TouchID for sudo
-sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+sudo cp "{{ .chezmoi.sourceDir }}/dot_config/homebrew/sudo_local" /etc/pam.d/sudo_local
+# sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 # ! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i '2iauth        sufficient     pam_tid.so' /etc/pam.d/sudo
 
 # ---------------------------------------------------------------------------------------------------------------------

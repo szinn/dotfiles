@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-{{ if (eq .chezmoi.hostname "Odin") }}
+{{ if (or (eq .chezmoi.hostname "Odin") (eq .chezmoi.hostname "odin")) }}
 
 if [[ -L "{{ .chezmoi.homeDir }}/Library/Application Support/DEVONthink 3/Templates.noindex/HiveMind" ]]; then
   echo "DEVONthink templates already linked"
