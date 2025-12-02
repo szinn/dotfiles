@@ -42,4 +42,5 @@ github-copilot
 
 {{- if not .workMachine }}
 graphite
+nvm
 {{ end }}

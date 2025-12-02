@@ -1,0 +1,4 @@
+set -g NVM_DIR "{{ .chezmoi.homeDir }}/nvm"
+if test -f $NVM_DIR/nvm.sh
+    nvm.sh`
+end
