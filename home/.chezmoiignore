@@ -96,6 +96,14 @@ navigraph
 .ecr
 .hawtjni
 .cshrc
+.cursor
+.frontendLocalDevSecrets
+.npmrc
+.storybook
+.yarnrc.yml
+faire-cli-config.json
+java_error_in_jetbrains_client.hprof
+tmux*.log
 .tcshrc
 faire/
 .aws

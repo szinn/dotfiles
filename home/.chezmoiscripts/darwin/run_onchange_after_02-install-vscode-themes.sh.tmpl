@@ -4,4 +4,6 @@
 # DraculaPro hash: {{ include "../../../../.config/vscode/dracula-pro.vsix" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-code --install-extension "{{ .paths.config }}/vscode/dracula-pro.vsix"
+if command -v code; then
+  code --install-extension "{{ .paths.config }}/vscode/dracula-pro.vsix"
+fi
