@@ -1,0 +1,6 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: openai:gpt-4.1
+clients:
+- type: openai
+  api_key: {{ onepasswordRead "op://Private/OpenAI/API-KEY" }}

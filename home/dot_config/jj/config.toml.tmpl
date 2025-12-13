@@ -1,15 +1,15 @@
 "$schema" = 'https://jj-vcs.github.io/jj/prerelease/config-schema.json'
 
 [user]
-name = "{{ .user.name }}"
-email = "{{ .user.email }}"
+name = '{{ .user.name }}'
+email = '{{ .user.email }}'
 
 [ui]
-default-command = "log"
-diff-formatter = ":git"
-editor = "nvim"
-pager = ["delta", "--pager", "less -FRX"]
-graph.style = "square"
+default-command = 'log'
+diff-formatter = ':git'
+editor = 'nvim'
+pager = ['delta', '--pager', 'less -FRX']
+graph.style = 'square'
 
 [merge-tools.delta]
 diff-expected-exit-codes = [0, 1]
@@ -19,33 +19,49 @@ sign-on-push = true
 track-default-bookmark-on-clone = true
 
 [revset-aliases]
-'wip' = 'description(regex:"#trunk")'
+'wip' = 'description(regex:'#trunk')'
 'git_head_children' = 'git_head()+ ~ trunk()'
 'review' = 'bookmarks(regex:"^sz/") ~ children(bookmarks(regex:"^sz/"))'
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 
 [aliases]
-b = ["bookmark"]
-bm = ["bookmark", "move", "--to", "@-"]
-d = ["diff"]
-gp = ["git", "push"]
-gpa = ["git", "push", "--allow-new"]
-gpc = ["git", "push", "--change"]
-l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
-ll = ["log", "-T", "builtin_log_detailed"]
-lla = ["log", "-T", "builtin_log_detailed", "-r", "::@"]
-la = ["log", "-r", "::@"]
-nt = ["new", "trunk()"]
-rebase-all = ["rebase", "-d", "trunk()"]
-s = ["show"]
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+b = ['bookmark']
+d = ['diff']
+gp = ['git', 'push']
+gpa = ['git', 'push', '--allow-new']
+gpc = ['git', 'push', '--change']
+l = ['log', '-r', 'ancestors(reachable(@, mutable()), 2)']
+ll = ['log', '-T', 'builtin_log_detailed']
+lla = ['log', '-T', 'builtin_log_detailed', '-r', '::@']
+la = ['log', '-r', '::@']
+s = ['show']
+# Source: https://shaddy.dev/notes/jj-tug/
+tug = ['bookmark', 'move', '--from', 'heads(::@- & bookmarks())', '--to', '@-']
+# Go to the previous commit in the chain
+p = ['edit', '-r', '@-']
+# Go to the next commit in the chain
+n = ['edit', '-r', '@+']
+newt = ['new', 'trunk()']
+rt   = ['rebase', '-o', 'trunk()']
+rtc  = ['rt', '-s', '@']
+sync = ['util', 'exec', '--', 'fish', '-c', """
+jj tug
+git switch (jj closestbookmark)
+""", '']
+closestbookmark = ['util', 'exec', '--', 'fish', '-c', """
+jj log --no-graph -r 'closest_bookmark(@)' -T 'stringify(local_bookmarks.map(|b| b.name()).join("\n")).first_line()++"\n"'
+""", '']
 
 [signing]
-# backend = "gpg"
-# key = "B2F1677DB0348B42"
+# backend = 'gpg'
+# key = 'B2F1677DB0348B42'
 # backends.gpg.allow-expired-keys = false
-backend = "ssh"
-key = "{{ .user.signingKey }}"
-backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
+backend = 'ssh'
+key = '{{ .user.signingKey }}'
+backends.ssh.allowed-signers = '{{ .chezmoi.homeDir }}/.ssh/allowed_signers'
+
+[templates]
+git_push_bookmark = '"sz/push-" ++ change_id.short()'
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
