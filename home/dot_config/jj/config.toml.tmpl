@@ -9,12 +9,19 @@ default-command = "log"
 diff-formatter = ":git"
 editor = "nvim"
 pager = ["delta", "--pager", "less -FRX"]
+graph.style = "square"
 
 [merge-tools.delta]
 diff-expected-exit-codes = [0, 1]
 
 [git]
 sign-on-push = true
+track-default-bookmark-on-clone = true
+
+[revset-aliases]
+'wip' = 'description(regex:"#trunk")'
+'git_head_children' = 'git_head()+ ~ trunk()'
+'review' = 'bookmarks(regex:"^sz/") ~ children(bookmarks(regex:"^sz/"))'
 
 [aliases]
 b = ["bookmark"]
@@ -30,6 +37,7 @@ la = ["log", "-r", "::@"]
 nt = ["new", "trunk()"]
 rebase-all = ["rebase", "-d", "trunk()"]
 s = ["show"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [signing]
 # backend = "gpg"
