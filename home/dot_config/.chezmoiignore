@@ -36,10 +36,11 @@ user-dirs.locale
 {{ end }}
 
 {{- if .workMachine }}
-github-copilot
+aichat/
 {{ end }}
 
 {{- if not .workMachine }}
 graphite
 nvm
+github-copilot
 {{ end }}
