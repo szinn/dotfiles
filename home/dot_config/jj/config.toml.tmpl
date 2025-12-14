@@ -45,7 +45,6 @@ newt = ['new', 'trunk()']
 rt   = ['rebase', '-o', 'trunk()']
 rtc  = ['rt', '-s', '@']
 sync = ['util', 'exec', '--', 'fish', '-c', """
-jj tug
 git switch (jj closestbookmark)
 """, '']
 closestbookmark = ['util', 'exec', '--', 'fish', '-c', """
