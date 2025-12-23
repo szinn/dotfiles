@@ -23,6 +23,7 @@ track-default-bookmark-on-clone = true
 'git_head_children' = 'git_head()+ ~ trunk()'
 'review' = 'bookmarks(regex:"^sz/") ~ children(bookmarks(regex:"^sz/"))'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 [aliases]
 b = ['bookmark']
@@ -36,7 +37,7 @@ lla = ['log', '-T', 'builtin_log_detailed', '-r', '::@']
 la = ['log', '-r', '::@']
 s = ['show']
 # Source: https://shaddy.dev/notes/jj-tug/
-tug = ['bookmark', 'move', '--from', 'heads(::@- & bookmarks())', '--to', '@-']
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 # Go to the previous commit in the chain
 p = ['edit', '-r', '@-']
 # Go to the next commit in the chain

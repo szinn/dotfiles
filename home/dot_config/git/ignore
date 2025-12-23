@@ -4,3 +4,4 @@
 *.decrypted.*
 .venv
 .jj
+**/.claude/settings.local.json
