@@ -24,6 +24,7 @@ track-default-bookmark-on-clone = true
 'review' = 'bookmarks(regex:"^sz/") ~ children(bookmarks(regex:"^sz/"))'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+"private()" = 'immutable_heads().. & description(regex:"(?i)^(private|wip)(\n*$|:)")'
 
 [aliases]
 b = ['bookmark']
@@ -51,18 +52,24 @@ git switch (jj closestbookmark)
 closestbookmark = ['util', 'exec', '--', 'fish', '-c', """
 jj log --no-graph -r 'closest_bookmark(@)' -T 'stringify(local_bookmarks.map(|b| b.name()).join("\n")).first_line()++"\n"'
 """, '']
+ppcheck = ["util", "exec", "--", "uvx", "jj-pre-push", "check"]
+pppush = ["util", "exec", "--", "uvx", "jj-pre-push", "push"]
 
 [signing]
-# backend = 'gpg'
-# key = 'B2F1677DB0348B42'
-# backends.gpg.allow-expired-keys = false
 backend = 'ssh'
 key = '{{ .user.signingKey }}'
 backends.ssh.allowed-signers = '{{ .chezmoi.homeDir }}/.ssh/allowed_signers'
 
 [templates]
 git_push_bookmark = '"sz/push-" ++ change_id.short()'
+log_node = '''
+if(self && !current_working_copy && !immutable && !conflict && in_branch(self),
+  "◇",
+  builtin_log_node
+)
+'''
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
 'format_short_signature(signature)' = 'signature.email().local()'
+'in_branch(commit)' = 'commit.contained_in("immutable_heads()..bookmarks()")'
