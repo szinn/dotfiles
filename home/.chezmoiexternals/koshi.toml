@@ -1,4 +1,0 @@
-[".local/bin/koshi"]
-type = "file"
-url = "https://raw.githubusercontent.com/solodov/koshi/main/koshi.sh"
-executable = true

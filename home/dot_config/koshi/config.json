@@ -1,8 +1,0 @@
-{
-  "project_settings": {
-    "$HOME/Development/Playground/jj-play": {
-      "ai_description_role": "software-engineer",
-      "fetch_rebase_destination": "green"
-    }
-  }
-}

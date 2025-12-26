@@ -54,6 +54,8 @@ jj log --no-graph -r 'closest_bookmark(@)' -T 'stringify(local_bookmarks.map(|b|
 """, '']
 ppcheck = ["util", "exec", "--", "uvx", "jj-pre-push", "check"]
 pppush = ["util", "exec", "--", "uvx", "jj-pre-push", "push"]
+fetch = ["util", "exec", "--", "jj-tools", "-d", "fetch"]
+pr = ["util", "exec", "--", "jj-tools", "pr"]
 
 [signing]
 backend = 'ssh'

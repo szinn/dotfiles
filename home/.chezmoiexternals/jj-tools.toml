@@ -1,0 +1,4 @@
+[".local/bin/jj-tools"]
+type = "file"
+url = "https://raw.githubusercontent.com/szinn/jj-tools/main/jj-tools"
+executable = true
