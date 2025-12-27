@@ -1,4 +1,5 @@
 if type -q jj
     set -gx JJ_CONFIG "{{ .paths.config }}/jj/config.toml"
-    abbr --add -- jjf '{{ lookPath "jj" }} git fetch && {{ lookPath "jj" }} sync'
+    abbr --add -- jjf '{{ lookPath "jj" }} fetch && {{ lookPath "jj" }} sync'
+    abbr --add -- jjff '{{ lookPath "jj" }} git fetch && {{ lookPath "jj" }} sync'
 end
