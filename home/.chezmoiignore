@@ -17,6 +17,7 @@
 .bash_profile
 .cabal
 .cache
+.claude.json
 .claude.json.backup
 .cups
 .docker
