@@ -106,7 +106,7 @@ return {
 
       scope = { enabled = true },
 
-      scroll = { enabled = true },
+      scroll = { enabled = false },
 
       statuscolumn = { enabled = false },
 
