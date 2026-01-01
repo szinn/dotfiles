@@ -1,10 +1,8 @@
 {
+  "root_bookmark": "main",
   "project_settings": {
     "$HOME/Development/Playground/jj-play": {
       "root_bookmark": "green"
-    },
-    "$HOME/Development/Projects/k8s-homelab": {
-      "root_bookmark": "main"
     }
   }
 }
