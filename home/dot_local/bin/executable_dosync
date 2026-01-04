@@ -7,8 +7,8 @@ BACKUP_NFS="ragnar:/mnt/atlas/backup/scotte"
 #RSYNC='rsync -vrlt --exclude=".*" --modify-window=2 --chmod=Dog+rx,Fog+r'
 RSYNC='rsync -rvulz --exclude=".*" --modify-window=2 --chmod=Dog+rwx,Fog+r'
 LOGFILE="/Users/Scotte/Downloads/rsync.log"
-YEARS="2025"
-IMMICH_YEARS="2025"
+YEARS="2026"
+IMMICH_YEARS="2026"
 
 MUSIC="/Users/scotte/Music/Music/Media.localized/Music"
 PHOTOS="/Users/scotte/Multimedia/Photos"
@@ -107,7 +107,7 @@ flux -n media suspend helmrelease calibre-web
 kubectl -n media scale deployment/calibre-web --replicas 0
 kubectl -n media wait pod --for delete --selector="app.kubernetes.io/name=calibre-web" --timeout=2m
 ${RSYNC} ${BOOKS}/. ${LOCAL_MEDIA}/Books/Library/ | tee -a ${LOGFILE}
-echo "*** Resuming calibre-web..."  | tee -a ${LOGFILE}
+echo "*** Resuming calibre-web..." | tee -a ${LOGFILE}
 kubectl -n media scale deployment/calibre-web --replicas 1
 flux -n media resume helmrelease calibre-web
 flux -n flux-system resume kustomization media-calibre-web
