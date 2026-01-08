@@ -1,0 +1,23 @@
+return {
+  {
+    "patrickkoss/keyforge.nvim",
+    cmd = { "Keyforge", "KeyforgeStop", "KeyforgeBuild" },
+    build = "make build",
+    opts = {
+      keybind = "<leader>K",
+      keybind_next_challenge = "<leader>kn",
+      keybind_complete = "<leader>kc",
+      keybind_skip = "<leader>ks",
+      keybind_submit = "<CR>",
+      keybind_cancel = "<Esc>",
+      difficulty = "normal",
+      starting_gold = 200,
+      starting_health = 100,
+      auto_build = true,
+      challenge_timeout = 300,
+    },
+    keys = {
+      { "<leader>K", "<cmd>Keyforge<cr>", desc = "Keyforge: Start game" },
+    },
+  },
+}
