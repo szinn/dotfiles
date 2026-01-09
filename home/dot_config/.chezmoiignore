@@ -37,6 +37,7 @@ user-dirs.locale
 
 {{- if .workMachine }}
 aichat/
+github-copilot/
 {{ end }}
 
 {{- if not .workMachine }}
