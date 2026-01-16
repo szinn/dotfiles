@@ -1,0 +1,6 @@
+{
+  "devonthink": {
+    "command": "npx",
+    "args": ["-y", "mcp-server-devonthink"]
+  }
+}

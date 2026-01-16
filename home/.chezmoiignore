@@ -94,7 +94,8 @@ Ragnar
 Templates
 Videos
 navigraph
-{{- if .workMachine }}
+{{ if .workMachine }}
+.chezmoiscripts/run_onchange_after_02-claude-config.sh.tmpl
 .ecr
 .hawtjni
 .cshrc
@@ -116,4 +117,4 @@ faire/
 .local/pipx
 .pyenv
 java_error_in_idea.hprof
-{{- end }}
+{{ end }}

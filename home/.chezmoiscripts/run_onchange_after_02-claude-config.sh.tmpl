@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------------------------------------------------
+# Configure Claude
+# mcp.json hash: {{ include "dot_claude/mcp.json" | sha256sum }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+if test -n "$(command -v claude)"; then
+  if ! test -f "{{ .chezmoi.homeDir }}/.claude.json"; then
+    echo "{}" >"{{ .chezmoi.homeDir }}/.claude.json"
+  fi
+
+  echo "Configuring claude mcp servers"
+  jq ".mcpServers = $(cat {{ .chezmoi.sourceDir }}/dot_claude/mcp.json)" "{{ .chezmoi.homeDir }}/.claude.json" >/tmp/.claude.json
+  mv "{{ .chezmoi.homeDir }}/.claude.json" "{{ .chezmoi.homeDir }}/.claude.json.bak"
+  mv /tmp/.claude.json "{{ .chezmoi.homeDir }}/.claude.json"
+fi

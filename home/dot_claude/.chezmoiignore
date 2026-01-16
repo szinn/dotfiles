@@ -3,6 +3,7 @@ debug/
 file-history/
 history.jsonl
 ide/
+mcp.json
 plans/
 plugins/
 projects/
