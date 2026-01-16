@@ -47,7 +47,9 @@ newt = ['new', 'trunk()']
 rt   = ['rebase', '-o', 'trunk()']
 rtc  = ['rt', '-s', '@']
 sync = ['util', 'exec', '--', 'fish', '-c', """
-git switch (jj closestbookmark)
+if test -d (jj workspace root)/.git
+  git switch (jj closestbookmark)
+end
 """, '']
 closestbookmark = ['util', 'exec', '--', 'fish', '-c', """
 jj log --no-graph -r 'closest_bookmark(@)' -T 'stringify(local_bookmarks.map(|b| b.name()).join("\n")).first_line()++"\n"'
