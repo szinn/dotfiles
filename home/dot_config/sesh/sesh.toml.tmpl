@@ -14,6 +14,11 @@ path = "{{ .chezmoi.homeDir }}/Development/Projects/k8s-homelab"
 startup_command = "tmux split-window -l 20 && tmux select-pane -t 1 && clear"
 
 [[session]]
+name = "Hex Play"
+path = "{{ .chezmoi.homeDir }}/Development/Projects/hex-play"
+startup_command = "tmux split-window -l 20 && tmux select-pane -t 1 && clear"
+
+[[session]]
 name = "Devin's HomeLab"
 path = "{{ .chezmoi.homeDir }}/Development/PublicRepos/onedr0p-home-ops"
 
