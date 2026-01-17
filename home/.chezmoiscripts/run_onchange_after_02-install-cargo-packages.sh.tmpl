@@ -7,7 +7,7 @@
 if test -n "$(command -v cargo)"; then
   for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
     if test -z "$(command -v ${app})"; then
-      cargo install ${app}
+      cargo install --locked ${app}
     fi
   done
 fi

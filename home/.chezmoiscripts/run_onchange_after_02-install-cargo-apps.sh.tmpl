@@ -2,6 +2,6 @@
 
 if test -n "$(command -v cargo)"; then
   if test -n "$(command -v mdbook)"; then
-    cargo install mdbook-admonish mdbook-linkcheck mdbook-toc
+    cargo install --locked mdbook-admonish mdbook-linkcheck mdbook-toc
   fi
 fi
