@@ -182,3 +182,4 @@ vim.diagnostic.config({
 -- RUST
 
 vim.g.lazyvim_rust_diagnostics = "bacon-ls"
+vim.g.rust_recommended_style = 0
