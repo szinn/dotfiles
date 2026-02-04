@@ -11,4 +11,6 @@ session-env/
 shell-snapshots/
 stats-cache.json
 statsig/
+tasks/
+telemetry/
 todos/

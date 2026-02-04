@@ -18,7 +18,8 @@
 .cabal
 .cache
 .claude.json
-.claude.json.backup
+.claude.json.bak
+.claude.json.backup*
 .cups
 .docker
 .fontconfig
@@ -49,6 +50,7 @@
 .mc/certs
 .mc/share
 .mozilla
+.node_repl_history
 .npm
 .orbstack
 .profile
