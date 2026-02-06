@@ -5,9 +5,12 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 if test -n "$(command -v cargo)"; then
+  if ! test -n "$(command -v cargo-binstall)"; then
+    cargo install cargo-binstall
+  fi
   for app in $(cat {{ .chezmoi.homeDir }}/.cargo/cargo_apps); do
     if test -z "$(command -v ${app})"; then
-      cargo install --locked ${app}
+      cargo binstall --locked -y ${app}
     fi
   done
 fi
