@@ -4,6 +4,8 @@
 .package-cache
 .package-cache-mutate
 bin
+binstall
+binstall.toml
 env
 env.fish
 registry

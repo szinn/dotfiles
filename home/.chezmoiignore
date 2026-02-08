@@ -22,6 +22,7 @@
 .claude.json.backup*
 .cups
 .docker
+.dx
 .fontconfig
 .freelens
 .ghcup/

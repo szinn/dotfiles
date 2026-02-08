@@ -4,6 +4,7 @@ file-history/
 history.jsonl
 ide/
 mcp.json
+paste-cache
 plans/
 plugins/
 projects/
