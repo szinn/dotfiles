@@ -79,7 +79,8 @@ vim.opt.pumheight = 12
 --------------------------------------------------------------------------------
 -- CLIPBOARD
 --
--- opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
+
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "User: Highlighted Yank",
