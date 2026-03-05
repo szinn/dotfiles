@@ -18,6 +18,9 @@ diff-expected-exit-codes = [0, 1]
 sign-on-push = true
 track-default-bookmark-on-clone = true
 
+[revsets]
+bookmark-advance-to = '@-'
+
 [revset-aliases]
 'wip' = 'description(regex:'#trunk')'
 'git_head_children' = 'git_head()+ ~ trunk()'
@@ -37,8 +40,9 @@ ll = ['log', '-T', 'builtin_log_detailed']
 lla = ['log', '-T', 'builtin_log_detailed', '-r', '::@']
 la = ['log', '-r', '::@']
 s = ['show']
+tug = ["bookmark", "advance"]
 # Source: https://shaddy.dev/notes/jj-tug/
-tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
+# tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 # Go to the previous commit in the chain
 p = ['edit', '-r', '@-']
 # Go to the next commit in the chain
