@@ -72,10 +72,10 @@ bind c new-window -c '#{pane_current_path}'
 bind g new-window -n 'LazyGit' lazygit
 
 # Pane navigation (on colemak)
-bind C-n select-pane -L
-bind C-e select-pane -D
-bind C-i select-pane -U
-bind C-o select-pane -R
+# bind C-n select-pane -L
+# bind C-e select-pane -D
+# bind C-i select-pane -U
+# bind C-o select-pane -R
 
 # Resize pane
 unbind C-Down
@@ -102,6 +102,27 @@ bind C-l send-keys 'C-l'
 bind -n S-Left  previous-window
 bind -n S-Right next-window
 
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+vim_pattern='(\S+/)?g?\.?(view|l?n?vim?x?|fzf)(diff)?(-wrapped)?'
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +${vim_pattern}$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+
 # Session management
 bind X confirm-before -p "kill-session #S (y/n)" kill-session
 
@@ -122,13 +143,13 @@ bind-key "t" run-shell "sesh connect \"$(
 )\""
 
 # Plugins
-set -g @plugin 'christoomey/vim-tmux-navigator'
+# set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Load and run tpm
-set -g @plugin 'tmux-plugins/tpm'
-{{ if (eq .chezmoi.os "darwin") }}
-run "/opt/homebrew/opt/tpm/share/tpm/tpm"
-{{ end }}
-{{ if (eq .chezmoi.os "linux") }}
-run "/home/linuxbrew/.linuxbrew/opt/tpm/share/tpm/tpm"
-{{ end }}
+# set -g @plugin 'tmux-plugins/tpm'
+# {{ if (eq .chezmoi.os "darwin") }}
+# run "/opt/homebrew/opt/tpm/share/tpm/tpm"
+# {{ end }}
+# {{ if (eq .chezmoi.os "linux") }}
+# run "/home/linuxbrew/.linuxbrew/opt/tpm/share/tpm/tpm"
+# {{ end }}
