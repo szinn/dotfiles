@@ -9,6 +9,7 @@ homebrew/sudo_local
 htop
 nvm
 op
+pkoss-nvim/
 swiftpm
 tmux/plugins
 wireshark

@@ -1,8 +1,10 @@
+backups/
 cache/
 debug/
 file-history/
 history.jsonl
 ide/
+mcp-needs-auth-cache.json
 mcp.json
 paste-cache
 plans/

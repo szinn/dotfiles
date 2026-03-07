@@ -1,5 +1,10 @@
 {
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(sed -n '*,*p' *)"
+    ]
   }
 }
