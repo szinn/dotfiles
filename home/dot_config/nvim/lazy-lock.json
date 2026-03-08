@@ -15,7 +15,7 @@
   "grug-far.nvim": { "branch": "main", "commit": "ac52ee2d87399dfd7b0d59d5b1d2bbaf2a4028f1" },
   "harpoon": { "branch": "harpoon2", "commit": "87b1a3506211538f460786c23f98ec63ad9af4e5" },
   "haskell-snippets.nvim": { "branch": "master", "commit": "cbe4e20fccb2e527d370765c8248205b31571037" },
-  "haskell-tools.nvim": { "branch": "master", "commit": "6e2016272ad21fdbe5c8bf8eb7f0342df8061672" },
+  "haskell-tools.nvim": { "branch": "master", "commit": "2018d7c4123a75b54001d862f1825027a99034f2" },
   "helm-ls.nvim": { "branch": "main", "commit": "f0b9a1723890971a6d84890b50dbf5f40974ea1b" },
   "keyforge.nvim": { "branch": "main", "commit": "77f0a3ea2430c932650b55381254b34c008140df" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
