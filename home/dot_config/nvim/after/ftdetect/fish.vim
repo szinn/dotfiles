@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.fish.tmpl set filetype=fish
+au BufNewFile,BufRead *.fish.tmpl set filetype=template
