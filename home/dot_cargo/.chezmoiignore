@@ -9,3 +9,4 @@ binstall.toml
 env
 env.fish
 registry
+advisory-db*

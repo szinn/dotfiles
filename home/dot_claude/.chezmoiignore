@@ -10,6 +10,7 @@ paste-cache
 plans/
 plugins/
 projects/
+sessions
 session-env/
 shell-snapshots/
 stats-cache.json
