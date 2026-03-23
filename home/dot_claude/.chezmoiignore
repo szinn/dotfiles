@@ -18,3 +18,5 @@ statsig/
 tasks/
 telemetry/
 todos/
+settings.json.bak
+settings.json.orig

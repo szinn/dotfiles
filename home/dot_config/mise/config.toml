@@ -1,6 +1,7 @@
 [settings]
 experimental = true
 disable_hints = ["*"]
+pipx_uvx = true
 
 always_keep_download = false                   # deleted after install by default
 always_keep_install = false                    # deleted on failure by default
@@ -8,3 +9,4 @@ idiomatic_version_file_enable_tools = ["rust"]
 
 [tools]
 "node" = "24"
+"aqua:astral-sh/uv" = "latest"

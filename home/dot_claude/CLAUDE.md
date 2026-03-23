@@ -11,11 +11,15 @@ Co-Authored-By: Scotte <scotte@zinn.ca>
 
 ## Version Control
 
-Use `jj` (jujutsu), not `git`. Key commands: `jj commit`, `jj describe`, `jj new`, `jj log`, `jj status`.
+If the project root contains a `.jj` directory, use `jj` (jujutsu), not `git`. Key commands: `jj commit`, `jj describe`, `jj new`, `jj log`, `jj status`.
 
 ## Commits
 
 Follow conventional commits: `type(scope): description`. Scopes are project-specific.
+
+When asked to "update jj desc" (or similar), always run `jj diff` first to review
+all changed files in the current changeset, then generate the description from the
+actual diff — not from memory of what was done.
 
 ## Secrets
 
