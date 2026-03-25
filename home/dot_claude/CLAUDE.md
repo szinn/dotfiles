@@ -11,7 +11,7 @@ Co-Authored-By: Scotte <scotte@zinn.ca>
 
 ## Version Control
 
-If the project root contains a `.jj` directory, use `jj` (jujutsu), not `git`. Key commands: `jj commit`, `jj describe`, `jj new`, `jj log`, `jj status`.
+If `.jj/` exists, this is a jujutsu (jj) repo - git commands will corrupt data. Do not use any git commands.
 
 ## Commits
 
