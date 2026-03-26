@@ -62,12 +62,6 @@ ppcheck = ["util", "exec", "--", "uvx", "jj-pre-push", "check"]
 pppush = ["util", "exec", "--", "uvx", "jj-pre-push", "push"]
 fetch = ["util", "exec", "--", "jj-tools", "fetch"]
 pr = ["util", "exec", "--", "jj-tools", "pr"]
-beads-resolve = ["resolve", "--tool=beads-merge", ".beads/issues.jsonl"]
-
-[merge-tools.beads-merge]
-program = "bd"
-merge-args = ["merge", "$output", "$base", "$left", "$right"]
-merge-conflict-exit-codes = [1]
 
 [signing]
 backend = 'ssh'

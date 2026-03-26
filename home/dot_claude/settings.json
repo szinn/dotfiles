@@ -1,32 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(sed -n '*,*p' *)"
-    ]
-  },
-  "hooks": {
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bd prime"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bd prime"
-          }
-        ]
-      }
-    ]
+    "allow": ["Bash(sed -n '*,*p' *)"]
   },
   "statusLine": {
     "type": "command",
