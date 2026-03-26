@@ -12,8 +12,12 @@ update_path $HOMEBREW_PREFIX/opt/postgresql@17/bin
 update_path $HOMEBREW_PREFIX/opt/curl/bin
 update_path $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin
-update_path $HOMEBREW_PREFIX/opt/gawk/libexec/gnubin
+# gawk has a gsub bug that breaks tmux plugin manager tpm
+# update_path $HOMEBREW_PREFIX/opt/gawk/libexec/gnubin
+remove_path $HOMEBREW_PREFIX/opt/gawk/libexec/gnubin
 update_path $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin
+
+alias gawk "$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin/awk"
 {{ end }}
 
 {{ if (eq .chezmoi.os "linux") }}
@@ -23,6 +27,9 @@ update_path $HOMEBREW_PREFIX/bin
 update_path $HOMEBREW_PREFIX/opt/curl/bin
 update_path $HOMEBREW_PREFIX/opt/coreutils/bin
 update_path $HOMEBREW_PREFIX/opt/gnu-sed/bin
-update_path $HOMEBREW_PREFIX/opt/gawk/bin
+# update_path $HOMEBREW_PREFIX/opt/gawk/bin
+remove_path $HOMEBREW_PREFIX/opt/gawk/bin
 update_path $HOMEBREW_PREFIX/opt/findutils/bin
+
+alias gawk "$HOMEBREW_PREFIX/opt/gawk/bin/awk"
 {{ end }}
