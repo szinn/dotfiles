@@ -1,6 +1,9 @@
 {
   "permissions": {
-    "allow": ["Bash(sed -n '*,*p' *)"]
+    "allow": [
+      "Bash(sed -n '*,*p' *)",
+      "Read(/Users/scotte/.claude/skills/*)"
+    ]
   },
   "statusLine": {
     "type": "command",

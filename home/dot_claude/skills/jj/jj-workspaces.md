@@ -25,10 +25,10 @@ Check for workspace directory preferences in this order:
 
 If using a project-local directory (`.workspaces/`, `workspaces/`, etc.):
 
-1. **Check `.gitignore`** (or `.jjignore` if it exists) for the workspace directory pattern
+1. **Check `.gitignore`** for the workspace directory pattern (jj reads `.gitignore` files — there is no separate `.jjignore`)
 2. **If NOT in .gitignore**:
-   - Ensure you are on an empty changeset
-   - Immediately add it: `echo "workspaces/" >> .gitignore` (or `.workspaces/`)
+   - If the working copy has uncommitted changes (`jj status` shows modifications), run `jj new` first to move to a clean changeset
+   - Add the ignore entry: `echo "workspaces/" >> .gitignore` (or `.workspaces/` as appropriate)
    - Commit the change: `jj describe -m "gitignore: Add workspaces directory"`
    - This prevents accidentally tracking workspace contents
 
@@ -56,7 +56,7 @@ Check with the project's CLAUDE.md for project-specific instructions on getting 
 **Always:**
 
 1. Change to workspace directory: `cd "$WORKSPACE_PATH"`
-2. Run the appropriate setup command
+2. Run the appropriate setup commands
 3. Report any setup errors to the user
 
 ### 5. Baseline Verification

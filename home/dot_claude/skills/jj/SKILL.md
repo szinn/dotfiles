@@ -34,8 +34,7 @@ Each line of work is an independent anonymous branch. Switch between them with `
 
 ### 2. Workspace Isolation
 
-See @jj-workspaces.md for using workspaces.
-e
+**REQUIRED:** When any workspace operation is needed, MUST read `jj-workspaces.md` from this skill's base directory (shown at the top of this skill as "Base directory for this skill: <path>") using the Read tool before proceeding.
 
 ### 3. Stacked Change Isolation
 
@@ -260,6 +259,42 @@ Before pushing any work, verify:
 - [ ] Tests pass on each change in the stack (navigate with `jj edit`, run tests, `jj new` to return)
 - [ ] No abandoned changes left cluttering the log (`jj abandon` unused experiments)
 - [ ] Remote is synced (`jj git push --bookmark <name>` for each bookmark)
+
+## Parallel Workspaces and Lock Contention
+
+jj workspaces share a single repo lock. When multiple agents or processes run jj operations
+concurrently (e.g. parallel sub-agents each finishing work in their own workspace), they
+compete for the lock and one will fail if it can't acquire it.
+
+**When running jj operations that may contend with other concurrent agents, wrap every jj
+command in a retry loop with exponential backoff:**
+
+```bash
+jj_with_retry() {
+    local attempt=1
+    until jj "$@"; do
+        if [ $attempt -ge 5 ]; then
+            echo "jj $* failed after $attempt attempts" >&2
+            return 1
+        fi
+        sleep $((attempt * 2))
+        attempt=$((attempt + 1))
+    done
+}
+
+# Usage — replace bare `jj` calls with the wrapper:
+jj_with_retry desc -m "feat(scope): description"
+jj_with_retry new
+```
+
+**When to use this:** Any time you are operating as a sub-agent in a jj workspace and there
+may be other sub-agents working in parallel workspaces on the same repo. This includes:
+- `jj describe` / `jj desc`
+- `jj new` / `jj commit`
+- `jj rebase`
+- `jj bookmark set` / `jj git push`
+
+File edits (Read/Write/Edit tools) do not touch the jj lock and need no retry wrapper.
 
 ## Troubleshooting
 

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(mkdir -p /tmp/test-backlog/.backlog)",
+      "Bash(__NEW_LINE_11cfa58e67dab363__ cat:*)",
+      "Bash(/tmp/test-backlog/.backlog/bug-login-broken.md:*)",
+      "Bash(/tmp/test-backlog/.backlog/feature-dark-mode.md:*)",
+      "Bash(/tmp/test-backlog/.backlog/epic-v2.md:*)",
+      "Bash(python3 /Users/scotte/.claude/skills/backlog/backlog-summary.py)",
+      "Bash(echo \"Exit: $?\")"
+    ]
+  }
+}
