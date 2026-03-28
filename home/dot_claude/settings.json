@@ -5,6 +5,7 @@
       "Read(/Users/scotte/.claude/skills/*)"
     ]
   },
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",
