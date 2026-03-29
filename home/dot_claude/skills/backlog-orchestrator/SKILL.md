@@ -69,6 +69,16 @@ Pass the subagent the full content of the issue file. The issue's plan section m
 
 If the plan section is missing or too vague to implement in one shot, stop and triage the issue before dispatching.
 
+### Version Control (jj repos)
+
+If the project contains a `.jj/` directory, include these instructions in every subagent prompt:
+
+- **Never use `git` commands** — this is a jj repo; git commands corrupt it.
+- Each logical step must be its own jj changeset.
+- **Before starting a step:** check `jj diff --stat`. Only run `jj new` if the working copy is non-empty — running `jj new` on an already-empty changeset leaves a stray empty commit.
+- **After completing each step:** run the end-of-task routine (`just fmt`, `just clippy`, tests), then `jj desc -m "type(scope): description"` with the conventional commit message and project footer before beginning the next step.
+- Use the commit footer from CLAUDE.md exactly.
+
 **Dispatch mechanism:** For parallel batch execution, use `superpowers-extended-cc:dispatching-parallel-agents`. For sequential epic execution, dispatch one subagent at a time using the Agent tool with the full issue content as context.
 
 ## Discovered Issues During Implementation
@@ -89,6 +99,8 @@ Before marking any issue `complete`:
    - No lint errors
 
 Do not mark complete until checklist passes.
+
+For jj repos: verify that each logical step has its own described changeset (`jj log` shows no empty or undescribed commits in the work).
 
 ## Handoff Protocol
 

@@ -1,16 +1,4 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(sed -n '*,*p' *)",
-      "Read(/Users/scotte/.claude/skills/*)"
-    ]
-  },
-  "model": "sonnet",
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0
-  },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
     "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
@@ -18,9 +6,18 @@
   "extraKnownMarketplaces": {
     "superpowers-extended-cc-marketplace": {
       "source": {
-        "source": "github",
-        "repo": "pcvelz/superpowers"
+        "repo": "pcvelz/superpowers",
+        "source": "github"
       }
     }
+  },
+  "model": "sonnet",
+  "permissions": {
+    "allow": ["Bash(sed -n '*,*p' *)", "Read(/Users/scotte/.claude/skills/*)"]
+  },
+  "statusLine": {
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "type": "command"
   }
 }
