@@ -1,7 +1,7 @@
 [settings]
 experimental = true
 disable_hints = ["*"]
-pipx_uvx = true
+pipx.uvx = true
 
 always_keep_download = false                   # deleted after install by default
 always_keep_install = false                    # deleted on failure by default

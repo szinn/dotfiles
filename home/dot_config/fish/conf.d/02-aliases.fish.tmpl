@@ -2,3 +2,24 @@ alias m "{{ lookPath "less" }}"
 alias newmain "{{ lookPath "wezterm" }} cli spawn --workspace main --cwd ~ --new-window"
 alias nvim "RUST_LOG=off {{ lookPath "nvim" }}"
 alias x exit
+
+set -g __project_file ""
+
+function load_project --on-variable PWD
+    # cleanup old
+    if test -n "$__project_file"
+        for a in (cat $__project_file | grep '# function:' | sed -e "s/# function: //")
+            functions -e $a
+        end
+    end
+
+    # load new
+    if test -f .fishrc
+        set -g __project_file (pwd)/.fishrc
+        source .fishrc
+    else
+        set -g __project_file ""
+    end
+end
+
+load_project

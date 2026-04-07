@@ -16,7 +16,7 @@
       {
         "hooks": [
           {
-            "command": "/Users/scotte/.cargo/bin/tokensave hook-pre-tool-use",
+            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use",
             "type": "command"
           }
         ],
