@@ -71,6 +71,7 @@
 .talos
 .terminfo
 .terraform.d
+.tokensave/
 .viminfo
 .vnc
 .vscode

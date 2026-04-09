@@ -1,30 +1,4 @@
 {
-  "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "superpowers-extended-cc-marketplace": {
-      "source": {
-        "repo": "pcvelz/superpowers",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use",
-            "type": "command"
-          }
-        ],
-        "matcher": "Agent"
-      }
-    ]
-  },
-  "model": "sonnet",
   "permissions": {
     "allow": [
       "Bash(sed -n '*,*p' *)",
@@ -58,9 +32,42 @@
       "mcp__tokensave__tokensave_unused_imports"
     ]
   },
+  "model": "sonnet",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
+    "type": "command",
     "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "type": "command"
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true,
+    "issueboss@issueboss-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-extended-cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "pcvelz/superpowers"
+      }
+    },
+    "issueboss-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scotte/Development/Projects/IssueBoss"
+      }
+    }
   }
 }
