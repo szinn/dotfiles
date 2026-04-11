@@ -1,6 +1,8 @@
 ---
 name: using-jj-workspaces
-description: Set up isolated jj workspaces for parallel development. Use when creating new workspaces, organizing workspace directories, or setting up gitignore for workspaces.
+description: Set up isolated jj workspaces for parallel development in jj projects. ALWAYS use this skill — not git worktree skills — when the project contains a .jj/ directory. Use when starting feature work that needs isolation, before executing implementation plans, creating new workspaces, or any time physical directory isolation is needed in a jj repo.
+metadata:
+  version: 1.0.0
 ---
 
 # Using JJ Workspaces
@@ -8,6 +10,17 @@ description: Set up isolated jj workspaces for parallel development. Use when cr
 You're helping set up and use an isolated jj workspace for parallel development work without disrupting the current workspace.
 
 ## Core Workflow: Systematic Directory Selection + Safety Verification
+
+### 0. Workspace Check (Always Run First)
+
+Before doing anything else, determine whether workspace creation is actually needed:
+(Exiting this skill means stopping here and returning to the conversation — no workspace is created.)
+
+1. **Check for explicit user instruction**: If the user has expressed intent to work in the current directory without creating a new workspace — for example "work here", "use this workspace", "don't create a new workspace", or "work in the main workspace" — confirm that choice and **exit this skill**. Do not proceed to Step 1.
+
+2. **Check current workspace**: Run `jj workspace list`. If the command fails or the directory is not a jj repo, **exit this skill** and inform the user that no jj repository was found. If you are already in a named workspace other than `default` (the main workspace), ask: "You are already in workspace `<name>`. Should I create a new workspace, or continue work here?" If they want to continue here, **exit this skill**. If they want a new workspace, continue to Step 1.
+
+3. **Proceed**: If neither condition applies, continue to Step 1.
 
 ### 1. Directory Selection (Priority Order)
 
@@ -139,9 +152,3 @@ Pairs well with:
 
 - JJ squash workflow for finishing work
 - JJ split for organizing changes before moving back to main workspace
-
----
-
-**Skill Version**: 1.0.0
-**Last Updated**: March 2026
-**Status**: Production-Ready

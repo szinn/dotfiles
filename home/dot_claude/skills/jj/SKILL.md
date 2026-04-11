@@ -1,6 +1,6 @@
 ---
 name: jj
-description: Jujutsu (jj) version control expert. Use when the project contains a `.jj/` directory, user asks about jj, jujutsu, workflow isolation, stacking changes, bookmarks, rebasing, conflict resolution, or any VCS operations involving jj. Covers the full jj command surface including workspaces, operation log, revsets, and GitHub/Gerrit integration.
+description: Jujutsu (jj) version control expert. Use when the project contains a `.jj/` directory, user asks about jj, jujutsu, stacking changes, bookmarks, rebasing, conflict resolution, or any VCS operations involving jj. Covers the full jj command surface including workspace concepts, operation log, revsets, and GitHub/Gerrit integration.
 argument-hint: [command or workflow question]
 ---
 
@@ -14,7 +14,7 @@ If the project you are working in has a `.jj/` directory in the project root (`j
 - **Change IDs are stable** across rewrites. Commit IDs are not. Use change IDs in workflows.
 - **Anonymous branches are normal.** Bookmarks are optional labels, not required for work.
 - **Conflicts are first-class.** You can commit with conflicts and resolve later.
-- **All operations are logged and undoable** via `jj op log` / `jj undo` / `jj op Interactivestore`.
+- **All operations are logged and undoable** via `jj op log` / `jj undo` / `jj op restore`.
 - **Automatic rebasing**: editing an ancestor automatically rebases all descendants.
 
 ## Workflow Isolation Patterns
@@ -34,7 +34,7 @@ Each line of work is an independent anonymous branch. Switch between them with `
 
 ### 2. Workspace Isolation
 
-**REQUIRED:** When any workspace operation is needed, MUST read `jj-workspaces.md` from this skill's base directory (shown at the top of this skill as "Base directory for this skill: <path>") using the Read tool before proceeding.
+**REQUIRED:** Use the `jj-workspace` skill for all workspace operations. This is a dedicated top-level skill that handles directory selection, .gitignore safety, workspace creation, and project setup. Do NOT use git worktree skills or any other isolation approach in a `.jj` project. Invoke it using the Skill tool with `skill: jj-workspace` before taking any workspace action.
 
 ### 3. Stacked Change Isolation
 
@@ -223,7 +223,7 @@ jj git push --bookmark part-2       # push rebased part-2
 ### Isolation Best Practices
 
 - **Default to anonymous branches** for local work — no naming ceremony needed
-- **Use workspaces** when you need physically separate directories (e.g., AI sandbox, parallel experiments)
+- **Use workspaces** when you need physically separate directories (e.g., AI sandbox, parallel experiments) — invoke the `jj-workspace` skill (never use git worktree skills in a `.jj` project)
 - **Use stacked changes** when work is logically dependent (feature parts 1, 2, 3)
 - **Use `jj parallelize`** to convert a linear stack into independent siblings when parts become independent
 
@@ -383,7 +383,8 @@ Fix:
 - When suggesting commands, always use `jj` syntax, never `git`.
 - Prefer change IDs over commit IDs in instructions.
 - Default to anonymous branches unless the user needs to push to a forge.
-- When the user needs isolation, evaluate which pattern fits: anonymous branch (lightest), workspace (strongest), or stacked changes (dependent work).
+- When the user needs isolation, evaluate which pattern fits: anonymous branch (lightest), stacked changes (dependent work), or physical workspace isolation (strongest).
+- For physical workspace isolation in a `.jj` project, you MUST invoke the `jj-workspace` skill — never use git worktree skills or manual `jj workspace add` without it.
 - Always mention `jj undo` / `jj op restore` as the safety net when suggesting destructive-looking operations.
 - For GitHub workflows, show the bookmark + push pattern.
 - When resolving conflicts, remind the user they can defer resolution.
