@@ -18,3 +18,18 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-f>", "<C-f>zz", opts)
 keymap("n", "<C-b>", "<C-b>zz", opts)
+
+-- Insights picker
+vim.keymap.set("n", "<leader>fi", function()
+  Snacks.picker.files({
+    cwd = vim.fn.getcwd() .. "/.insights",
+    args = { "--follow", "--exclude", "searchable" },
+  })
+end, { desc = "Find insights files" })
+
+vim.keymap.set("n", "<leader>si", function()
+  Snacks.picker.grep({
+    cwd = vim.fn.getcwd() .. "/.insights",
+    args = { "--follow", "--glob", "!searchable/**" },
+  })
+end, { desc = "Grep insights" })
