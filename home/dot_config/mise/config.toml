@@ -7,6 +7,9 @@ always_keep_download = false                   # deleted after install by defaul
 always_keep_install = false                    # deleted on failure by default
 idiomatic_version_file_enable_tools = ["rust"]
 
+[shell_alias]
+mr = "mise run"
+
 [tools]
 "node" = "24"
 "aqua:astral-sh/uv" = "latest"
