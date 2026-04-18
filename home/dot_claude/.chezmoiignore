@@ -20,3 +20,4 @@ telemetry/
 todos/
 settings.json.bak
 settings.json.orig
+settings.local.json
