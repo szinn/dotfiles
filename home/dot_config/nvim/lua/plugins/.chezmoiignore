@@ -1,0 +1,3 @@
+{{- if ne .chezmoi.hostname "argos" }}
+mason-lspconfig.lua
+{{- end }}

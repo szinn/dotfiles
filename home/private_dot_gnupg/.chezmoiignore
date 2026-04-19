@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.hostname "argos" }}
+gpg-agent.conf
+gpg.conf
+{{- end }}

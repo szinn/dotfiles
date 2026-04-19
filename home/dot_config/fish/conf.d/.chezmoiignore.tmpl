@@ -1,6 +1,9 @@
-{{- if not .homeMachine }}
+{{ if not .homeMachine }}
 claude.fish.tmpl
-{{- end }}
-{{- if not .workMachine }}
+{{ end }}
+{{ if not .workMachine }}
 nvm.fish.tmpl
-{{- end }}
+{{ end }}
+{{ if eq .chezmoi.hostname "argos" }}
+11-homebrew.fish
+{{ end }}

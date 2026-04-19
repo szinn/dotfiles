@@ -7,6 +7,12 @@
 .bashrc
 {{ end }}
 
+{{ if eq .chezmoi.hostname "argos" }}
+.chezmoiscripts/linux/**
+.chezmoiscripts/run_onchange_after_01-install-homebrew-packages.sh.tmpl
+.bashrc
+{{ end }}
+
 **/.DS_Store
 .CFUserTextEncoding
 .DS_Store
