@@ -1,57 +1,4 @@
 {
-  "enabledPlugins": {
-    "issueboss@issueboss-marketplace": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "issueboss-marketplace": {
-      "source": {
-        "path": "/Users/scotte/Development/Projects/IssueBoss",
-        "source": "directory"
-      }
-    },
-    "superpowers-extended-cc-marketplace": {
-      "source": {
-        "repo": "pcvelz/superpowers",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use",
-            "type": "command"
-          }
-        ],
-        "matcher": "Agent"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-stop",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-prompt-submit",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  },
-  "model": "sonnet",
   "permissions": {
     "allow": [
       "Bash(sed -n '*,*p' *)",
@@ -85,9 +32,69 @@
       "mcp__tokensave__tokensave_unused_imports"
     ]
   },
+  "model": "sonnet",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-stop"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-prompt-submit"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
+    "type": "command",
     "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "type": "command"
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "issueboss@issueboss-marketplace": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true,
+    "llm-wiki@llm-wiki-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "issueboss-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scotte/Development/Projects/IssueBoss"
+      }
+    },
+    "superpowers-extended-cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "pcvelz/superpowers"
+      }
+    },
+    "llm-wiki-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scotte/Development/Projects/llm-wiki"
+      }
+    }
   }
 }
