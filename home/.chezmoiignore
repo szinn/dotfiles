@@ -104,6 +104,7 @@ Public
 Ragnar
 Templates
 Videos
+Virtual Machines.localized
 navigraph
 {{ if .workMachine }}
 .chezmoiscripts/run_onchange_after_02-claude-config.sh.tmpl
