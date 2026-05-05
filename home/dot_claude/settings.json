@@ -32,7 +32,6 @@
       "mcp__tokensave__tokensave_unused_imports"
     ]
   },
-  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {

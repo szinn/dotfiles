@@ -6,7 +6,6 @@ function brewup --description="Update homebrew applications"
         else
             {{ lookPath "brew" }} update
             {{ lookPath "brew" }} upgrade
-            {{ lookPath "brew" }} upgrade
             {{ lookPath "brew" }} cleanup --prune=all
             {{ lookPath "brew" }} doctor
             if type -q mas

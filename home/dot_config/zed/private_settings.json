@@ -1,4 +1,15 @@
 {
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "edit_predictions": {
     "mode": "subtle",
     "copilot": {
@@ -75,6 +86,7 @@
     "button": false
   },
   "project_panel": {
+    "dock": "left",
     "hide_gitignore": false,
     "button": false,
     "auto_fold_dirs": false,
@@ -83,6 +95,7 @@
     }
   },
   "outline_panel": {
+    "dock": "left",
     "button": false
   },
   "tab_size": 2
