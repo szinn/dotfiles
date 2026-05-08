@@ -65,6 +65,9 @@
       }
     ]
   },
+  "outputStyle": "Concise",
+  "includeGitInstructions": false,
+  "skipWebFetchPreflight": true,
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",
