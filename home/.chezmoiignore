@@ -16,6 +16,8 @@
 **/.DS_Store
 .CFUserTextEncoding
 .DS_Store
+.OmniPage-CSDK-22.2
+.OmniPage-licmgr
 .Trash
 .ansible
 .atuin

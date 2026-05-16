@@ -13,6 +13,13 @@ local opts = { noremap = true, silent = true }
 
 keymap("i", "jl", "<Esc>", { noremap = false })
 
+-- Sidestep the gc/gcc timeoutlen race by binding line-comment to a single key.
+-- Most terminals send <C-_> for Ctrl+/; modern ones send <C-/> directly.
+for _, lhs in ipairs({ "<C-/>", "<C-_>" }) do
+  keymap("n", lhs, "gcc", { remap = true, desc = "Toggle comment line" })
+  keymap("x", lhs, "gc", { remap = true, desc = "Toggle comment" })
+end
+
 -- Move to center of screen too
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
