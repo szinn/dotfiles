@@ -5,7 +5,7 @@ function brewup --description="Update homebrew applications"
             brew bundle cleanup --force --file "$XDG_CONFIG_HOME/homebrew/Brewfile"
         else
             {{ lookPath "brew" }} update
-            {{ lookPath "brew" }} upgrade
+            {{ lookPath "brew" }} upgrade -y
             {{ lookPath "brew" }} cleanup --prune=all
             {{ lookPath "brew" }} doctor
             if type -q mas

@@ -1,7 +1,9 @@
 index netshoot https://github.com/nilic/kubectl-netshoot.git
+index kopiur https://github.com/home-operations/kopiur.git
 
 browse-pvc
 klock
+kopiur/kopiur
 netshoot/netshoot
 rook-ceph
 cnpg

@@ -1,0 +1,14 @@
+{
+  "trustedformulae": [
+    "aovestdipaperino/tap/tokensave",
+    "arl/arl/gitmux",
+    "fluxcd/tap/flux",
+    "kanidm/kanidm/kanidm",
+    "waydabber/betterdisplay/betterdisplaycli"
+  ],
+  "trustedtaps": [
+    "aovestdipaperino/tap",
+    "arl/arl",
+    "fluxcd/tap"
+  ]
+}
