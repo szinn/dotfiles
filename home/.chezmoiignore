@@ -83,6 +83,7 @@
 .viminfo
 .vnc
 .vscode
+.vscode-shared
 .wget-hsts
 .zsh_history
 .zsh_sessions

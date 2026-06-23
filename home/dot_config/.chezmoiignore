@@ -6,6 +6,7 @@ gh/hosts.yml
 helm/repositories.lock
 helm/repositories.yaml
 homebrew/sudo_local
+homebrew/trust.json.lock
 htop
 nvm
 op
