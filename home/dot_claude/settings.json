@@ -1,65 +1,5 @@
 {
-  "enabledPlugins": {
-    "issueboss@issueboss-marketplace": true,
-    "llm-wiki@llm-wiki-marketplace": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "issueboss-marketplace": {
-      "source": {
-        "path": "/Users/scotte/Development/Projects/IssueBoss",
-        "source": "directory"
-      }
-    },
-    "llm-wiki-marketplace": {
-      "source": {
-        "path": "/Users/scotte/Development/Projects/llm-wiki",
-        "source": "directory"
-      }
-    },
-    "superpowers-extended-cc-marketplace": {
-      "source": {
-        "repo": "pcvelz/superpowers",
-        "source": "github"
-      }
-    }
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use",
-            "type": "command"
-          }
-        ],
-        "matcher": "Agent"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-stop",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "/opt/homebrew/bin/tokensave hook-prompt-submit",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  },
   "includeGitInstructions": false,
-  "outputStyle": "Concise",
   "permissions": {
     "allow": [
       "Bash(sed -n '*,*p' *)",
@@ -148,10 +88,71 @@
       "mcp__tokensave__tokensave_unused_imports"
     ]
   },
-  "skipWebFetchPreflight": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-pre-tool-use"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-stop"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/tokensave hook-prompt-submit"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
+    "type": "command",
     "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "type": "command"
-  }
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "issueboss@issueboss-marketplace": true,
+    "llm-wiki@llm-wiki-marketplace": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "issueboss-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scotte/Development/Projects/IssueBoss"
+      }
+    },
+    "llm-wiki-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scotte/Development/Projects/llm-wiki"
+      }
+    },
+    "superpowers-extended-cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "pcvelz/superpowers"
+      }
+    }
+  },
+  "outputStyle": "Concise",
+  "skipWebFetchPreflight": true,
+  "tui": "fullscreen"
 }
