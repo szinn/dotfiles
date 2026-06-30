@@ -11,5 +11,6 @@ idiomatic_version_file_enable_tools = ["rust"]
 mr = "mise run"
 
 [tools]
-"node" = "24"
 "aqua:astral-sh/uv" = "latest"
+node = "24"
+prettier = "latest"
