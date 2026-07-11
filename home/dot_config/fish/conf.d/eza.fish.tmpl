@@ -2,10 +2,10 @@
 # Requires `brew install eza`
 if type -q eza
     if status --is-interactive
-        alias ls '{{ lookPath "eza" }} --group --icons'
-        alias ll '{{ lookPath "eza" }} --group --icons -l'
-        alias la '{{ lookPath "eza" }} --group --icons -a'
-        alias lt '{{ lookPath "eza" }} --group --icons --tree'
-        alias lla '{{ lookPath "eza" }} --group --icons -la'
+        alias ls '{{ lookPath "eza" }} --group --icons always'
+        alias ll '{{ lookPath "eza" }} --group --icons  always -l'
+        alias la '{{ lookPath "eza" }} --group --icons always -a'
+        alias lt '{{ lookPath "eza" }} --group --icons always --tree'
+        alias lla '{{ lookPath "eza" }} --group --icons always -la'
     end
 end
