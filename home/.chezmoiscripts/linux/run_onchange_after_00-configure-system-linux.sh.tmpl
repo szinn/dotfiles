@@ -12,8 +12,8 @@ fi
 # ---------------------------------------------------------------------------------------------------------------------
 # Add sudoer and set shell
 # ---------------------------------------------------------------------------------------------------------------------
-echo "scotte ALL=(ALL) NOPASSWD:ALL" > /tmp/scotte
+echo "scotte ALL=(ALL) NOPASSWD:ALL" >/tmp/scotte
 sudo chown root:root /tmp/scotte
 sudo mv /tmp/scotte /etc/sudoers.d
 
-chsh -s /home/linuxbrew/.linuxbrew/bin/fish
+chsh -s /usr/bin/fish
