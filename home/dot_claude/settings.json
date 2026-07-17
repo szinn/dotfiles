@@ -130,7 +130,7 @@
     "issueboss@issueboss-marketplace": true,
     "llm-wiki@llm-wiki-marketplace": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers-extended-cc@superpowers-extended-cc-marketplace": true
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "issueboss-marketplace": {
@@ -144,15 +144,10 @@
         "source": "directory",
         "path": "/Users/scotte/Development/Projects/llm-wiki"
       }
-    },
-    "superpowers-extended-cc-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "pcvelz/superpowers"
-      }
     }
   },
   "outputStyle": "Concise",
   "skipWebFetchPreflight": true,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true
 }
