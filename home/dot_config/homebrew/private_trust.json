@@ -1,9 +1,0 @@
-{
-  "trustedtaps": [
-    "aovestdipaperino/tap",
-    "arl/arl",
-    "fluxcd/tap",
-    "kanidm/kanidm",
-    "waydabber/betterdisplay"
-  ]
-}
