@@ -1,4 +1,5 @@
 [settings]
+not_found_auto_install = false
 experimental = true
 disable_hints = ["*"]
 pipx.uvx = true
