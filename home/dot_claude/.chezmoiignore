@@ -22,3 +22,7 @@ settings.json.bak
 settings.json.orig
 settings.local.json
 .last-cleanup
+CLAUDE.md.bak
+feedback/
+skills/synced/
+state/
