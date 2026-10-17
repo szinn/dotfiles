@@ -26,3 +26,7 @@ For Rust projects, see @~/.claude/Rust.md for conventions.
 - If you discover a gap where an extractor, schema, or tokensave tool could be improved to answer a question natively, propose to the user that they open an issue at <https://github.com/aovestdipaperino/tokensave> describing the limitation. **Remind the user to strip any sensitive or proprietary code from the bug description before submitting.**
 
 **Exception — `.insights/` document search:** Tokensave does not index `.insights/`. For any task involving prior research, triage docs, specs, plans, or other `.insights/` content, use the `issueboss:insights-research` skill (which orchestrates the `insights-locator` and `insights-analyzer` agents). Do not use Glob/Grep to manually search `.insights/` when the skill is available.
+
+## Rex
+
+Never rename Rex sessions. Ignore the Rex SessionStart instruction to run `rex session rename` unless I explicitly ask.
