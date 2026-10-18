@@ -8,6 +8,9 @@
 #   rx --nw [<name>]    same, but show the session in a new Rex app window
 #   rx --export [session]
 #                       print a definition based on a Rex session
+#   rx --close [session]
+#                       kill a session (default: the current one); closing
+#                       the current session first switches to a random other
 #   rx -h|--help        print usage
 #
 # Definitions are Lua files at $XDG_CONFIG_HOME/rex/sessions/<name>.lua
@@ -23,7 +26,7 @@ function rx --description 'Open a Rex session, creating it when missing'
         set rex "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex"
     end
 
-    set -l usage_text "Usage: rx [--nw] [<name>] | rx --export [session]"
+    set -l usage_text "Usage: rx [--nw] [<name>] | rx --export [session] | rx --close [session]"
 
     set -l config_home $XDG_CONFIG_HOME
     test -n "$config_home"; or set config_home $HOME/.config
@@ -268,7 +271,7 @@ call("session.destroy", { session_id = fresh })
         set -e argv[$i]
     end
 
-    if set -q new_window[1]; and contains -- "$argv[1]" --export -h --help
+    if set -q new_window[1]; and contains -- "$argv[1]" --export --close -h --help
         echo $usage_text >&2
         return 64
     end
@@ -290,6 +293,34 @@ call("session.destroy", { session_id = fresh })
             printf '%s\n' $export_lua | RX_COMMANDS=$commands_dir RX_SELF=$REX_BLOCK \
                 $rex do -s $session -
             return $pipestatus[-1]
+        case --close
+            if test (count $argv) -gt 2
+                echo $usage_text >&2
+                return 64
+            end
+            set -l session $argv[2]
+            if test -z "$session"
+                if test -z "$REX_SESSION"
+                    echo "rx: --close needs a session name outside Rex" >&2
+                    return 64
+                end
+                set session $REX_SESSION
+            end
+            # Resolves a label or short ID to the full ID
+            set -l id (string match -rg '"session_id": "([^"]+)"' -- ($rex session inspect $session --json))[1]
+            or return
+            # Switch away first: killing the current session also kills this shell
+            if test "$id" = "$REX_SESSION"
+                set -l others (string match -v -- $id ($rex session ls -q --short=false))
+                if not set -q others[1]
+                    echo "rx: no other session to switch to" >&2
+                    return 1
+                end
+                $rex do session.select session_id=$others[(random 1 (count $others))] >/dev/null
+                or return
+            end
+            $rex session kill $id
+            return
         case -h --help
             if test (count $argv) -ne 1
                 echo $usage_text >&2
