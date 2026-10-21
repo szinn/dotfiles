@@ -24,5 +24,3 @@ if status --is-interactive; and set -q REX_BLOCK
         printf '%s\n' $argv[1] >$__rx_command_file
     end
 end
-
-abbr --add -- rex-kill 'rex session kill (rex session ls | fzf | awk \'{print $2}\')'
