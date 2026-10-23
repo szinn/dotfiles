@@ -1,213 +1,203 @@
-;;; init.el --- Rust-focused terminal Emacs  -*- lexical-binding: t; -*-
-
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
 ;;; Commentary:
-;; Built in:  rust-ts-mode, eglot, flymake, xref, eldoc, project, compile.
-;; Packages:  corfu, vertico, orderless, marginalia (all on GNU ELPA).
-;; Rust tooling loads only when the first .rs file is opened.
-;; Check startup cost with M-x emacs-init-time.
-;;
-;; Per-project settings go in .dir-locals.el at the project root, e.g.:
-;;   ((nil . ((my/mise-default-task . "build")))
-;;    (rust-ts-mode . ((eglot-workspace-configuration
-;;                      . (:rust-analyzer (:cargo (:features "all")
-;;                                         :check (:command "clippy")))))))
+
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
 
 ;;; Code:
 
-;;;; Packages
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;;(setq debug-on-error t)
 
-(defvar my/packages '(corfu vertico orderless marginalia)
-  "Packages this config needs.")
+(let ((minver "28.1"))
+  (when (version< emacs-version minver)
+    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+(when (version< emacs-version "30.1")
+  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
-;; Install anything missing (first run only).  `locate-library' is a cheap
-;; load-path scan, so normal startups never load package.el.
-(let (missing)
-  (dolist (pkg my/packages)
-    (unless (locate-library (symbol-name pkg))
-      (push pkg missing)))
-  (when missing
-    (require 'package)
-    (package-refresh-contents)
-    (dolist (pkg (nreverse missing))
-      (package-install pkg))))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-benchmarking) ;; Measure startup time
 
-;; Keep Customize (and package.el's bookkeeping) out of this file.
+(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+
+;; Adjust garbage collection threshold for early startup (see use of gcmh below)
+(setq gc-cons-threshold (* 128 1024 1024))
+
+
+;; Process performance tuning
+
+(setq read-process-output-max (* 4 1024 1024))
+(setq process-adaptive-read-buffering nil)
+
+
+;; Bootstrap config
+
 (setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file 'noerror 'nomessage)
+(require 'init-utils)
+(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+;; Calls (package-initialize)
+(require 'init-elpa)      ;; Machinery for installing required packages
+(require 'init-exec-path) ;; Set up $PATH
 
-;;;; General
+
+;; General performance tuning
+(when (require-package 'gcmh)
+  (setq gcmh-high-cons-threshold (* 128 1024 1024))
+  (add-hook 'after-init-hook (lambda ()
+                               (gcmh-mode)
+                               (diminish 'gcmh-mode))))
 
-(setq use-short-answers t
-      ring-bell-function #'ignore
-      ;; TAB indents, or completes if the line is already indented.
-      tab-always-indent 'complete
-      ;; Keep backup files and lock files out of project trees (lock files
-      ;; can also trigger file watchers such as bacon or cargo-watch).
-      backup-directory-alist `(("." . ,(locate-user-emacs-file "backups/")))
-      create-lockfiles nil
-      ;; rust-analyzer sends large JSON payloads; read more per chunk.
-      read-process-output-max (* 1024 1024))
+(setq jit-lock-defer-time 0)
 
-(setq-default indent-tabs-mode nil)
-(column-number-mode 1)
+
+;; Allow users to provide an optional "init-preload-local.el"
+(require 'init-preload-local nil t)
 
-;; Optional: a built-in theme instead of the terminal's palette (costs a few ms).
-;; (load-theme 'modus-vivendi t)
+;; Load configs for specific features and modes
+(require-package 'diminish)
+(maybe-require-package 'scratch)
+(require-package 'command-log-mode)
 
-;;;; Terminal: mouse and macOS clipboard
+(require 'init-frame-hooks)
+(require 'init-xterm)
+(require 'init-themes)
+(require 'init-osx-keys)
+(require 'init-gui-frames)
+(require 'init-dired)
+(require 'init-isearch)
+(require 'init-grep)
+(require 'init-uniquify)
+(require 'init-ibuffer)
+(require 'init-flymake)
+(require 'init-eglot)
 
-(unless (display-graphic-p)
-  ;; With this on, hold Option while dragging for a native terminal selection.
-  (xterm-mouse-mode 1))
+(require 'init-recentf)
+(require 'init-minibuffer)
+(require 'init-hippie-expand)
+(require 'init-corfu)
+(require 'init-windows)
+(require 'init-sessions)
+(require 'init-mmm)
 
-(when (and (eq system-type 'darwin) (not (display-graphic-p)))
-  (defun my/pbcopy (text)
-    "Copy TEXT to the macOS clipboard."
-    (let* ((process-connection-type nil)
-           (proc (start-process "pbcopy" nil "pbcopy")))
-      (set-process-coding-system proc 'utf-8 'utf-8)
-      (process-send-string proc text)
-      (process-send-eof proc)))
+(require 'init-editing-utils)
+(require 'init-whitespace)
 
-  (defun my/pbpaste ()
-    "Return the macOS clipboard, unless it is empty or matches the last kill."
-    (let ((text (with-temp-buffer
-                  (let ((coding-system-for-read 'utf-8))
-                    (call-process "pbpaste" nil t nil))
-                  (buffer-string))))
-      (unless (or (string= text "")
-                  (equal text (car kill-ring)))
-        text)))
+(require 'init-vc)
+(require 'init-darcs)
+(require 'init-git)
+(require 'init-github)
+(require 'init-jj)
 
-  (setq interprogram-cut-function #'my/pbcopy
-        interprogram-paste-function #'my/pbpaste))
+(require 'init-projectile)
 
-;;;; Minibuffer completion: vertico + orderless + marginalia
+(require 'init-compile)
+(require 'init-crontab)
+;; (require 'init-textile)
+(require 'init-markdown)
+;; (require 'init-csv)
+;; (require 'init-erlang)
+;; (require 'init-javascript)
+;; (require 'init-php)
+(require 'init-org)
+;; (require 'init-nxml)
+;; (require 'init-html)
+;; (require 'init-css)
+;; (require 'init-haml)
+;; (require 'init-http)
+;; (require 'init-python)
+(require 'init-haskell)
+;; (require 'init-elm)
+;; (require 'init-purescript)
+;; (require 'init-ruby)
+;; (require 'init-rails)
+;; (require 'init-sql)
+(require 'init-ocaml)
+;; (require 'init-j)
+;; (require 'init-nim)
+(require 'init-rust)
+(require 'init-toml)
+(require 'init-yaml)
+(require 'init-docker)
+(require 'init-terraform)
+;; (require 'init-nix)
+(maybe-require-package 'nginx-mode)
+(maybe-require-package 'just-mode)
+(when (maybe-require-package 'just-ts-mode)
+  ;; Undo overly-optimistic autoloading, so that things still work in
+  ;; Emacs 29 without treesitter
+  (sanityinc/remove-auto-mode  'just-ts-mode))
+(maybe-require-package 'justl)
 
-(use-package vertico
-  :hook (after-init . vertico-mode))
+(require 'init-paredit)
+(require 'init-lisp)
+(require 'init-sly)
+;; (require 'init-clojure)
+;; (require 'init-clojure-cider)
 
-(use-package marginalia
-  :hook (after-init . marginalia-mode))
+(when *spell-check-support-enabled*
+  (require 'init-spelling))
 
-(use-package orderless
-  :custom
-  ;; Space-separated fragments in any order: "tok mod" -> crates/tokens/src/mod.rs
-  (completion-styles '(orderless basic))
-  ;; Drop per-category defaults (including eglot's) so orderless applies
-  ;; everywhere, except file names, where partial-completion expands
-  ;; ~/.c/e to ~/.config/emacs.
-  (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion)))))
+(require 'init-misc)
 
-;;;; In-buffer completion: corfu
+(require 'init-folding)
+(require 'init-dash)
 
-(use-package corfu
-  :hook (prog-mode . corfu-mode)
-  :custom
-  (corfu-auto t)                       ; pop up while typing
-  (corfu-auto-delay 0.2)
-  (corfu-auto-prefix 2)
-  (corfu-cycle t)
-  (corfu-popupinfo-delay '(0.5 . 0.2))
-  :config
-  (corfu-popupinfo-mode 1))            ; docs beside the candidate list
+;; (require 'init-ledger)
+(require 'init-go)
+(require 'init-lua)
+;; (require 'init-uiua)
+(require 'init-zig)
+(require 'init-terminals)
 
-;;;; Rust
+;; Extra packages which don't require any configuration
 
-(use-package rust-ts-mode
-  :mode "\\.rs\\'"
-  :init
-  ;; Fallback grammar recipe, pinned, in case this Emacs doesn't provide one.
-  ;; Install manually with: M-x treesit-install-language-grammar RET rust RET
-  (with-eval-after-load 'treesit
-    (unless (assq 'rust treesit-language-source-alist)
-      (add-to-list 'treesit-language-source-alist
-                   '(rust "https://github.com/tree-sitter/tree-sitter-rust" "v0.23.2")))))
+(require-package 'sudo-edit)
+(maybe-require-package 'gnuplot)
+(require-package 'htmlize)
+(when *is-a-mac*
+  (require-package 'osx-location))
+(maybe-require-package 'dotenv-mode)
+(maybe-require-package 'shfmt)
 
-(use-package eglot
-  :hook (rust-ts-mode . eglot-ensure)
-  :bind (:map eglot-mode-map
-         ("C-c a" . eglot-code-actions)
-         ("C-c R" . eglot-rename)
-         ("C-c f" . eglot-format-buffer))
-  :config
-  (setq eglot-autoshutdown t                         ; stop server with last buffer
-        eglot-events-buffer-config '(:size 0 :format full)) ; no JSON-RPC logging
-  ;; Default rust-analyzer settings.  A .dir-locals.el value replaces this
-  ;; whole plist (it is not merged).  Not marked safe on purpose:
-  ;; rust-analyzer settings can run commands, so Emacs asks once per value.
-  (setq-default eglot-workspace-configuration
-                '(:rust-analyzer (:check (:command "clippy")))))
+(when (maybe-require-package 'uptimes)
+  (setq-default uptimes-keep-count 200)
+  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
-;;;; Diagnostics
+(when (fboundp 'global-eldoc-mode)
+  (add-hook 'after-init-hook 'global-eldoc-mode))
 
-(use-package flymake
-  :bind (:map flymake-mode-map
-         ("M-n"   . flymake-goto-next-error)
-         ("M-p"   . flymake-goto-prev-error)
-         ("C-c d" . flymake-show-buffer-diagnostics)
-         ("C-c D" . flymake-show-project-diagnostics)))
+(require 'init-direnv)
 
-;;;; Building and testing: compile + mise
+(when (and (require 'treesit nil t)
+           (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (require 'init-treesitter))
 
-(use-package compile
-  :defer t
-  :config
-  (setq compilation-scroll-output 'first-error
-        compilation-ask-about-save nil)              ; save buffers silently
-  ;; Stop mise prefixing output lines with [task], which breaks error matching.
-  (add-to-list 'compilation-environment "MISE_TASK_OUTPUT=interleave")
-  (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
-  ;; Clickable rustc diagnostics and test panics, unless Emacs ships a matcher.
-  (unless (or (assq 'cargo compilation-error-regexp-alist-alist)
-              (assq 'rust compilation-error-regexp-alist-alist))
-    (add-to-list 'compilation-error-regexp-alist-alist
-                 '(my-rustc
-                   "^\\(?:error\\|\\(warning\\)\\)[^\n]*\n[ \t]*--> \\([^\n:]+\\):\\([0-9]+\\):\\([0-9]+\\)"
-                   2 3 4 (1)))
-    (add-to-list 'compilation-error-regexp-alist-alist
-                 '(my-rust-panic
-                   "panicked at \\([^\n:]+\\):\\([0-9]+\\):\\([0-9]+\\)"
-                   1 2 3))
-    (add-to-list 'compilation-error-regexp-alist 'my-rustc)
-    (add-to-list 'compilation-error-regexp-alist 'my-rust-panic)))
+
 
-(defvar-local my/mise-default-task nil
-  "Default task for `my/mise-run'.  Set per project in .dir-locals.el.")
-(put 'my/mise-default-task 'safe-local-variable #'stringp)
+;; Allow access from emacsclient
+(add-hook 'after-init-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
 
-(defvar my/mise-task-history nil
-  "Minibuffer history for `my/mise-run'.")
+;; Variables configured via the interactive 'customize' interface
+(when (file-exists-p custom-file)
+  (load custom-file))
 
-(defun my/project-root ()
-  "Root of the current project, or `default-directory' outside one."
-  (if-let* ((project (project-current)))
-      (project-root project)
-    default-directory))
+;; Locales (setting them earlier in this file doesn't work in X)
+(require 'init-locales)
 
-(defun my/mise-tasks (dir)
-  "Return the names of the mise tasks available in DIR."
-  (let ((default-directory dir))
-    (condition-case nil
-        (mapcar (lambda (task) (gethash "name" task))
-                (json-parse-string
-                 (shell-command-to-string "mise tasks ls --json 2>/dev/null")))
-      (error nil))))
+;; Allow users to provide an optional "init-local" containing personal settings
+(require 'init-local nil t)
 
-(defun my/mise-run (task)
-  "Run mise TASK from the project root via `compile'.
-Arguments can follow the task name, e.g. \"test -- --nocapture\".
-Press `g' in the compilation buffer to re-run."
-  (interactive
-   (let ((default-directory (my/project-root)))
-     (list (completing-read (format-prompt "mise task" my/mise-default-task)
-                            (my/mise-tasks default-directory)
-                            nil nil nil 'my/mise-task-history
-                            my/mise-default-task))))
-  (let ((default-directory (my/project-root)))
-    (compile (concat "mise run " task))))
+(provide 'init)
 
-(keymap-global-set "C-c m" #'my/mise-run)
-
+;; Local Variables:
+;; coding: utf-8
+;; no-byte-compile: t
+;; End:
 ;;; init.el ends here
