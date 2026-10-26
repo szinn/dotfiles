@@ -10,6 +10,8 @@ if status --is-interactive; and set -q REX_BLOCK
     set __rx_commands_dir $__rx_commands_dir/rx/commands
     set -g __rx_command_file $__rx_commands_dir/$REX_BLOCK
 
+    abbr --add -- rxc 'rx --close'
+
     function __rx_clear_command --on-event fish_postexec --on-event fish_exit
         test -e $__rx_command_file; and rm -f -- $__rx_command_file
         return 0

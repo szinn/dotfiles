@@ -1,0 +1,4 @@
+[".emacs.d"]
+type = "git-repo"
+url = "https://github.com/szinn/emacs.d.git"
+refreshPeriod = "168h"
