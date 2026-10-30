@@ -36,7 +36,8 @@ function rx --description 'Open a Rex session, creating it when missing'
     # Written by the preexec hook in conf.d/rex.fish, one file per block
     set -l commands_dir $state_home/rx/commands
 
-    # Prints the ID of the session labeled RX_NAME, creating it when missing.
+    # Prints "<host> <ID>" for the session labeled RX_NAME, creating it when
+    # missing; <host> is the definition's host label, empty for this machine.
     # Rex allows duplicate labels, so the lookup must come before session.create.
     # Inputs travel as environment variables because `rex do key=value` args
     # guess types: a session named "true" or "1" would not arrive as a string.
@@ -44,27 +45,36 @@ function rx --description 'Open a Rex session, creating it when missing'
 local name, root = os.getenv("RX_NAME"), os.getenv("RX_ROOT")
 local def = os.getenv("RX_DEF")
 
-local function call(method, args)
-	local result, err = rex.call(method, args)
-	if err ~= nil then error(method .. ": " .. err, 0) end
-	return result
-end
-
-for _, s in ipairs(call("session.list").sessions or {}) do
-	if s.label == name then return s.session_id end
-end
-
 local spec = {}
 -- Rex returns nil, not "", for an empty environment variable
 if def ~= nil and def ~= "" then
 	spec = dofile(def)
 	if type(spec) ~= "table" then error(def .. ": must return a table", 0) end
+	-- $PWD means nothing on another host, so a remote session without a
+	-- root starts wherever that host puts new terminals
+	if spec.host ~= nil then root = nil end
 	root = spec.root or root
+end
+
+-- The script runs here, so dofile reads local definitions even when the
+-- session lives on another host
+local server = spec.host ~= nil and rex.server(spec.host) or rex
+local host = spec.host or ""
+
+local function call(method, args)
+	local result, err = server.call(method, args)
+	if err ~= nil then error(method .. ": " .. err, 0) end
+	return result
+end
+
+for _, s in ipairs(call("session.list").sessions or {}) do
+	if s.label == name then return host .. " " .. s.session_id end
 end
 
 -- Blocks without a cwd start in the session root; relative ones resolve
 -- against it, which keeps definitions short and portable.
 local function place(node)
+	if root == nil then return end
 	if node.split then
 		place(node.split.before)
 		place(node.split.after)
@@ -92,7 +102,7 @@ if #windows == 0 then
 	add({ { layout = rex.layout.block({ flavor = "com.superlogical.terminal.shell" }) } })
 end
 
-return call("session.create", { label = name, initial_windows = windows }).session_id
+return host .. " " .. call("session.create", { label = name, initial_windows = windows }).session_id
 '
 
     # Prints a definition based on the target session. Rex reports only a
@@ -213,12 +223,13 @@ io.write(table.concat(out, "\n") .. "\n")
     # Shows session RX_ID in a new app window. client.window.new returns before
     # the window exists, and the window then opens a throwaway session of its
     # own; selecting before that would switch the old window instead. So wait
-    # for the throwaway, select RX_ID in its place, then destroy it.
+    # for the throwaway, select RX_ID in its place, then destroy it. A session
+    # on host RX_HOST is selected through the app's connection to that host.
     set -l new_window_lua '
-local id = os.getenv("RX_ID")
+local id, host = os.getenv("RX_ID"), os.getenv("RX_HOST")
 
-local function call(method, args)
-	local result, err = rex.call(method, args)
+local function call(method, args, server)
+	local result, err = (server or rex).call(method, args)
 	if err ~= nil then error(method .. ": " .. err, 0) end
 	return result
 end
@@ -229,17 +240,21 @@ local function ids()
 	return set
 end
 
-local app
-for _, c in ipairs(call("client.list").clients or {}) do
-	if c.info and c.info.kind == "app" then
-		if app ~= nil then error("several Rex apps are connected", 0) end
-		app = c.client_id
+local function app_on(server)
+	local app
+	for _, c in ipairs(call("client.list", nil, server).clients or {}) do
+		if c.info and c.info.kind == "app" then
+			if app ~= nil then error("several Rex apps are connected", 0) end
+			app = c.client_id
+		end
 	end
+	if app == nil then error("no Rex app is connected", 0) end
+	return app
 end
-if app == nil then error("no Rex app is connected", 0) end
 
-local function perform(action, args)
-	return call("client.perform", { client_id = app, action = action, args = args })
+local function perform(action, args, server)
+	local app = app_on(server)
+	return call("client.perform", { client_id = app, action = action, args = args }, server)
 end
 
 local before = ids()
@@ -255,7 +270,9 @@ for _ = 1, 100 do
 end
 if fresh == nil then error("new window never opened a session", 0) end
 
-perform("session.select", { session_id = id })
+-- Rex returns nil, not "", for an empty environment variable
+local server = host ~= nil and host ~= "" and rex.server(host) or nil
+perform("session.select", { session_id = id }, server)
 -- The app gave the new window a throwaway session; destroying needs attachment
 call("session.attach", { session_id = fresh })
 call("session.destroy", { session_id = fresh })
@@ -359,17 +376,23 @@ call("session.destroy", { session_id = fresh })
             end
     end
 
-    set -l id (printf '%s\n' $open_lua | RX_NAME=$name RX_ROOT=$root RX_DEF=$session_file \
+    set -l opened (printf '%s\n' $open_lua | RX_NAME=$name RX_ROOT=$root RX_DEF=$session_file \
         $rex do -)
     or return
-    # rex do prints the returned string as JSON; session IDs never contain quotes
-    set id (string replace -a '"' '' -- $id)
+    # rex do prints the returned string as JSON; host labels and session IDs
+    # never contain quotes or spaces
+    set opened (string split ' ' -- (string replace -a '"' '' -- $opened))
+    set -l host $opened[1]
+    set -l id $opened[2]
+    # Commands for a session on another host go to that host's server
+    set -l on_host
+    test -n "$host"; and set on_host -S $host
 
     if set -q new_window[1]
-        printf '%s\n' $new_window_lua | RX_ID=$id $rex do - >/dev/null
+        printf '%s\n' $new_window_lua | RX_ID=$id RX_HOST=$host $rex do - >/dev/null
     else if test -n "$REX_SESSION"
-        $rex do session.select session_id=$id >/dev/null
+        $rex $on_host do session.select session_id=$id >/dev/null
     else
-        $rex attach $id
+        $rex $on_host attach $id
     end
 end

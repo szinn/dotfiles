@@ -141,7 +141,8 @@
     "issueboss@issueboss-marketplace": true,
     "llm-wiki@llm-wiki-marketplace": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "issueboss-marketplace": {
@@ -162,6 +163,12 @@
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(jj diff:*) in /Users/scotte/Development/Projects/Cardigan",
+      "Bash(jj log:*) in /Users/scotte/Development/Projects/Cardigan",
+      "Bash(mise:*) read/list subcommands in /Users/scotte/Development/Projects/Cardigan"
+    ],
     "environment": [
       "### Org-wide",
       "**Organization**: None configured",
@@ -187,12 +194,6 @@
       "**Primary use of Claude Code**: software development (personal/hobby project — carddav sync between Apple Contacts and Fastmail)",
       "**Trusted repo**: /Users/scotte/Development/Projects/Cardigan (szinn/Cardigan, public, origin github.com:szinn/Cardigan.git) — this repo's own work only; no secrets or sensitive data regardless of visibility",
       "**Org-specific CLIs**: None configured — jj (jujutsu) is used heavily in this repo per ~/.claude/CLAUDE.md (do not use git commands if .jj/ exists); mise and direnv also seen routinely in this project"
-    ],
-    "allow": [
-      "$defaults",
-      "Bash(jj diff:*) in /Users/scotte/Development/Projects/Cardigan",
-      "Bash(jj log:*) in /Users/scotte/Development/Projects/Cardigan",
-      "Bash(mise:*) read/list subcommands in /Users/scotte/Development/Projects/Cardigan"
     ]
   }
 }
