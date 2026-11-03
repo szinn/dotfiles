@@ -14,6 +14,7 @@ pkoss-nvim/
 swiftpm
 tmux/plugins
 wireshark
+rex/init.lua.resh-backup*
 
 {{ if (eq .chezmoi.os "linux") }}
 .gsd-keyboard.settings-ported

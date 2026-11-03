@@ -1,0 +1,84 @@
+shorten_home_path = true
+
+# All = open sessions + projects + zoxide, deduped by path; hidden unless listed.
+source_order = ["All", "Sessions", "Agents", "Projects", "My Projects", "Public", "Recent", "Find"]
+initial_source = "All"
+
+# No [default_session] startup_command: it would also run in every ad-hoc
+# zoxide/find session.
+
+[[sources]]
+name = "My Projects"
+type = "command"
+cwd = "~/Development/Projects"
+command = ["fd", "-t", "d", "-d", "1", ".", "."]
+format = "paths"
+timeout = 5
+
+[[sources]]
+name = "Public"
+type = "command"
+cwd = "~/Development/PublicRepos"
+command = ["fd", "-t", "d", "-d", "1", ".", "."]
+format = "paths"
+timeout = 5
+
+# --- Single-pane projects ---
+
+[[session]]
+name = "dotfiles"
+path = "~/.local/share/chezmoi"
+
+[[session]]
+name = "homelab"
+path = "~/Development/Projects/k8s-homelab"
+
+[[session]]
+name = "bookboss"
+path = "~/Development/Projects/BookBoss"
+
+[[session]]
+name = "issueboss"
+path = "~/Development/Projects/IssueBoss"
+
+[[session]]
+name = "mailkeep"
+path = "~/Development/Projects/MailKeep"
+
+[[session]]
+name = "cardigan"
+path = "~/Development/Projects/Cardigan"
+
+[[session]]
+name = "main"
+path = "~"
+
+[[session]]
+name = "insights"
+path = "~/Development/Projects/Insights"
+
+[[session]]
+name = "alderkit"
+path = "~/Development/Projects/AlderKit"
+
+[[session]]
+name = "github-provisioning"
+path = "~/Development/Projects/github-provisioning"
+
+[[session]]
+name = "emacs"
+path = "~/.emacs.d"
+
+# --- Reference repos ---
+
+[[session]]
+name = "devin-homelab"
+path = "~/Development/PublicRepos/onedr0p-home-ops"
+
+[[session]]
+name = "bernd-homelab"
+path = "~/Development/PublicRepos/bjw-home-ops"
+
+[[session]]
+name = "bernd-dotfiles"
+path = "~/Development/PublicRepos/bjw-dotfiles"
