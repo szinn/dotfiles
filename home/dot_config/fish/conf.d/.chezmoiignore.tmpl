@@ -1,8 +1,9 @@
 {{ if not .homeMachine }}
-claude.fish.tmpl
+50-claude.fish
 {{ end }}
 {{ if not .workMachine }}
-nvm.fish.tmpl
+20-faire.fish
+50-nvm.fish
 {{ end }}
 {{ if eq .chezmoi.hostname "argos" }}
 11-homebrew.fish
