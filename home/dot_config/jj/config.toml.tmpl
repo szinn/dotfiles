@@ -15,11 +15,11 @@ graph.style = 'square'
 diff-expected-exit-codes = [0, 1]
 
 [git]
-sign-on-push = true
 track-default-bookmark-on-clone = true
 
 [revsets]
 bookmark-advance-to = '@-'
+git-sign-on-push = "~signed() & mine()"
 
 [revset-aliases]
 'wip' = 'description(regex:'#trunk')'
