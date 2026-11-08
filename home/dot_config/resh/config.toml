@@ -23,6 +23,18 @@ command = ["fd", "-t", "d", "-d", "1", ".", "."]
 format = "paths"
 timeout = 5
 
+[[sources]]
+name = "Find"            # replaces the built-in; ⌘F still targets it
+type = "command"
+cwd = "~"                # ~ is expanded here; relative paths below resolve against it
+command = ["fd", "-H", "-t", "d", "-d", "2", "-E", ".Trash", ".", "Development"]
+timeout = 12
+
+[[sources]]
+name = "All"
+type = "union"
+sources = ["Sessions", "Projects", "My Projects", "Public"]
+
 # --- Single-pane projects ---
 
 [[session]]
