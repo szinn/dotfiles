@@ -29,6 +29,7 @@
 .claude.json
 .claude.json.bak
 .claude.json.backup*
+.copilot/
 .cups
 .docker
 .dx
