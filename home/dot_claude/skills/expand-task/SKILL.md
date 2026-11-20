@@ -1,6 +1,6 @@
 ---
 name: expand-task
-description: Expand a brief task description into a structured, context-rich prompt that maximizes first-attempt success. Research-only — does not make code changes.
+description: Expand a brief task description into a structured, context-rich prompt that maximizes first-attempt success. Makes no code changes until the user approves the prompt.
 disable-model-invocation: true
 metadata:
   product_area: code_authoring
@@ -26,10 +26,10 @@ Use this skill when:
 
 **Examples:**
 
-- `"add a new field to InferencePipelineRequest"`
-- `"migrate the ShipmentTrackingApi.getStatus endpoint to the shipping service"`
-- `"add retry logic to the brand sync job"`
-- `"create a new setting for controlling recommendation batch size"`
+- `"add a field to a request struct"`
+- `"move an endpoint to another service"`
+- `"add retry logic to a sync job"`
+- `"add a config setting for batch size"`
 
 ## Mandatory Process
 
@@ -50,7 +50,7 @@ Adapt the research to the task type:
 
 - Locate the target class/file and read it
 - Find existing tests (unit, integration, component) for the target
-- Identify the projcte build system (e.g. Cargo.toml) and the root project
+- Identify the project build system (e.g. Cargo.toml) and the root project
 - Look for similar patterns in the codebase (how was this done before?)
 - Check for proto definitions if the target involves request/response types
 
@@ -59,7 +59,7 @@ Adapt the research to the task type:
 - Find the appropriate project/module to place the new code
 - Identify naming conventions from neighboring files
 - Find similar existing implementations to use as a template
-- Check build system files (e.g., `Cargo.toml``) for available dependencies
+- Check build system files (e.g., `Cargo.toml`) for available dependencies
 - Look for existing protos that may need extending
 
 **For migrations/refactors:**
@@ -86,8 +86,8 @@ so the user can copy it:
 [2-5 bullet points of critical context discovered during research]
 
 - **Target**: [file path + class/function name]
-- **Project**: [Gradle project path or module]
-- **Related files**: [list key files: tests, protos, Guice modules, etc.]
+- **Project**: [crate / workspace member or module]
+- **Related files**: [list key files: tests, related modules, config, schemas]
 - **Existing pattern**: [reference to similar code that should be followed]
 
 ## Task
@@ -115,9 +115,9 @@ Include the "why" if it can be inferred.]
 
 [How to verify the task is complete]
 
-- [ ] [Tests compile and unit tests run — do NOT run non unit tests, let CI handle that. Verify how the project definitions
-- [ ] [Lint passes
-- [ ] [No dead code left behind]
+- [ ] Code compiles and unit tests pass (run only unit tests; leave other suites to CI)
+- [ ] Lint passes
+- [ ] No dead code left behind
 ```
 
 ### Phase 4: Present for Review
@@ -135,13 +135,12 @@ After outputting the structured prompt:
   prompt based only on the brief description without reading the codebase.
 - **Don't make code changes**: This skill is research-only in Phase 1-3. Changes happen only
   after the user approves in Phase 4.
-- **Don't be verbose**: The structured prompt should be concise and actionable.
-  Aim for something that fits on one screen and is easily readable.
+- **Size**: Keep the structured prompt concise and actionable, about one screen.
 - **Don't guess file paths**: Every path in the output should come from actual tool results.
-- **Don't over-research**: Spend up to 1 minute on research. Focus on the files
-  that directly matter.
-- **Don't include style guide rules**: Only include architectural constraints that actually apply
-  to this specific task.
+- **Keep research proportionate**: read the files that directly bear on the task, not
+  the whole module.
+- **Only constraints that apply**: Include style-guide rules and architectural constraints only
+  where they bear on this specific task.
 
 ## Success Criteria
 

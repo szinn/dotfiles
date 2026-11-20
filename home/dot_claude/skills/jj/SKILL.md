@@ -34,7 +34,9 @@ Each line of work is an independent anonymous branch. Switch between them with `
 
 ### 2. Workspace Isolation
 
-**REQUIRED:** Use the `jj-workspace` skill for all workspace operations. This is a dedicated top-level skill that handles directory selection, .gitignore safety, workspace creation, and project setup. Do NOT use git worktree skills or any other isolation approach in a `.jj` project. Invoke it using the Skill tool with `skill: jj-workspace` before taking any workspace action.
+Use the `jj-workspace` skill for workspace operations: it handles directory selection, .gitignore
+safety, workspace creation, and project setup. In a `.jj` project, invoke it (Skill tool,
+`skill: jj-workspace`) before any workspace action, instead of git worktree skills.
 
 ### 3. Stacked Change Isolation
 
@@ -106,9 +108,8 @@ jj new <change-A> <change-B>   # merge commit with both as parents
 | Command                                     | Purpose                                |
 | ------------------------------------------- | -------------------------------------- |
 | `jj git fetch`                              | Pull remote changes                    |
-| `jj git push --bookmark <name> --allow-new` | First push of a bookmark               |
-| `jj git push --bookmark <name>`             | Update existing remote bookmark        |
-| `jj git push --change @ --allow-new`        | Push with auto-generated bookmark name |
+| `jj git push --bookmark <name>`             | Push a bookmark (new ones are tracked automatically) |
+| `jj git push --change @`                    | Push with auto-generated bookmark name |
 | `jj rebase -d main@origin`                  | Rebase onto latest remote main         |
 
 ### Conflict Resolution
@@ -173,8 +174,8 @@ jj commit -m "feat: part 2"
 
 jj bookmark set part-1 -r @--
 jj bookmark set part-2 -r @-
-jj git push --bookmark part-1 --allow-new
-jj git push --bookmark part-2 --allow-new
+jj git push --bookmark part-1
+jj git push --bookmark part-2
 
 # After review feedback:
 jj edit <change-id-of-part-1>
@@ -237,7 +238,6 @@ jj git push --bookmark part-2       # push rebased part-2
 ### Collaboration
 
 - **Only create bookmarks when pushing** — `jj bookmark set feat -r @` right before `jj git push`
-- **Use `--allow-new`** only on first push; omit it on updates to catch accidental new bookmarks
 - **After force-push, communicate** — jj makes history rewriting safe locally, but collaborators need to know
 - **Track remote bookmarks explicitly**: `jj bookmark track <name>@origin`
 
@@ -256,18 +256,24 @@ Before pushing any work, verify:
 - [ ] No unintended conflicts (`jj status` clean, or conflicts are intentionally deferred)
 - [ ] Stack is rebased onto latest trunk (`jj git fetch && jj rebase -d main@origin`)
 - [ ] Bookmarks point to correct changes (`jj bookmark list`)
-- [ ] Tests pass on each change in the stack (navigate with `jj edit`, run tests, `jj new` to return)
+- [ ] Tests pass on each change in the stack (`jj edit <change>` to each, run tests, then `jj edit` back to where you started)
 - [ ] No abandoned changes left cluttering the log (`jj abandon` unused experiments)
 - [ ] Remote is synced (`jj git push --bookmark <name>` for each bookmark)
 
-## Parallel Workspaces and Lock Contention
+## Parallel Workspaces and Concurrency
 
-jj workspaces share a single repo lock. When multiple agents or processes run jj operations
-concurrently (e.g. parallel sub-agents each finishing work in their own workspace), they
-compete for the lock and one will fail if it can't acquire it.
+jj repo operations are lock-free: when agents in different workspaces run jj commands at the
+same time, each one succeeds and jj merges the concurrent operations ("Concurrent modification
+detected, resolving automatically"). Plain `jj desc` / `jj new` / `jj commit` / `jj rebase` need
+no retry. What can go wrong when agents work in parallel:
 
-**When running jj operations that may contend with other concurrent agents, wrap every jj
-command in a retry loop with exponential backoff:**
+- **Divergent change** — two processes rewrote the same change at once (`jj log` shows
+  `(divergent)`). Retrying makes it worse. Give each agent its own change/workspace, and resolve
+  with `jj abandon` on the unwanted copy.
+- **Stale working copy** — another workspace rewrote this workspace's working-copy commit. Run
+  `jj workspace update-stale`; don't retry the original command.
+- **Git ref lock errors** — `jj git push` / `jj git fetch` (and git export) touch Git's own lock
+  files and can collide. Retry these with backoff:
 
 ```bash
 jj_with_retry() {
@@ -282,19 +288,10 @@ jj_with_retry() {
     done
 }
 
-# Usage — replace bare `jj` calls with the wrapper:
-jj_with_retry desc -m "feat(scope): description"
-jj_with_retry new
+# Usage — only for commands that touch the Git backend:
+jj_with_retry git push --bookmark <name>
+jj_with_retry git fetch
 ```
-
-**When to use this:** Any time you are operating as a sub-agent in a jj workspace and there
-may be other sub-agents working in parallel workspaces on the same repo. This includes:
-- `jj describe` / `jj desc`
-- `jj new` / `jj commit`
-- `jj rebase`
-- `jj bookmark set` / `jj git push`
-
-File edits (Read/Write/Edit tools) do not touch the jj lock and need no retry wrapper.
 
 ## Troubleshooting
 
@@ -384,13 +381,7 @@ Fix:
 - Prefer change IDs over commit IDs in instructions.
 - Default to anonymous branches unless the user needs to push to a forge.
 - When the user needs isolation, evaluate which pattern fits: anonymous branch (lightest), stacked changes (dependent work), or physical workspace isolation (strongest).
-- For physical workspace isolation in a `.jj` project, you MUST invoke the `jj-workspace` skill — never use git worktree skills or manual `jj workspace add` without it.
+- For physical workspace isolation in a `.jj` project, invoke the `jj-workspace` skill rather than git worktree skills or a bare `jj workspace add`.
 - Always mention `jj undo` / `jj op restore` as the safety net when suggesting destructive-looking operations.
 - For GitHub workflows, show the bookmark + push pattern.
 - When resolving conflicts, remind the user they can defer resolution.
-
----
-
-**Skill Version**: 1.0.0
-**Last Updated**: March 2026
-**Status**: Production-Ready

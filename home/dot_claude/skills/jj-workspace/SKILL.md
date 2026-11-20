@@ -32,9 +32,7 @@ Check for workspace directory preferences in this order:
    - Option A: Create project-local directory (`.workspaces/` or `workspaces/`)
    - Option B: Use global location (e.g., `~/workspaces/`)
 
-**Never assume** - always follow this priority system.
-
-### 2. Safety Verification (CRITICAL for project-local directories)
+### 2. Safety Verification (project-local directories)
 
 If using a project-local directory (`.workspaces/`, `workspaces/`, etc.):
 
@@ -42,10 +40,8 @@ If using a project-local directory (`.workspaces/`, `workspaces/`, etc.):
 2. **If NOT in .gitignore**:
    - If the working copy has uncommitted changes (`jj status` shows modifications), run `jj new` first to move to a clean changeset
    - Add the ignore entry: `echo "workspaces/" >> .gitignore` (or `.workspaces/` as appropriate)
-   - Commit the change: `jj describe -m "gitignore: Add workspaces directory"`
+   - Commit the change: `jj describe -m "chore: ignore workspaces directory"`
    - This prevents accidentally tracking workspace contents
-
-**Never skip this verification** - it's a critical safety check.
 
 ### 3. Workspace Creation
 
@@ -62,7 +58,7 @@ jj workspace add "$WORKSPACE_PATH"
 # - Create a new working-copy commit
 ```
 
-### 4. Project Setup (Auto-detect and run)
+### 4. Project Setup
 
 Check with the project's CLAUDE.md for project-specific instructions on getting a new workspace ready. If these instructions are missing, notify the user and ask.
 
@@ -127,7 +123,7 @@ jj workspace update-stale
 2. **Always follow the directory priority system** - don't assume location
 3. **Require explicit permission** before proceeding if baseline tests fail
 4. **Report clearly** when workspace is ready with all relevant paths and commands
-5. **Auto-detect and run setup** - don't make the user do it manually
+5. **Run the setup commands from the project's CLAUDE.md yourself** - ask only when it doesn't give them
 
 ## JJ-Specific Considerations
 

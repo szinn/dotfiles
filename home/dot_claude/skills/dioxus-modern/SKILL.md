@@ -24,13 +24,6 @@ Dioxus 0.7 is a massive leap forward in Rust UI development, focusing on **Copy 
 - Dioxus 0.7 has automatic Tailwind integration. Use `asset!("/assets/tailwind.css")` via `document::Stylesheet` and run `dx serve`.
 - Use `use_resource` for async state. Use `use_server_future` for hydration-safe data. Avoid waterfalls by starting all requests first.
 
-## Workflow
-1. Identify state container (Signal vs Store)
-2. Define props using ReadSignal
-3. Implement UI with rsx! macro
-4. Style with Tailwind class strings
-5. Add async data with use_resource
-
 ## CLI Cheat Sheet
 
 ```bash
