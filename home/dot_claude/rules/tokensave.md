@@ -15,13 +15,9 @@ A denied grep, glob, or find means the search looked like a code-symbol lookup a
 
 ## Prefer tokensave MCP tools
 
-Before reading source files or scanning a codebase, use the tokensave MCP tools: `tokensave_context` for exploration, `tokensave_search` for a known symbol, plus `tokensave_callers`, `tokensave_callees`, `tokensave_impact`, `tokensave_node`, `tokensave_files`, and `tokensave_affected`. A tool that is not in your tool list is listed by calling `tokensave_more` with its area: `navigate` for `tokensave_node`, `git` for `tokensave_affected` and the branch tools.
+A tool that is not in your tool list is listed by calling `tokensave_more` with its area: `navigate` for `tokensave_node`, `git` for `tokensave_affected` and the branch tools.
 
 To read a file's contents, use `tokensave_read`: it reads any path, indexed or not, and slices with `mode: "lines"` or maps a file's symbols with `mode: "map"` instead of pulling in the whole body. Use the harness's own file-read tool for a file you are about to edit.
-
-### Searching code
-
-Search code with `tokensave_search`. By default it returns where a name is defined, ranked, with its kind and signature. With `literal: true` it finds exact text. For who calls or implements a name, search the text that construct takes in the file's language, in every form the language allows. Grep when you need a regex, or for the files a literal search reports as `unscanned`.
 
 ### Check freshness before relying on the graph
 

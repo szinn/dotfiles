@@ -43,37 +43,9 @@ Parse `$ARGUMENTS` to identify:
 
 ### Phase 2: Research the Codebase
 
-Perform targeted research to gather context. Do NOT edit files.
-Adapt the research to the task type:
-
-**For modifications to existing code:**
-
-- Locate the target class/file and read it
-- Find existing tests (unit, integration, component) for the target
-- Identify the project build system (e.g. Cargo.toml) and the root project
-- Look for similar patterns in the codebase (how was this done before?)
-- Check for proto definitions if the target involves request/response types
-
-**For new code creation:**
-
-- Find the appropriate project/module to place the new code
-- Identify naming conventions from neighboring files
-- Find similar existing implementations to use as a template
-- Check build system files (e.g., `Cargo.toml`) for available dependencies
-- Look for existing protos that may need extending
-
-**For migrations/refactors:**
-
-- Map the full dependency chain (what depends on this? what does this depend on?)
-- Identify all call sites
-- Find related configuration (settings, feature flags)
-- Check for database entities involved
-
-**Always check:**
-
-- Relevant style guide sections in `styleguide/` (if in a repo with one)
-- Project-specific CLAUDE.md or AGENTS.md instructions
-- Existing patterns for the same type of change
+Research the codebase without editing files. Gather what the structured prompt below needs: the
+real target files, their tests, an existing pattern to follow, every call site a change would
+touch, and any project instructions (CLAUDE.md / AGENTS.md) that bear on it.
 
 ### Phase 3: Produce the Structured Prompt
 
