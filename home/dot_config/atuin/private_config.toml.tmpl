@@ -4,9 +4,7 @@ filter_mode = "workspace"
 {{- if ne .chezmoi.hostname "argos" }}
 search_mode = "daemon-fuzzy"
 {{- end }}
-{{- if .homeMachine }}
 sync_address = "https://atuin.zinn.ca"
-{{- end }}
 update_check = false
 workspaces = true
 history_filter = [

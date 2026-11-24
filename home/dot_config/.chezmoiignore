@@ -38,13 +38,6 @@ user-dirs.dirs
 user-dirs.locale
 {{ end }}
 
-{{- if .workMachine }}
-aichat/
-github-copilot/
-{{ end }}
-
-{{- if not .workMachine }}
 graphite
 nvm
 github-copilot
-{{ end }}

@@ -173,35 +173,6 @@ mas "Xcode", id: 497799835
 mas "WhatsApp", id: 310633997
 {{ end }}
 
-{{- if .workMachine }}
-brew "bacon"
-brew "bacon-ls"
-brew "docker"
-brew "docker-compose"
-brew "docker-credential-helper"
-brew "docker-credential-helper-ecr"
-brew "gitleaks"
-tap "withgraphite/tap"
-brew "withgraphite/tap/graphite"
-brew "mysql-client"
-brew "pipx"
-brew "pyenv"
-brew "sccache"
-
-cask "ghostty"
-cask "alfred"
-cask "betterdisplay"
-cask "cursor"
-cask "jetbrains-toolbox"
-cask "rancher"
-cask "rectangle-pro"
-cask "temurin@21"
-cask "trunk-io"
-
-mas "Drafts", id: 1435957248
-{{- end }}
-
-# {{ if .homeMachine }}
 # {{ if (eq .chezmoi.os "darwin") }}
 # vscode "aaron-bond.better-comments"
 # vscode "alefragnani.bookmarks"
@@ -252,5 +223,4 @@ mas "Drafts", id: 1435957248
 # vscode "visualjj.visualjj"
 # vscode "yzhang.markdown-all-in-one"
 # vscode "ziglang.vscode-zig"
-# {{ end }}
 # {{ end }}

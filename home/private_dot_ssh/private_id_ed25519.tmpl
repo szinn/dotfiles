@@ -1,6 +1,1 @@
-{{- if .homeMachine }}
 {{- onepasswordRead "op://Private/SSH Key/encrypted private key" -}}
-{{- end }}
-{{- if .workMachine }}
-{{- onepasswordRead "op://Faire/Faire/ssh-private" -}}
-{{- end }}

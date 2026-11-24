@@ -4,7 +4,6 @@
 # mcp.json hash: {{ include "dot_claude/mcp.json" | sha256sum }}
 # ---------------------------------------------------------------------------------------------------------------------
 
-{{- if .homeMachine }}
 if test -n "$(command -v claude)"; then
   if ! test -f "{{ .chezmoi.homeDir }}/.claude.json"; then
     echo "{}" >"{{ .chezmoi.homeDir }}/.claude.json"
@@ -15,4 +14,3 @@ if test -n "$(command -v claude)"; then
   mv "{{ .chezmoi.homeDir }}/.claude.json" "{{ .chezmoi.homeDir }}/.claude.json.bak"
   mv /tmp/.claude.json "{{ .chezmoi.homeDir }}/.claude.json"
 fi
-{{ end }}

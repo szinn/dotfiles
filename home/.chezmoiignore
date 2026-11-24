@@ -111,27 +111,3 @@ Templates
 Videos
 Virtual Machines.localized
 navigraph
-{{ if .workMachine }}
-.chezmoiscripts/run_onchange_after_02-claude-config.sh.tmpl
-.ecr
-.hawtjni
-.cshrc
-.cursor
-.frontendLocalDevSecrets
-.npmrc
-.storybook
-.yarnrc.yml
-faire-cli-config.json
-java_error_in_jetbrains_client.hprof
-tmux*.log
-.tcshrc
-faire/
-.aws
-.claude*
-.crafting
-.kuberlr
-.local/bin/poetry
-.local/pipx
-.pyenv
-java_error_in_idea.hprof
-{{ end }}
