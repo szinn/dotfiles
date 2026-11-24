@@ -1,4 +1,7 @@
 function update --description="Update everything"
+    argparse e/emacs -- $argv
+    or return
+
     brewup
 
     if type -q kubectl-krew
@@ -18,5 +21,9 @@ function update --description="Update everything"
         nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
         # nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c MasonUpdateAll >/dev/null 2>&1
         chezmoi add {{ .paths.config }}/nvim
+    end
+
+    if set -q _flag_emacs
+        update-emacs
     end
 end
