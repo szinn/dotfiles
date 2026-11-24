@@ -140,7 +140,7 @@ jj new <change-A> <change-B>   # merge commit with both as parents
 | `jj diff`                          | Changes in current commit             |
 | `jj evolog`                        | Evolution history of a change         |
 | `jj interdiff --from <a> --to <b>` | Diff between two versions of a change |
-| `jj bisect run '<cmd>'`            | Binary search for bug introduction    |
+| `jj bisect run --range <good>..<bad> -- <cmd>` | Binary search for bug introduction |
 | `jj file list`                     | Tracked files                         |
 | `jj file show <path> -r <rev>`     | File contents at revision             |
 
@@ -161,7 +161,7 @@ jj new <change-A> <change-B>   # merge commit with both as parents
 
 ## Immutable Commits
 
-`trunk()`, `tags()`, and `untracked_remote_bookmarks()` are immutable by default — jj prevents accidental rewrites of shared history.
+`trunk()`, `tags()`, `untracked_remote_bookmarks()`, and `untracked_remote_tags()` are immutable by default — jj prevents accidental rewrites of shared history.
 
 ## Stacked PR Workflow (GitHub)
 
@@ -216,7 +216,7 @@ jj git push --bookmark part-2       # push rebased part-2
 
 ### Workflow Discipline
 
-- **Start every task from trunk**: `jj new main` ensures clean isolation
+- **Start independent work from trunk** with `jj new main`; stack dependent work on the change it builds on
 - **Describe early, describe often**: `jj describe -m "..."` costs nothing and aids `jj log` readability
 - **Commit small, commit often**: jj's auto-amend means your working copy is always saved — use `jj new` to checkpoint
 - **Fetch before rebase**: `jj git fetch && jj rebase -d main@origin` prevents stale-trunk surprises
@@ -253,7 +253,7 @@ jj git push --bookmark part-2       # push rebased part-2
 Before pushing any work, verify:
 
 - [ ] All changes have descriptions (`jj log` shows no empty descriptions on bookmarked changes)
-- [ ] No unintended conflicts (`jj status` clean, or conflicts are intentionally deferred)
+- [ ] No conflicts in the changes being pushed (`jj git push` rejects them without `--allow-conflicts`)
 - [ ] Stack is rebased onto latest trunk (`jj git fetch && jj rebase -d main@origin`)
 - [ ] Bookmarks point to correct changes (`jj bookmark list`)
 - [ ] Tests pass on each change in the stack (`jj edit <change>` to each, run tests, then `jj edit` back to where you started)
@@ -299,7 +299,7 @@ jj_with_retry git fetch
 
 ```
 Problem: jj refuses to edit a change
-Cause: Change is in trunk(), tags(), or untracked_remote_bookmarks()
+Cause: Change is in trunk(), tags(), untracked_remote_bookmarks(), or untracked_remote_tags()
 
 Fix: Create a new change on top instead:
   jj new <immutable-change>
@@ -347,8 +347,9 @@ Fix:
   jj op log               # find the operation before the loss
   jj op restore <op-id>   # restore entire repo state
 
-Or find hidden changes:
-  jj log -r 'all()'       # show everything including abandoned
+Or find hidden changes (`all()` covers only visible commits):
+  jj op show <op-id>      # lists the change and commit IDs the operation touched
+  jj new <commit-id>      # hidden commits are addressable by commit ID
 ```
 
 ### Push rejected
@@ -362,7 +363,8 @@ Fix:
   jj rebase -d main@origin
   jj git push --bookmark <name>
 
-Safety: jj never force-pushes by default
+Safety: a push may rewrite the remote bookmark, but only if it still matches the last fetch
+(like `git push --force-with-lease`)
 ```
 
 ### Workspace out of sync
@@ -382,6 +384,3 @@ Fix:
 - Default to anonymous branches unless the user needs to push to a forge.
 - When the user needs isolation, evaluate which pattern fits: anonymous branch (lightest), stacked changes (dependent work), or physical workspace isolation (strongest).
 - For physical workspace isolation in a `.jj` project, invoke the `jj-workspace` skill rather than git worktree skills or a bare `jj workspace add`.
-- Always mention `jj undo` / `jj op restore` as the safety net when suggesting destructive-looking operations.
-- For GitHub workflows, show the bookmark + push pattern.
-- When resolving conflicts, remind the user they can defer resolution.

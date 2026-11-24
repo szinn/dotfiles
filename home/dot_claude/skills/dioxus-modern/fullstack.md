@@ -47,7 +47,7 @@ ServeConfig::builder().enable_out_of_order_streaming()
 ### use_server_cached
 Store a value on the server during SSR and retrieve it on the client without re-executing logic.
 ```rust
-let data = use_server_cached("my-key", || compute());
+let data = use_server_cached(|| compute());
 ```
 
 ## 4. Middleware & Security

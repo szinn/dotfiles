@@ -6,14 +6,14 @@
 let mut count = use_signal(|| 0);
 rsx! { h1 { "Count: {count}" } }
 ```
-Signals are Copy + Send + Sync, no lifetime issues.
+Signals are `Copy`, no lifetime issues. `Send + Sync` needs `use_signal_sync`.
 
-## Bad: use_state (Legacy)
+## Bad: use_state (removed)
 
 ```rust
-let mut count = use_state(|| 0);  // ❌ Don't use in 0.7
+let mut count = use_state(|| 0);  // ❌ Does not exist in 0.7
 ```
-`use_state` is legacy API in Dioxus 0.7.
+`use_state` does not exist in Dioxus 0.7.
 
 ---
 
@@ -47,7 +47,7 @@ Breaks one-way data flow. Use callbacks instead.
 ## Good: Async with use_resource
 
 ```rust
-fn use_user_data(user_id: Signal<u32>) -> Resource<User> {
+fn use_user_data(user_id: Signal<u32>) -> Resource<Result<User, reqwest::Error>> {
     use_resource(move || async move {
         let response = reqwest::get(format!(
             "https://api.example.com/users/{}",

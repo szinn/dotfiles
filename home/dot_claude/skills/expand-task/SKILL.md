@@ -11,15 +11,6 @@ metadata:
 Takes a brief task description and produces a structured prompt enriched with codebase context,
 conventions, and acceptance criteria — designed to maximize the chance of one-shotting the task.
 
-## When This Skill Activates
-
-Use this skill when:
-
-1. You have a task to perform but want to front-load research before executing
-2. The task touches unfamiliar code or multiple files
-3. You want a reviewable plan before the Agent starts making changes
-4. The task is complex enough that missing context could cause a failed attempt
-
 ## Input
 
 `$ARGUMENTS` — A brief, natural-language task description.
@@ -33,21 +24,13 @@ Use this skill when:
 
 ## Mandatory Process
 
-### Phase 1: Understand the Task
-
-Parse `$ARGUMENTS` to identify:
-
-- **Action type**: create, modify, migrate, remove, refactor, fix, etc.
-- **Target**: the specific class, file, endpoint, or module involved
-- **Domain**: which part of the system this touches
-
-### Phase 2: Research the Codebase
+### Phase 1: Research the Codebase
 
 Research the codebase without editing files. Gather what the structured prompt below needs: the
 real target files, their tests, an existing pattern to follow, every call site a change would
 touch, and any project instructions (CLAUDE.md / AGENTS.md) that bear on it.
 
-### Phase 3: Produce the Structured Prompt
+### Phase 2: Produce the Structured Prompt
 
 Output a structured prompt in the following format, enclosed in a markdown code block
 so the user can copy it:
@@ -69,11 +52,11 @@ Include the "why" if it can be inferred.]
 
 ## Requirements
 
-[Numbered list of specific, unambiguous steps]
+[Bullet list of the outcomes the change must produce; number them only where order matters]
 
-1. [Step 1 — be specific about file paths, class names, method signatures]
-2. [Step 2]
-3. ...
+- [Outcome — name the files, types, or signatures it must touch or preserve]
+- [Outcome]
+- ...
 
 ## Constraints
 
@@ -92,7 +75,7 @@ Include the "why" if it can be inferred.]
 - [ ] No dead code left behind
 ```
 
-### Phase 4: Present for Review
+### Phase 3: Present for Review
 
 After outputting the structured prompt:
 
@@ -105,8 +88,8 @@ After outputting the structured prompt:
 
 - **Don't skip research**: The whole point is front-loading context. Never produce a structured
   prompt based only on the brief description without reading the codebase.
-- **Don't make code changes**: This skill is research-only in Phase 1-3. Changes happen only
-  after the user approves in Phase 4.
+- **Don't make code changes**: This skill is research-only in Phases 1-2. Changes happen only
+  after the user approves in Phase 3.
 - **Size**: Keep the structured prompt concise and actionable, about one screen.
 - **Don't guess file paths**: Every path in the output should come from actual tool results.
 - **Keep research proportionate**: read the files that directly bear on the task, not

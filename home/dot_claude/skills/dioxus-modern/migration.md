@@ -43,7 +43,6 @@ async fn my_function(arg: MyStruct) -> ServerFnResult<MyResponse> { ... }
 ### 5. Removed from Prelude
 ```rust
 // These are no longer in dioxus::prelude:
-use_drop
 Runtime
 queue_effect
 provide_root_context

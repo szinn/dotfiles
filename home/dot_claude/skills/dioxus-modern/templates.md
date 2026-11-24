@@ -32,7 +32,7 @@ enum Msg { Chat(String), Join(String) }
 
 #[component]
 fn Chat() -> Element {
-    let mut socket = use_websocket(|| connect_chat(WebsocketOptions::new()));
+    let mut socket = use_websocket(|| connect_chat(WebSocketOptions::new()));
 
     rsx! {
         div { "Status: {socket.status():?}" }
@@ -44,7 +44,7 @@ fn Chat() -> Element {
 }
 
 #[server]
-async fn connect_chat(o: WebsocketOptions) -> Result<Websocket<Msg, Msg>, ServerFnError> {
+async fn connect_chat(o: WebSocketOptions) -> Result<Websocket<Msg, Msg>, ServerFnError> {
     Ok(o.on_upgrade(|mut ws| async move {
         while let Ok(msg) = ws.recv().await {
             ws.send(msg).await.ok();

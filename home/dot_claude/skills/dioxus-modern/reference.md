@@ -4,24 +4,22 @@
 
 | Hook | Signature | Purpose |
 |------|-----------|---------|
-| `use_signal` | `fn use_signal<T: 'static>(initializer: impl FnOnce() -> T) -> Signal<T>` | Atomic reactive value. Copy + Send + Sync. |
+| `use_signal` | `fn use_signal<T: 'static>(initializer: impl FnOnce() -> T) -> Signal<T>` | Atomic reactive value. Copy; not Send/Sync (UnsyncStorage). |
 | `use_signal_sync` | `fn use_signal_sync<T: 'static + Send + Sync>(...) -> Signal<T>` | Signal with SyncStorage for cross-thread sharing. |
-| `use_store` | `fn use_store<T: 'static + Default>(initializer: impl FnOnce() -> T) -> Store<T>` | Nested/collection reactive state. |
-| `use_memo` | `fn use_memo<T: PartialEq + 'static>(initializer: impl FnOnce() -> T) -> Memo<T>` | Derived state; re-evaluates only when deps change. |
-| `use_resource` | `fn use_resource<T, E>(initializer: ...) -> Resource<T>` | Reactive async state; restarts when signals change. |
+| `use_store` | `fn use_store<T: 'static>(initializer: impl FnOnce() -> T) -> Store<T>` | Nested/collection reactive state. |
+| `use_memo` | `fn use_memo<R: PartialEq + 'static>(f: impl FnMut() -> R + 'static) -> Memo<R>` | Derived state; re-evaluates only when deps change. |
+| `use_resource` | `fn use_resource<T, F>(future: impl FnMut() -> F + 'static) -> Resource<T>` | Reactive async state; restarts when signals change. |
 | `use_loader` | `fn use_loader<T, E>(initializer: ...) -> Result<Loader<T>, Loading>` | Hybrid SSR/client loader with suspense. |
-| `use_effect` | `fn use_effect(initializer: impl FnOnce() + 'static)` | Side effects after render; tracks signals inside. |
+| `use_effect` | `fn use_effect(callback: impl FnMut() + 'static) -> Effect` | Side effects after render; tracks signals inside. |
 | `use_context` | `fn use_context<T: 'static + Clone>() -> T` | Consume context from tree. |
 | `use_context_provider` | `fn use_context_provider<T: 'static + Clone>(initializer: impl FnOnce() -> T) -> T` | Provide context to subtree. |
-| `use_drop` / `use_on_destroy` | `fn use_drop(initializer: impl FnOnce() + 'static)` | Cleanup on unmount. |
-| `use_callback` | `fn use_callback<T, Args>(callback: impl Fn(Args) -> T + 'static) -> Callback<Args, T>` | Memoized callback with stable identity. |
-| `use_future` | `fn use_future<T, E>(initializer: ...) -> Future<T>` | Static async; runs once on mount, NOT reactive. |
-| `use_error_boundary` | `fn use_error_boundary() -> ErrorBoundary` | Catch child component errors. |
-| `use_suspense_boundary` | `fn use_suspense_boundary() -> SuspenseBoundary` | Catch suspended children, show fallback. |
-| `use_id` | `fn use_id() -> String` | Stable unique ID for accessibility. |
-| `use_arc_signal` | `fn use_arc_signal<T: 'static>(initializer: impl FnOnce() -> T) -> ArcSignal<T>` | Arc-backed signal for expensive-to-clone types. |
+| `use_drop` | `fn use_drop(initializer: impl FnOnce() + 'static)` | Cleanup on unmount. |
+| `use_callback` | `fn use_callback<T: 'static, O: 'static>(f: impl FnMut(T) -> O + 'static) -> Callback<T, O>` | Memoized callback with stable identity. |
+| `use_future` | `fn use_future<F>(future: impl FnMut() -> F + 'static) -> UseFuture` | Static async; runs once on mount, NOT reactive. |
+| `ErrorBoundary` | component, not a hook | Catch child component errors. |
+| `SuspenseBoundary` | component, not a hook | Catch suspended children, show fallback. |
 
-**Deprecated:** `use_state`, `use_ref` — use `use_signal` instead.
+**Removed:** `use_state`, `use_ref` — use `use_signal` instead.
 
 ---
 
@@ -29,7 +27,7 @@
 
 | Type | Description |
 |------|-------------|
-| `Signal<T>` | Primary reactive unit. Copy + Send + Sync. |
+| `Signal<T>` | Primary reactive unit. Copy; Send + Sync only with SyncStorage. |
 | `ReadSignal<T>` | Read-only signal view. Standard for reactive props. |
 | `Store<T>` | Nested reactive state (requires `#[derive(Store)]`). |
 | `Memo<T>` | Derived/computed reactive value. |
@@ -45,18 +43,18 @@
 | Event | Handler Type | Notes |
 |-------|-------------|-------|
 | `onclick` | `EventHandler<MouseEvent>` | |
-| `oninput` | `EventHandler<InputEvent>` | Text/field input |
-| `onchange` | `EventHandler<InputEvent>` | Fires on blur after modification |
-| `onsubmit` | `EventHandler<SubmitEvent>` | Forms submit by default in 0.7 |
+| `oninput` | `EventHandler<FormEvent>` | Text/field input |
+| `onchange` | `EventHandler<FormEvent>` | Fires on blur after modification |
+| `onsubmit` | `EventHandler<FormEvent>` | Forms submit by default in 0.7 |
 | `onblur` | `EventHandler<FocusEvent>` | |
 | `onfocus` | `EventHandler<FocusEvent>` | |
 | `onkeydown` | `EventHandler<KeyboardEvent>` | |
 | `onkeyup` | `EventHandler<KeyboardEvent>` | |
 | `onmouseenter` | `EventHandler<MouseEvent>` | Does not bubble |
 | `onmouseleave` | `EventHandler<MouseEvent>` | Does not bubble |
-| `onscroll` | `EventHandler<WheelEvent>` | |
+| `onscroll` | `EventHandler<ScrollEvent>` | |
 | `ondrag` / `ondrop` | `EventHandler<DragEvent>` | |
-| `onload` / `onerror` | `EventHandler<LoadEvent>` | |
+| `onload` / `onerror` (images) | `EventHandler<ImageEvent>` | |
 
 ---
 
@@ -66,8 +64,6 @@
 |-------|---------|
 | `rsx!` | Main templating macro. Rust-like syntax for UI. |
 | `#[component]` | Component decorator: generates props struct, memoization via PartialEq. |
-| `html!` | Alias for `rsx!` in most contexts. |
-| `template!` | Reusable UI templates with slots. |
 
 ---
 
@@ -187,24 +183,11 @@ let href = eval.recv::<String>().await?;
 | Anti-pattern | Problem | Fix |
 |---|---|---|
 | Manual signal cloning | Creates redundant handles, breaks reactivity | Use `.read()` / `.write()` |
-| `use_state` in 0.7 | Legacy API, worse performance | Use `use_signal` |
+| `use_state` in 0.7 | Does not exist | Use `use_signal` |
 | Direct mutation without signals | Bypasses reactivity, UI won't update | Route all state through `Signal`/`Store` |
 | Prop drilling | Tight coupling | Use context (`use_context_provider`) |
 | Large monolithic components | Hard to test and maintain | Split into single-responsibility components |
-| Missing effect cleanup | Memory leaks, ghost state | Return cleanup closure from `use_effect` |
+| Missing effect cleanup | Memory leaks, ghost state | Clean up in `use_drop` (effects return nothing) |
 | Mutable props (`mut sig: Signal<T>`) | Breaks one-way data flow | Use `ReadSignal<T>` + callbacks |
 | Blocking async operations | Freezes UI | Use `use_resource` or `use_future` |
 | Array index as list key | Wrong DOM updates on reorder | Use stable unique IDs |
-| Untracked signal reads in effects | Missed updates | Use `use_effect_with` for explicit deps |
-
----
-
-## Principles
-
-- **Single responsibility**: Each component has one clear purpose.
-- **One-way data flow**: Data flows down via props/context; actions flow up via callbacks.
-- **Atomic updates**: `Signal` for values, `Store` for collections.
-- **Explicit dependencies**: Pass signals explicitly; use callbacks for parent communication.
-- **Error boundaries**: Catch runtime errors with `use_error_boundary`; never let crashes propagate.
-- **Composition over inheritance**: Compose with `children` and slots.
-- **Effect cleanup**: Always return a cleanup function from effects.

@@ -12,13 +12,13 @@ Dioxus 0.7 is a massive leap forward in Rust UI development, focusing on **Copy 
 
 ## Core Architecture
 
-1. **Reactivity**: Built on Signals and Stores. State is `Copy + Send + Sync`.
+1. **Reactivity**: Built on Signals and Stores. Signals are `Copy`; they are `Send + Sync` only with `SyncStorage` (`use_signal_sync`).
 2. **Fullstack**: Unified server/client code with `#[server]` functions and `use_server_future`.
 3. **Styling**: Native Tailwind CSS integration using the `dx` CLI.
 4. **Performance**: Sub-second hot-patching and WASM bundle splitting.
 
 ## Rules
-- Use `use_signal` for atomic values, `use_store` with `#[derive(Store)]` for collections/nested state. Never use `use_state` in 0.7.
+- Use `use_signal` for atomic values, `use_store` with `#[derive(Store)]` for collections/nested state. `use_state` was removed.
 - Use `ReadSignal<T>` for component props that receive reactive values.
 - Always use `#[component]` macro. Components are memoized by default.
 - Dioxus 0.7 has automatic Tailwind integration. Use `asset!("/assets/tailwind.css")` via `document::Stylesheet` and run `dx serve`.
