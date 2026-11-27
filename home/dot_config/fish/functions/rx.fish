@@ -23,7 +23,7 @@ function rx --description 'Open a Rex session, creating it when missing'
     # REX_BIN_DIR puts rex on PATH only inside Rex terminals.
     set -l rex rex
     if not command -q rex
-        set rex "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex"
+        set rex "/Applications/Rex.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex"
     end
 
     set -l usage_text "Usage: rx [--nw] [<name>] | rx --export [session] | rx --close [session]"
