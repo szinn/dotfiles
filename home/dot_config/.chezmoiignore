@@ -3,6 +3,7 @@ Autodesk
 chezmoi
 colima
 gh/hosts.yml
+github-copilot/
 helm/repositories.lock
 helm/repositories.yaml
 homebrew/sudo_local
@@ -10,11 +11,14 @@ homebrew/trust.json*
 htop
 nvm
 op
-pkoss-nvim/
 swiftpm
 tmux/plugins
 wireshark
 rex/init.lua.resh-backup*
+
+{{ if (eq .chezmoi.os "darwin") }}
+ghostty
+{{ end }}
 
 {{ if (eq .chezmoi.os "linux") }}
 .gsd-keyboard.settings-ported
@@ -37,7 +41,3 @@ systemd
 user-dirs.dirs
 user-dirs.locale
 {{ end }}
-
-graphite
-nvm
-github-copilot
