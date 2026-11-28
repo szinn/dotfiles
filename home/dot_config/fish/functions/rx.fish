@@ -26,6 +26,11 @@ function rx --description 'Open a Rex session, creating it when missing'
         set rex "/Applications/Rex.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex"
     end
 
+    # Rex no longer exports REX_SESSION, but a block ID works anywhere a
+    # session does and stands for the session containing it
+    set -l here $REX_SESSION
+    test -n "$here"; or set here $REX_BLOCK
+
     set -l usage_text "Usage: rx [--nw] [<name>] | rx --export [session] | rx --close [session]"
 
     set -l config_home $XDG_CONFIG_HOME
@@ -301,11 +306,11 @@ call("session.destroy", { session_id = fresh })
             end
             set -l session $argv[2]
             if test -z "$session"
-                if test -z "$REX_SESSION"
+                if test -z "$here"
                     echo "rx: --export needs a session name outside Rex" >&2
                     return 64
                 end
-                set session $REX_SESSION
+                set session $here
             end
             printf '%s\n' $export_lua | RX_COMMANDS=$commands_dir RX_SELF=$REX_BLOCK \
                 $rex do -s $session -
@@ -317,17 +322,21 @@ call("session.destroy", { session_id = fresh })
             end
             set -l session $argv[2]
             if test -z "$session"
-                if test -z "$REX_SESSION"
+                if test -z "$here"
                     echo "rx: --close needs a session name outside Rex" >&2
                     return 64
                 end
-                set session $REX_SESSION
+                set session $here
             end
             # Resolves a label or short ID to the full ID
             set -l id (string match -rg '"session_id": "([^"]+)"' -- ($rex session inspect $session --json))[1]
             or return
+            set -l current
+            if test -n "$here"
+                set current (string match -rg '"session_id": "([^"]+)"' -- ($rex session inspect $here --json))[1]
+            end
             # Switch away first: killing the current session also kills this shell
-            if test "$id" = "$REX_SESSION"
+            if test "$id" = "$current"
                 set -l others (string match -v -- $id ($rex session ls -q --short=false))
                 if not set -q others[1]
                     echo "rx: no other session to switch to" >&2
@@ -390,9 +399,10 @@ call("session.destroy", { session_id = fresh })
 
     if set -q new_window[1]
         printf '%s\n' $new_window_lua | RX_ID=$id RX_HOST=$host $rex do - >/dev/null
-    else if test -n "$REX_SESSION"
-        $rex $on_host do session.select session_id=$id >/dev/null
     else
-        $rex $on_host attach $id
+        # rex attach is gone; outside Rex, show the session in the app instead
+        $rex $on_host do session.select session_id=$id >/dev/null
+        or return
+        test -n "$here"; or open -a Rex
     end
 end
